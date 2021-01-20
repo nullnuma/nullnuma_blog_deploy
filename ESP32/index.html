@@ -126,26 +126,25 @@ ga('send', 'pageview');
 	</div>
 </article>
 			<!-- ad end -->
-			<h4 id="ESP-WROOM-32とは"><a href="#ESP-WROOM-32とは" class="headerlink" title="ESP-WROOM-32とは"></a>ESP-WROOM-32とは</h4><p>一世代前の<a target="_blank" rel="noopener" href="http://akizukidenshi.com/catalog/g/gM-09607/">ESP-WROOM-02</a>ではWi-Fiの通信ができるマイコンでなんと550円!</p>
+			<h4 id="ESP-WROOM-32とは"><a href="#ESP-WROOM-32とは" class="headerlink" title="ESP-WROOM-32とは"></a>ESP-WROOM-32とは</h4><p>一世代前の<a href="http://akizukidenshi.com/catalog/g/gM-09607/" target="_blank" rel="noopener">ESP-WROOM-02</a>ではWi-Fiの通信ができるマイコンでなんと550円!</p>
 <a id="more"></a>
-
-<p>コレでさえ破格なのにプラスBluetoothの通信までできて<br>700円というのが<a target="_blank" rel="noopener" href="http://akizukidenshi.com/catalog/g/gM-11647/">ESP-WROOM-32</a></p>
-<p>今回はこちらを購入しました<br><a target="_blank" rel="noopener" href="http://akizukidenshi.com/catalog/g/gM-11819/">akizukidenshi.com</a><br>秋月電子通商で販売されているモジュールで<br>とりあえず触るにはおすすめな感じのやつです</p>
+<p>コレでさえ破格なのにプラスBluetoothの通信までできて<br>700円というのが<a href="http://akizukidenshi.com/catalog/g/gM-11647/" target="_blank" rel="noopener">ESP-WROOM-32</a></p>
+<p>今回はこちらを購入しました<br><a href="http://akizukidenshi.com/catalog/g/gM-11819/" target="_blank" rel="noopener">akizukidenshi.com</a><br>秋月電子通商で販売されているモジュールで<br>とりあえず触るにはおすすめな感じのやつです</p>
 <h4 id="ドライバを入れる"><a href="#ドライバを入れる" class="headerlink" title="ドライバを入れる"></a>ドライバを入れる</h4><p>まずは既に入っているファームウェアでATコマンドを叩きたい</p>
-<p>microUSBケーブルで接続するも<br>挿しただけではmacOSでは認識してくれませんでした<br>このボードに搭載されているシリアル変換のチップは<br>よくあるFTDI社のではなくSillicon Labs社のCP2102でした<br><img src="/assets/ESP32/20170716164254.png"><br>メーカーのサイトを探してドライバを導入</p>
-<p><a target="_blank" rel="noopener" href="http://jp.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">jp.silabs.com</a><br>ここの「Macintosh OSX」用のファイルをダウンロードして<br>インストールすれば無事認識されました</p>
+<p>microUSBケーブルで接続するも<br>挿しただけではmacOSでは認識してくれませんでした<br>このボードに搭載されているシリアル変換のチップは<br>よくあるFTDI社のではなくSillicon Labs社のCP2102でした<br><img src="/assets/ESP32/20170716164254.png" alt><br>メーカーのサイトを探してドライバを導入</p>
+<p><a href="http://jp.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers" target="_blank" rel="noopener">jp.silabs.com</a><br>ここの「Macintosh OSX」用のファイルをダウンロードして<br>インストールすれば無事認識されました</p>
 <h4 id="ATコマンドではなくsscコマンド"><a href="#ATコマンドではなくsscコマンド" class="headerlink" title="ATコマンドではなくsscコマンド"></a>ATコマンドではなくsscコマンド</h4><p>いままではATコマンドを利用していたが<br>今回はsscコマンドを使わなければいけないみたいです</p>
 <p>今の状態はこのコマンドで確認できます</p>
 <p>op -Q</p>
 <p>起動時はモード2でAPモードでした<br>モードは<br>1:STAモード<br>2:APモード<br>3:STA+APモード<br>の3種類あります</p>
-<p>op -S -o 1<br>sta -S<br>sta -C -s <SSID> -p <PASS></p>
+<p>op -S -o 1<br>sta -S<br>sta -C -s <ssid> -p <pass></pass></ssid></p>
 <p>子機モードにする<br>周辺のAPを探す<br>APに接続する</p>
 <p>これで無事にAPに接続することができました<br>今後いろいろ使って行きたと思います</p>
 
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/ESP32/" data-id="ckk61t6en0005gqoxe7e9ax90"
+			<a data-url="https://blog.nullnuma.com/ESP32/" data-id="ckgvemwrx0005axox2kfymmah"
 				class="article-share-link">共有</a>
 			
 			

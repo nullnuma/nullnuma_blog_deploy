@@ -131,7 +131,7 @@ ga('send', 'pageview');
 <h2 id="HDMI"><a href="#HDMI" class="headerlink" title="HDMI"></a>HDMI</h2><p>HDMIはHigh-Definition Multimedia Interfaceの略称です<br>HDMIは映像転送に限らず音声や機器間の連携、Ethernetなども統合されている通信規格です<br>主に民生用の機器に使われている規格で最近の家電はHDMIが絶対ついているぐらいに普及しています  </p>
 <p>HDMIはオープンな規格ではなくHDMIの管理団体に$5,000ないしは$10,000の年間ライセンス料を払うことで仕様書等を入手し販売できます<br>販売にあたり認定機関があるのでそこでテストにクリアしないとダメですが…<br>とりあえずお金がかかるということです</p>
 <p>そこで既に明らかになっている部分や実際の挙動から<br>HDMIについて調査していきます</p>
-<p><a target="_blank" rel="noopener" href="http://www.hdmi-navi.com/">HDMI-NAVI.com</a>のwebサイトは情報が体系的にまとまっているので概要を知るにはとても便利です<br>また、HDMIのv1.4の規格書は公開されているのでそれも参考にしています  </p>
+<p><a href="http://www.hdmi-navi.com" target="_blank" rel="noopener">HDMI-NAVI.com</a>のwebサイトは情報が体系的にまとまっているので概要を知るにはとても便利です<br>また、HDMIのv1.4の規格書は公開されているのでそれも参考にしています  </p>
 <h2 id="物理層"><a href="#物理層" class="headerlink" title="物理層"></a>物理層</h2><p>まずは物理的な部分について  </p>
 <h3 id="コネクタの形状"><a href="#コネクタの形状" class="headerlink" title="コネクタの形状"></a>コネクタの形状</h3><p>タイプA,B,C,D,Eの5種類あります<br><b>タイプA</b>は標準的なコネクタです<br>HDMIといったらこの形状な感じです<br><b>タイプB</b>は昔も今もほぼ使われていないタイプAを横長にした感じのものです<br><b>タイプC</b>はminiHDMIと呼ばれていたりする少し小さいタイプ<br><b>タイプD</b>はmicroHDMIと呼ばれていたりするAndroidスマートフォンなどに使われているタイプ<br><b>タイプE</b>は車載用でラッチ付きのしっかり固定できるもの</p>
 <p><b>家にあった代表的なコネクタたち</b><br><img src="/assets/hdmi_analyze_physical/hdmi_connector.jpg" alt="コネクタ"></p>
@@ -139,96 +139,98 @@ ga('send', 'pageview');
 <table>
 <thead>
 <tr>
-<th align="left">ピン</th>
-<th align="left">割り当て信号</th>
+<th style="text-align:left">ピン</th>
+<th style="text-align:left">割り当て信号</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">1</td>
-<td align="left">TMDS Data2+</td>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">TMDS Data2+</td>
 </tr>
 <tr>
-<td align="left">2</td>
-<td align="left">TMDS Data2 Sheild</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">TMDS Data2 Sheild</td>
 </tr>
 <tr>
-<td align="left">3</td>
-<td align="left">TMDS Data2-</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">TMDS Data2-</td>
 </tr>
 <tr>
-<td align="left">4</td>
-<td align="left">TMDS Data1+</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">TMDS Data1+</td>
 </tr>
 <tr>
-<td align="left">5</td>
-<td align="left">TMDS Data1 Sheild</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">TMDS Data1 Sheild</td>
 </tr>
 <tr>
-<td align="left">6</td>
-<td align="left">TMDS Data1-</td>
+<td style="text-align:left">6</td>
+<td style="text-align:left">TMDS Data1-</td>
 </tr>
 <tr>
-<td align="left">7</td>
-<td align="left">TMDS Data0+</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">TMDS Data0+</td>
 </tr>
 <tr>
-<td align="left">8</td>
-<td align="left">TMDS Data0 Sheild</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">TMDS Data0 Sheild</td>
 </tr>
 <tr>
-<td align="left">9</td>
-<td align="left">TMDS Data0-</td>
+<td style="text-align:left">9</td>
+<td style="text-align:left">TMDS Data0-</td>
 </tr>
 <tr>
-<td align="left">10</td>
-<td align="left">TMDS Clock+</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">TMDS Clock+</td>
 </tr>
 <tr>
-<td align="left">11</td>
-<td align="left">TMDS Clock Sheild</td>
+<td style="text-align:left">11</td>
+<td style="text-align:left">TMDS Clock Sheild</td>
 </tr>
 <tr>
-<td align="left">12</td>
-<td align="left">TMDS Clock-</td>
+<td style="text-align:left">12</td>
+<td style="text-align:left">TMDS Clock-</td>
 </tr>
 <tr>
-<td align="left">13</td>
-<td align="left">CEC</td>
+<td style="text-align:left">13</td>
+<td style="text-align:left">CEC</td>
 </tr>
 <tr>
-<td align="left">14</td>
-<td align="left">Utility</td>
+<td style="text-align:left">14</td>
+<td style="text-align:left">Utility</td>
 </tr>
 <tr>
-<td align="left">15</td>
-<td align="left">SCL</td>
+<td style="text-align:left">15</td>
+<td style="text-align:left">SCL</td>
 </tr>
 <tr>
-<td align="left">16</td>
-<td align="left">SDA</td>
+<td style="text-align:left">16</td>
+<td style="text-align:left">SDA</td>
 </tr>
 <tr>
-<td align="left">17</td>
-<td align="left">DDC/CEC Ground</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">DDC/CEC Ground</td>
 </tr>
 <tr>
-<td align="left">18</td>
-<td align="left">+5V Power</td>
+<td style="text-align:left">18</td>
+<td style="text-align:left">+5V Power</td>
 </tr>
 <tr>
-<td align="left">19</td>
-<td align="left">Hot Plug Detect</td>
+<td style="text-align:left">19</td>
+<td style="text-align:left">Hot Plug Detect</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><b>TMDS</b> : 映像伝送用のチャンネル3つとクロック<br><b>CEC</b> : テレビやレコーダー間で制御信号をやり取りし電源オン・オフなどを実現する機能<br><b>Utility</b> : <b>Hot Plug Detect</b>と一緒に使用されHDMI上でEthernet通信を実現する他、オーディオを逆にリターンさせるのに使用されます<br><b>SDA,SCL</b> : DDC通信用I2C(次回以降解説予定)<br><b>+5V Power</b> : DDC通信用の電源<br><b>Hot Plug Detect</b> : ケーブル接続検知用</p>
 <p>映像伝送にはTMDS<br>(Transition Minimized Differential Signaling,<br>遷移数最少差動信号伝送方式)と呼ばれる規格が使用されており<br>RGBそれぞれ1チャンネルと同期用のクロックチャンネルの<br>計4チャンネルで転送されます<br>HDMIだけでなくDVIにも使用されています  </p>
 <p>次回は映像についてかな</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>“HDMI-NAVI.com”,<a target="_blank" rel="noopener" href="http://www.hdmi-navi.com/">http://www.hdmi-navi.com</a><br>HDMI Licensing, LLC.(2007)「High-Definition Multimedia Interface Specification Version 1.4」</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>“HDMI-NAVI.com”,<a href="http://www.hdmi-navi.com" target="_blank" rel="noopener">http://www.hdmi-navi.com</a><br>HDMI Licensing, LLC.(2007)「High-Definition Multimedia Interface Specification Version 1.4」</p>
 
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/hdmi_analyze_physical/" data-id="ckk61t6fj001bgqoxgskg5fsj"
+			<a data-url="https://blog.nullnuma.com/hdmi_analyze_physical/" data-id="ckgvemwtm0016axox1jf9jco8"
 				class="article-share-link">共有</a>
 			
 			

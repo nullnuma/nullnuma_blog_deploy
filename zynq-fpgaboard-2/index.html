@@ -137,17 +137,14 @@ ga('send', 'pageview');
 			<!-- ad end -->
 			<p><a href="/zynq-fpgaboard-1">前回は回路図</a>を書きました.<br>今回は実際に基板に起こしていく作業です.  </p>
 <a id="more"></a>
-
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>それぞれのICをどこに配置するかが一番重要です.<br>配置が悪いと配線が無駄に交差してしまい, 最悪の場合配線できなくなるので…<br>基本的には前回のブロックダイアグラムのような配置となっています.  </p>
 <h3 id="配線"><a href="#配線" class="headerlink" title="配線"></a>配線</h3><h4 id="電源IC"><a href="#電源IC" class="headerlink" title="電源IC"></a>電源IC</h4><p>電源ICは電圧違い(抵抗の変更による)の同じ構成なのでICと抵抗, コンデンサを<br>それぞれのグループごとに作成しておきました.<br><img src="/assets/zynq-fpgaboard-2/PowerIC.png" alt="電源IC"></p>
-<h4 id="PS側メモリ"><a href="#PS側メモリ" class="headerlink" title="PS側メモリ"></a>PS側メモリ</h4><p>PS側のメモリのピン配置についてですがアドレス線は変更できないので<br>頑張って引くだけです.<br>なひたふさんの<a target="_blank" rel="noopener" href="http://nahitafu.cocolog-nifty.com/nahitafu/2019/03/zynqddr3-f743.html">ZYNQ用DDR3メモリの配線戦略</a>の記事がとても参考になりました.<br>それぞれの配線をまとまりで考えることで引きやすさが格段に変わります.<br>メモリの配線はインピーダンス整合をしなきゃいけないらしいのですが<br>まったくもって知識が不足しているのでまあ行けるでしょということで何も考えていません…<br>教えてほしい  </p>
+<h4 id="PS側メモリ"><a href="#PS側メモリ" class="headerlink" title="PS側メモリ"></a>PS側メモリ</h4><p>PS側のメモリのピン配置についてですがアドレス線は変更できないので<br>頑張って引くだけです.<br>なひたふさんの<a href="http://nahitafu.cocolog-nifty.com/nahitafu/2019/03/zynqddr3-f743.html" target="_blank" rel="noopener">ZYNQ用DDR3メモリの配線戦略</a>の記事がとても参考になりました.<br>それぞれの配線をまとまりで考えることで引きやすさが格段に変わります.<br>メモリの配線はインピーダンス整合をしなきゃいけないらしいのですが<br>まったくもって知識が不足しているのでまあ行けるでしょということで何も考えていません…<br>教えてほしい  </p>
 <p>そのときのツイート</p>
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">1組のDDR3メモリ配線はかけた<br>もう1組PL側のMIG用DDR3メモリ作らねば <a target="_blank" rel="noopener" href="https://t.co/R4kABykWoT">pic.twitter.com/R4kABykWoT</a></p>&mdash; nullnuma :( (@nullnuma) <a target="_blank" rel="noopener" href="https://twitter.com/nullnuma/status/1319777167715135488?ref_src=twsrc%5Etfw">October 23, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">1組のDDR3メモリ配線はかけた<br>もう1組PL側のMIG用DDR3メモリ作らねば <a href="https://t.co/R4kABykWoT" target="_blank" rel="noopener">pic.twitter.com/R4kABykWoT</a></p>&mdash; nullnuma :( (@nullnuma) <a href="https://twitter.com/nullnuma/status/1319777167715135488?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">October 23, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 <h4 id="PL側メモリ"><a href="#PL側メモリ" class="headerlink" title="PL側メモリ"></a>PL側メモリ</h4><p>PL側のメモリは自由にピン配置を決定できるので, メモリ同士のアドレス線を接続したあと,<br>うまく接続しやすいように随時入れ替えていきました.<br>メモリが接続できてしまえばとても気が楽です.  </p>
 <p>そのときのツイート</p>
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">メモリの大まかな配線できた<br>クロックの等長配線とコンデンサが未配置 <a target="_blank" rel="noopener" href="https://t.co/9Kmy5V6ZFE">pic.twitter.com/9Kmy5V6ZFE</a></p>&mdash; nullnuma :( (@nullnuma) <a target="_blank" rel="noopener" href="https://twitter.com/nullnuma/status/1320723903858184193?ref_src=twsrc%5Etfw">October 26, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">メモリの大まかな配線できた<br>クロックの等長配線とコンデンサが未配置 <a href="https://t.co/9Kmy5V6ZFE" target="_blank" rel="noopener">pic.twitter.com/9Kmy5V6ZFE</a></p>&mdash; nullnuma :( (@nullnuma) <a href="https://twitter.com/nullnuma/status/1320723903858184193?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">October 26, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 <p>メモリの配線が終わったあと<br><img src="/assets/zynq-fpgaboard-2/MemEnd.png" alt="メモリ配線終わり"></p>
 <h4 id="その他のICたち"><a href="#その他のICたち" class="headerlink" title="その他のICたち"></a>その他のICたち</h4><p>EthernetやmicroSD, USBなどのICたちの配線はメモリで力尽きてしまったので,<br>自動配線ツールのFreerouterに丸投げする暴挙に出ました.<br>このツールは既に配線しているもの影響を与えないように配線するので,<br>あまりにも物理的に無理なところは最後ずっと配線しようと膠着状態になってしまいます.<br>なので時々見てあげて配線ができていなかったところは先に配線をし直して<br>再度自動配線を行うことを数回繰り返しました.<br>ちゃんと配線できて素晴らしい!<br><img src="/assets/zynq-fpgaboard-2/FreerouterEnd.png" alt="ほぼ配線終わり"></p>
 <h4 id="ユーザIO"><a href="#ユーザIO" class="headerlink" title="ユーザIO"></a>ユーザIO</h4><p>自動配線でユーザIOも配線されましたが, ちょっと微妙なので<br>頑張って2時間半かけ自分で配線し直しました…  </p>
@@ -158,7 +155,7 @@ ga('send', 'pageview');
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/zynq-fpgaboard-2/" data-id="ckk61t6fz0025gqoxcpxecsqj"
+			<a data-url="https://blog.nullnuma.com/zynq-fpgaboard-2/" data-id="ckgw4ejmn0001shoxqrbqely8"
 				class="article-share-link">共有</a>
 			
 			

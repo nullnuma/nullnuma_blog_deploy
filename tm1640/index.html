@@ -126,19 +126,22 @@ ga('send', 'pageview');
 	</div>
 </article>
 			<!-- ad end -->
-			<p>3ヶ月ほど前に秋月で取り扱いが始まったTM1640という7セグメントLED用のドライバICをArduinoで使ってみた<br><a target="_blank" rel="noopener" href="http://akizukidenshi.com/catalog/g/gI-13225/">７セグメント用ＬＥＤドライバーＩＣ（最大１６個） ＴＭ１６４０: 半導体 秋月電子通商-電子部品・ネット通販</a>  </p>
+			<p>3ヶ月ほど前に秋月で取り扱いが始まったTM1640という7セグメントLED用のドライバICをArduinoで使ってみた<br><a href="http://akizukidenshi.com/catalog/g/gI-13225/" target="_blank" rel="noopener">７セグメント用ＬＥＤドライバーＩＣ（最大１６個） ＴＭ１６４０: 半導体 秋月電子通商-電子部品・ネット通販</a>  </p>
 <a id="more"></a>
-
 <h3 id="TM1640"><a href="#TM1640" class="headerlink" title="TM1640"></a>TM1640</h3><p>マイコンからデータを書き込んでやれば自動でダイナミック点灯してくれる便利なICです<br>7セグメントLED(ドット含めて8セグメント)を最大16個まで制御することができます<br>構造上アノードコモンでもカソードコモンでもどちらでも問題なさそうです</p>
 <h3 id="ドットマトリクスLED"><a href="#ドットマトリクスLED" class="headerlink" title="ドットマトリクスLED"></a>ドットマトリクスLED</h3><p>今回は結線が面倒なので7セグメントLEDではなくドットマトリクスLEDを点灯させることにしました<br>ドットマトリクスLEDのピンアサインがバラバラに配置されていて結構面倒でした<br>結線は大して複雑ではなくSEGxはアノード、GRIDxはカソードに接続するだけであとはマイコンにクロックとデータの入力を接続するだけで終わります</p>
 <h3 id="ライブラリ"><a href="#ライブラリ" class="headerlink" title="ライブラリ"></a>ライブラリ</h3><p>TM1640の制御ライブラリは一応あることはあるのですがTM1638の派生としてあって7セグメントLEDに特化したものだったのでドットマトリクスでも制御できるように作りました</p>
 <p>クロックもデータも何もないときはHIGHにしておき送信するときは一度データをLOWに落としてからクロックに合わせてアドレスや表示データを送信します<br>最初そこに気づかなかったため1時間ぐらい光らねえなあと悩んでしまいました</p>
 <p>あと一部のドットを光らせようと一列だけの書き換え時になぜかほかの列のドットまで光る現象が見られました<br>よくわからないので全て書き換えることで誤魔化しました</p>
-<h3 id="光らせた"><a href="#光らせた" class="headerlink" title="光らせた"></a>光らせた</h3><p>とりあえず顔っぽいのを配列で用意して表示してみました<br><img src="/assets/tm1640/20180812172553.jpg"><br>かわいい(<em>´∇｀</em>)<br>8x8のドットマトリクスLEDなので8x16の場合や一応7セグメントLEDのも書いて動くとは思いますが動作確認はしてません…</p>
+<h3 id="光らせた"><a href="#光らせた" class="headerlink" title="光らせた"></a>光らせた</h3><p>とりあえず顔っぽいのを配列で用意して表示してみました<br><img src="/assets/tm1640/20180812172553.jpg" alt><br>かわいい(<em>´∇｀</em>)<br>8x8のドットマトリクスLEDなので8x16の場合や一応7セグメントLEDのも書いて動くとは思いますが動作確認はしてません…</p>
 <h4 id="サンプルコード"><a href="#サンプルコード" class="headerlink" title="サンプルコード"></a>サンプルコード</h4><p>そのうちどっかに上げたいと思いますがとりあえず面倒なので以下に記載<br>MyTM1640.hとMyTM1640.cppを以下のサンプルコードの保存場所に追加してあげると動きます</p>
-<p>#define CLKPIN 7<br>#define DATPIN 8<br>#include “MyTM1640.h”</p>
+<p>#define CLKPIN 7</p>
+<p>#define DATPIN 8</p>
+<p>#include “MyTM1640.h”</p>
 <p>MyTM1640 dots(CLKPIN,DATPIN,7);<br>void setup() {<br>  Serial.begin(115200);<br>  dots.clear();<br>}<br>  int i = 0;<br>void loop() {<br>  dots.setDot(i&#x25;8,(i&#x25;64)/8,(i&lt;64)?1:0);<br>  dots.show();<br>  i=(i+1)&#x25;128;<br>}</p>
-<h4 id="MyTM1640-h"><a href="#MyTM1640-h" class="headerlink" title="MyTM1640.h"></a>MyTM1640.h</h4><p>#ifndef MyTM1640_h<br>#define MyTM1640_h<br>#include “Arduino.h”<br>class MyTM1640 {<br>  public:<br>    MyTM1640(byte PIN_DAT, byte PIN_CLK, byte brightness);</p>
+<h4 id="MyTM1640-h"><a href="#MyTM1640-h" class="headerlink" title="MyTM1640.h"></a>MyTM1640.h</h4><p>#ifndef MyTM1640_h</p>
+<p>#define MyTM1640_h</p>
+<p>#include “Arduino.h”<br>class MyTM1640 {<br>  public:<br>    MyTM1640(byte PIN_DAT, byte PIN_CLK, byte brightness);</p>
 <pre><code>virtual void setBrightness(int brightness);
 virtual int getBrightness();
 //Dot Matrix LED
@@ -148,14 +151,14 @@ virtual void setLine(byte x, byte line);
 virtual void setNum(int num,int x);
 
 virtual void show();
-virtual void clear();</code></pre>
-<p>  private:<br>    virtual void send(byte data);<br>    virtual void sendData(byte addr, byte data);<br>    virtual void sendCmd(byte cmd);</p>
+virtual void clear();
+</code></pre><p>  private:<br>    virtual void send(byte data);<br>    virtual void sendData(byte addr, byte data);<br>    virtual void sendCmd(byte cmd);</p>
 <pre><code>byte \_pin\_dat;
 byte \_pin\_clk;
 byte brightness;
 byte data\[16\];
 
-byte font\[16\] = &#123;
+byte font\[16\] = {
   0b00111111,//0
   0b00000110,//1
   0b01011011,//2
@@ -172,9 +175,11 @@ byte font\[16\] = &#123;
   0b01011110,//d
   0b01111001,//e
   0b01110001 //f
-&#125;;</code></pre>
-<p>};<br>#endif</p>
-<h4 id="MyTM1640-cpp"><a href="#MyTM1640-cpp" class="headerlink" title="MyTM1640.cpp"></a>MyTM1640.cpp</h4><p>#include “MyTM1640.h”<br>#include “Arduino.h”</p>
+};
+</code></pre><p>};</p>
+<p>#endif</p>
+<h4 id="MyTM1640-cpp"><a href="#MyTM1640-cpp" class="headerlink" title="MyTM1640.cpp"></a>MyTM1640.cpp</h4><p>#include “MyTM1640.h”</p>
+<p>#include “Arduino.h”</p>
 <p>MyTM1640::MyTM1640(byte PIN_CLK, byte PIN_DAT, byte brightness)<br>{<br>  this-&gt;_pin_dat = PIN_DAT;<br>  this-&gt;_pin_clk = PIN_CLK;<br>  this-&gt;brightness = brightness;</p>
 <p>  pinMode(PIN_CLK, OUTPUT);<br>  pinMode(PIN_DAT, OUTPUT);<br>  digitalWrite(PIN_CLK, HIGH);<br>  digitalWrite(PIN_DAT, HIGH);</p>
 <p>  sendCmd(0x40);<br>  sendCmd(0x8f);</p>
@@ -191,7 +196,7 @@ byte font\[16\] = &#123;
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/tm1640/" data-id="ckk61t6fw0020gqoxcp7e9v14"
+			<a data-url="https://blog.nullnuma.com/tm1640/" data-id="ckgvemwua001yaxox8g75xtp4"
 				class="article-share-link">共有</a>
 			
 			

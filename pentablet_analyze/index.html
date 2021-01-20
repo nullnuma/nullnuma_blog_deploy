@@ -140,26 +140,26 @@ ga('send', 'pageview');
 	</div>
 </article>
 			<!-- ad end -->
-			<p>この記事はMCCアドベントカレンダー2018の9日目の記事です。<br><a target="_blank" rel="noopener" href="https://adventar.org/calendars/2982#list-2018-12-02">adventar.org</a>  </p>
+			<p>この記事はMCCアドベントカレンダー2018の9日目の記事です。<br><a href="https://adventar.org/calendars/2982#list-2018-12-02" target="_blank" rel="noopener">adventar.org</a>  </p>
 <a id="more"></a>
-<p>昨日はUm6ra1による<a target="_blank" rel="noopener" href="http://um6ra1.blog.fc2.com/blog-entry-23.html">３層複素ニューラルネットの逆伝搬を導出 - √g</a>でした  </p>
+<p>昨日はUm6ra1による<a href="http://um6ra1.blog.fc2.com/blog-entry-23.html" target="_blank" rel="noopener">３層複素ニューラルネットの逆伝搬を導出 - √g</a>でした  </p>
 <h3 id="最近の秋葉原"><a href="#最近の秋葉原" class="headerlink" title="最近の秋葉原"></a>最近の秋葉原</h3><p>最近秋葉原の杉元ガレージが解体されてしまいました<br>ジャンクを販売するところが減って秋葉原は電気街というよりはメイドとフードの街に変わりつつあると感じています</p>
 <h3 id="ジャンクペンタブ"><a href="#ジャンクペンタブ" class="headerlink" title="ジャンクペンタブ"></a>ジャンクペンタブ</h3><p>最終セールでワコムのペンタブが千円で売られていたので買ってみました<br>もともとペンタブの構造に興味がああり分解してみたかったののでちょうどよかったです</p>
 <h3 id="まずは動作確認"><a href="#まずは動作確認" class="headerlink" title="まずは動作確認"></a>まずは動作確認</h3><p>まあまずは分解する前に動くか見てみました<br>接続しても電源が入らず何も反応がなかったので予想通りでした<br>よく見てみるとワイヤレスキットであるリチウムイオンバッテリーとレシーバーがセットされていて家にあるペンタブにつけたら動いたのですでに十分な収穫!</p>
 <p>ペンタブはWacom PTH-651でIntuos Pro mediumです<br>操作方法は電磁ペンだけでなくタッチによる操作も可能なモデルです<br>それぞれ「電磁誘導方式」と「静電結合方式」という方式<br>そんなことはどうでもよくて本題である分解をします</p>
 <h3 id="Let’s-分解"><a href="#Let’s-分解" class="headerlink" title="Let’s 分解"></a>Let’s 分解</h3><p>まずは外見</p>
-<p>ネジは4箇所で、そのうち2箇所はゴム足で隠れていました<br>外周はいたるところに爪があり分解するときに何本か折りました…<br><img src="/assets/pentablet_analyze/20181207104614.jpg"><br><img src="/assets/pentablet_analyze/20181207104618.jpg"><br><img src="/assets/pentablet_analyze/20181207104622.jpg"></p>
-<p>基板とご対面<br>背面にはシールドのようなものと表には予想通りXYに張り巡らされたアンテナ部分が出てきました<br>あとはルネサスのマイコンだったりロジックICですね<br><img src="/assets/pentablet_analyze/20181207105810.jpg"><br><img src="/assets/pentablet_analyze/20181207105905.jpg"><br><img src="/assets/pentablet_analyze/20181207105906.jpg"><br><img src="/assets/pentablet_analyze/20181207105940.jpg"></p>
-<p>メインボードのIC周辺<br><img src="/assets/pentablet_analyze/20181207110335.jpg"><br><img src="/assets/pentablet_analyze/20181207110347.jpg"><br><img src="/assets/pentablet_analyze/20181207110358.jpg"><br>メインボード載ってるIC類はこんなかんじです<br>マイコン<br>R5F36CA6NFB(ルネサス社製)<br><a target="_blank" rel="noopener" href="https://www.marutsu.co.jp/contents/shop/marutsu/datasheet/R5F36.pdf">https://www.marutsu.co.jp/contents/shop/marutsu/datasheet/R5F36.pdf</a><br>WACOM W8007 1407KP201(ワコム社製?)*<br>アナログマルチプレクサ<br>NLAS4051(オン・セミコンダクター社製)<br><a target="_blank" rel="noopener" href="https://www.onsemi.jp/PowerSolutions/document/NLAS4051-D.PDF">https://www.onsemi.jp/PowerSolutions/document/NLAS4051-D.PDF</a></p>
-<p><img src="/assets/pentablet_analyze/20181211085421.jpg"></p>
-<p>静電結合方式のタッチパネルの部分はこんな感じで操作エリアのすぐ下に這わせてありました<br><img src="/assets/pentablet_analyze/20181207110244.jpg"><br>タッチパネル用の基板<br><img src="/assets/pentablet_analyze/20181207110542.jpg"></p>
-<p>それぞれの配線を追ってみてブロック図っぽいのを描いてみました<br>アンテナ配線はそのうち追ってみたい<br><img src="/assets/pentablet_analyze/20181207110958.png">  </p>
-<h3 id="最後に"><a href="#最後に" class="headerlink" title="最後に"></a>最後に</h3><p>ところでminiUSBコネクタを触ったところポロッと落ちてしまいました<br><img src="/assets/pentablet_analyze/20181207110702.jpg"><br>別のペンタブで充電したリチウムイオンバッテリーとレシーバーをつけて動かしたところ問題なく動きました…<br>単純にminiUSBコネクタがもげてしまったことが故障の原因のようです<br>そのうちはんだ付けし直してペンタブとして使おうかなと考えています</p>
+<p>ネジは4箇所で、そのうち2箇所はゴム足で隠れていました<br>外周はいたるところに爪があり分解するときに何本か折りました…<br><img src="/assets/pentablet_analyze/20181207104614.jpg" alt><br><img src="/assets/pentablet_analyze/20181207104618.jpg" alt><br><img src="/assets/pentablet_analyze/20181207104622.jpg" alt></p>
+<p>基板とご対面<br>背面にはシールドのようなものと表には予想通りXYに張り巡らされたアンテナ部分が出てきました<br>あとはルネサスのマイコンだったりロジックICですね<br><img src="/assets/pentablet_analyze/20181207105810.jpg" alt><br><img src="/assets/pentablet_analyze/20181207105905.jpg" alt><br><img src="/assets/pentablet_analyze/20181207105906.jpg" alt><br><img src="/assets/pentablet_analyze/20181207105940.jpg" alt></p>
+<p>メインボードのIC周辺<br><img src="/assets/pentablet_analyze/20181207110335.jpg" alt><br><img src="/assets/pentablet_analyze/20181207110347.jpg" alt><br><img src="/assets/pentablet_analyze/20181207110358.jpg" alt><br>メインボード載ってるIC類はこんなかんじです<br>マイコン<br>R5F36CA6NFB(ルネサス社製)<br><a href="https://www.marutsu.co.jp/contents/shop/marutsu/datasheet/R5F36.pdf" target="_blank" rel="noopener">https://www.marutsu.co.jp/contents/shop/marutsu/datasheet/R5F36.pdf</a><br>WACOM W8007 1407KP201(ワコム社製?)*<br>アナログマルチプレクサ<br>NLAS4051(オン・セミコンダクター社製)<br><a href="https://www.onsemi.jp/PowerSolutions/document/NLAS4051-D.PDF" target="_blank" rel="noopener">https://www.onsemi.jp/PowerSolutions/document/NLAS4051-D.PDF</a></p>
+<p><img src="/assets/pentablet_analyze/20181211085421.jpg" alt></p>
+<p>静電結合方式のタッチパネルの部分はこんな感じで操作エリアのすぐ下に這わせてありました<br><img src="/assets/pentablet_analyze/20181207110244.jpg" alt><br>タッチパネル用の基板<br><img src="/assets/pentablet_analyze/20181207110542.jpg" alt></p>
+<p>それぞれの配線を追ってみてブロック図っぽいのを描いてみました<br>アンテナ配線はそのうち追ってみたい<br><img src="/assets/pentablet_analyze/20181207110958.png" alt>  </p>
+<h3 id="最後に"><a href="#最後に" class="headerlink" title="最後に"></a>最後に</h3><p>ところでminiUSBコネクタを触ったところポロッと落ちてしまいました<br><img src="/assets/pentablet_analyze/20181207110702.jpg" alt><br>別のペンタブで充電したリチウムイオンバッテリーとレシーバーをつけて動かしたところ問題なく動きました…<br>単純にminiUSBコネクタがもげてしまったことが故障の原因のようです<br>そのうちはんだ付けし直してペンタブとして使おうかなと考えています</p>
 
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/pentablet_analyze/" data-id="ckk61t6fr001qgqoxfgio8kw5"
+			<a data-url="https://blog.nullnuma.com/pentablet_analyze/" data-id="ckgvemwu0001maxox9vldfpz9"
 				class="article-share-link">共有</a>
 			
 			

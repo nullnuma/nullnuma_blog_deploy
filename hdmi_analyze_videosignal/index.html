@@ -138,129 +138,137 @@ ga('send', 'pageview');
 <table>
 <thead>
 <tr>
-<th align="left">期間</th>
-<th align="left">変換前のビット数</th>
-<th align="left">エンコーディング</th>
+<th style="text-align:left">期間</th>
+<th style="text-align:left">変換前のビット数</th>
+<th style="text-align:left">エンコーディング</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">アクティブ映像期間</td>
-<td align="left">8ビット</td>
-<td align="left">Video Data Coding</td>
+<tbody>
+<tr>
+<td style="text-align:left">アクティブ映像期間</td>
+<td style="text-align:left">8ビット</td>
+<td style="text-align:left">Video Data Coding</td>
 </tr>
 <tr>
-<td align="left">データアイランド期間</td>
-<td align="left">4ビット</td>
-<td align="left">TERC4 Coding</td>
+<td style="text-align:left">データアイランド期間</td>
+<td style="text-align:left">4ビット</td>
+<td style="text-align:left">TERC4 Coding</td>
 </tr>
 <tr>
-<td align="left">コントロール期間</td>
-<td align="left">2ビット</td>
-<td align="left">Control Period Coding</td>
+<td style="text-align:left">コントロール期間</td>
+<td style="text-align:left">2ビット</td>
+<td style="text-align:left">Control Period Coding</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>ケーブル上の伝送速度はピクセルクロックとTMDSクロックの2種類存在する<br>ピクセルクロックは8ビットとしてデータを転送する際に使用するもので、TMDSクロックはケーブル上をシリアルで転送する際に使用する<br>TMDSクロックはピクセルクロックの10倍である  </p>
 <p>リフレッシュレート60Hzのとき主な解像度のピクセルクロックとTMDSクロックは以下の通り  </p>
 <table>
 <thead>
 <tr>
-<th align="center">解像度</th>
-<th align="center">ピクセルクロック[MHz]</th>
-<th align="center">TMDSクロック[MHz]</th>
+<th style="text-align:center">解像度</th>
+<th style="text-align:center">ピクセルクロック[MHz]</th>
+<th style="text-align:center">TMDSクロック[MHz]</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">480p</td>
-<td align="center">25.175</td>
-<td align="center">251.750</td>
+<tbody>
+<tr>
+<td style="text-align:center">480p</td>
+<td style="text-align:center">25.175</td>
+<td style="text-align:center">251.750</td>
 </tr>
 <tr>
-<td align="center">720p</td>
-<td align="center">74.250</td>
-<td align="center">742.500</td>
+<td style="text-align:center">720p</td>
+<td style="text-align:center">74.250</td>
+<td style="text-align:center">742.500</td>
 </tr>
 <tr>
-<td align="center">1080p</td>
-<td align="center">148.5</td>
-<td align="center">1485.0</td>
+<td style="text-align:center">1080p</td>
+<td style="text-align:center">148.5</td>
+<td style="text-align:center">1485.0</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <h2 id="期間"><a href="#期間" class="headerlink" title="期間"></a>期間</h2><p>水平同期信号(HSYNC)及び垂直同期信号(VSYNC)はコントロール期間及びデータアイランド期間のTMDS ch0に含まれている  </p>
 <h3 id="コントロール期間"><a href="#コントロール期間" class="headerlink" title="コントロール期間"></a>コントロール期間</h3><p>ここではHSYNCやVSYNC、プリアンブルを扱う<br>プリアンブルは他の期間の先頭に挿入され、検知するために使用される  </p>
 <table>
 <thead>
 <tr>
-<th align="left">TMDS ch</th>
-<th align="left">ビット</th>
-<th align="left">用途</th>
+<th style="text-align:left">TMDS ch</th>
+<th style="text-align:left">ビット</th>
+<th style="text-align:left">用途</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">0</td>
-<td align="left">0</td>
-<td align="left">HSYNC</td>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">HSYNC</td>
 </tr>
 <tr>
-<td align="left"></td>
-<td align="left">1</td>
-<td align="left">VSYNC</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">VSYNC</td>
 </tr>
 <tr>
-<td align="left">1</td>
-<td align="left">0</td>
-<td align="left">プリアンブル(CTL0)</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">プリアンブル(CTL0)</td>
 </tr>
 <tr>
-<td align="left"></td>
-<td align="left">1</td>
-<td align="left">プリアンブル(CTL1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">プリアンブル(CTL1)</td>
 </tr>
 <tr>
-<td align="left">2</td>
-<td align="left">0</td>
-<td align="left">プリアンブル(CTL2)</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">プリアンブル(CTL2)</td>
 </tr>
 <tr>
-<td align="left"></td>
-<td align="left">1</td>
-<td align="left">プリアンブル(CTL3)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">プリアンブル(CTL3)</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>プリアンブルと次の期間の対応は以下の通りであり8クロック連続する</p>
 <table>
 <thead>
 <tr>
-<th align="left">CTL0</th>
-<th align="left">CTL1</th>
-<th align="left">CTL2</th>
-<th align="left">CTL3</th>
-<th align="left">期間</th>
+<th style="text-align:left">CTL0</th>
+<th style="text-align:left">CTL1</th>
+<th style="text-align:left">CTL2</th>
+<th style="text-align:left">CTL3</th>
+<th style="text-align:left">期間</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">1</td>
-<td align="left">0</td>
-<td align="left">0</td>
-<td align="left">0</td>
-<td align="left">アクティブ映像期間</td>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">アクティブ映像期間</td>
 </tr>
 <tr>
-<td align="left">1</td>
-<td align="left">0</td>
-<td align="left">1</td>
-<td align="left">0</td>
-<td align="left">データアイランド期間</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">データアイランド期間</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <h3 id="データアイランド期間"><a href="#データアイランド期間" class="headerlink" title="データアイランド期間"></a>データアイランド期間</h3><p>ここではオーディオデータやその他の情報についてをパケットとして扱う<br>この期間の最初と最後はTMDS ch1とch2に2クロック分ガードバンドが挿入される</p>
 <p>パケットは連続して複数個送信でき、1つのパケットに付き32クロック必要とする</p>
 <h3 id="アクティブ映像期間"><a href="#アクティブ映像期間" class="headerlink" title="アクティブ映像期間"></a>アクティブ映像期間</h3><p>ここでは映像を扱う<br>この期間の最初のすべてのチャンネルに2クロック分ガードバンドが挿入される<br>映像の伝送には1つのデータを8ビットとしてTMDS ch0を青、ch1を緑、ch2を赤として転送される  </p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>“HDMI-NAVI.com”,<a target="_blank" rel="noopener" href="http://www.hdmi-navi.com/">http://www.hdmi-navi.com</a><br>HDMI Licensing, LLC.(2007)「High-Definition Multimedia Interface Specification Version 1.4」<br>長野英生(2014)『高速ビデオ・インターフェース HDMI &amp; DisplayPortのすべて』 CQ出版社.<br>「Video Timings: VGA, SVGA, 720P, 1080P」,[online]<a target="_blank" rel="noopener" href="https://timetoexplore.net/blog/video-timings-vga-720p-1080p">https://timetoexplore.net/blog/video-timings-vga-720p-1080p</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>“HDMI-NAVI.com”,<a href="http://www.hdmi-navi.com" target="_blank" rel="noopener">http://www.hdmi-navi.com</a><br>HDMI Licensing, LLC.(2007)「High-Definition Multimedia Interface Specification Version 1.4」<br>長野英生(2014)『高速ビデオ・インターフェース HDMI &amp; DisplayPortのすべて』 CQ出版社.<br>「Video Timings: VGA, SVGA, 720P, 1080P」,[online]<a href="https://timetoexplore.net/blog/video-timings-vga-720p-1080p" target="_blank" rel="noopener">https://timetoexplore.net/blog/video-timings-vga-720p-1080p</a></p>
 
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/hdmi_analyze_videosignal/" data-id="ckk61t6fj001cgqox0p8s4nee"
+			<a data-url="https://blog.nullnuma.com/hdmi_analyze_videosignal/" data-id="ckgvemwyp003vaxox1f7i15yv"
 				class="article-share-link">共有</a>
 			
 			

@@ -129,20 +129,19 @@ ga('send', 'pageview');
 	</div>
 </article>
 			<!-- ad end -->
-			<p>今回はV4220MのAD/DAコンバーターの評価もどき基板を作ってみました<br><a target="_blank" rel="noopener" href="http://akizukidenshi.com/catalog/g/gI-13364/">akizukidenshi.com</a>  </p>
+			<p>今回はV4220MのAD/DAコンバーターの評価もどき基板を作ってみました<br><a href="http://akizukidenshi.com/catalog/g/gI-13364/" target="_blank" rel="noopener">akizukidenshi.com</a>  </p>
 <a id="more"></a>
-
 <h4 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h4><p>このICの特徴としては24bitで入出力が単体でできるのと差動で入出力ができることです</p>
-<h4 id="回路設計"><a href="#回路設計" class="headerlink" title="回路設計"></a>回路設計</h4><p>もともとV1000というエフェクター用ICの入出力としてcoolaudioでは取り扱ってるらしくそのエフェクターICであるV1000のリファレンスにアプリケーションノートが載っていました<br>そこでV4220Mの部分だけ抜粋しミキサーの部分を抜いて作成します<br><img src="/assets/v4220m/20180909073632.png"><br>今回もKiCadで設計しました<br>一応信号を外部に入出力する端子やハードウェア設定するためのDIPスイッチなど多めにつけました<br><img src="/assets/v4220m/20180909074517.png">  </p>
+<h4 id="回路設計"><a href="#回路設計" class="headerlink" title="回路設計"></a>回路設計</h4><p>もともとV1000というエフェクター用ICの入出力としてcoolaudioでは取り扱ってるらしくそのエフェクターICであるV1000のリファレンスにアプリケーションノートが載っていました<br>そこでV4220Mの部分だけ抜粋しミキサーの部分を抜いて作成します<br><img src="/assets/v4220m/20180909073632.png" alt><br>今回もKiCadで設計しました<br>一応信号を外部に入出力する端子やハードウェア設定するためのDIPスイッチなど多めにつけました<br><img src="/assets/v4220m/20180909074517.png" alt>  </p>
 <h4 id="実装"><a href="#実装" class="headerlink" title="実装"></a>実装</h4><p>今回もFusionPCBにお願いして作りました</p>
-<p>淡々と部品を実装していきます<br>SSOP28さえ載せられればあとは簡単な半田付けだけです<br>オペアンプ周辺の抵抗とコンデンサ類が多くて面倒でした<br><img src="/assets/v4220m/20180909074159.jpg"><br><img src="/assets/v4220m/20180909074206.jpg">  </p>
+<p>淡々と部品を実装していきます<br>SSOP28さえ載せられればあとは簡単な半田付けだけです<br>オペアンプ周辺の抵抗とコンデンサ類が多くて面倒でした<br><img src="/assets/v4220m/20180909074159.jpg" alt><br><img src="/assets/v4220m/20180909074206.jpg" alt>  </p>
 <h4 id="ミス…"><a href="#ミス…" class="headerlink" title="ミス…"></a>ミス…</h4><p>基板の主なミスとしては<br>ピンヘッダの電源入力のシルクが逆(致命的…)<br>DCジャックのフットプリントが裏表逆<br>ICのロジック電圧を変化できるようにし忘れた<br>の3つです<br>動作に影響はほぼしないのでそのまま続けます</p>
 <h4 id="動作確認"><a href="#動作確認" class="headerlink" title="動作確認!"></a>動作確認!</h4><p>5Vの電源入力をすればすぐ動作をはじめました<br>I2SのDINとDOUTを繋げば問題なく動作します<br>ロジックアナライザーで波形を見たところそれっぽい波形がちゃんと出力されていました<br>気になった点としてはICからのアナログ出力に対して大きくホワイトノイズが載ってしまっています<br>オペアンプの問題かと思ったのですがIC出力からすでに載っているっぽく電源由来の可能性もあります<br>電池で駆動させてみましたがやはりのっているため基板設計の配線の取り回しが悪かったのかもしれません<br>この点については少し調べていくつもりです</p>
 
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/v4220m/" data-id="ckk61t6fx0021gqox3csx5b3q"
+			<a data-url="https://blog.nullnuma.com/v4220m/" data-id="ckgvemwu7001vaxox36fzx0ed"
 				class="article-share-link">共有</a>
 			
 			

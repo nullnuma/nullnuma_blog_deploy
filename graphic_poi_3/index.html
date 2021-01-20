@@ -20,12 +20,12 @@ ga('send', 'pageview');
   
   <title>グラフィックポイ製作(3) | nullなnuma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前回は短いプロトタイプでしたが 今回はロングなプロトタイプを作ります  本当は去年の10月あたりにはこの内容は終わってたのですが 書く時間を作れず今に至る… 基板設計前回のを流用しつつ作ります 今回はLED部、電源部と機能ごとにモジュール単位で基板を作りました">
+  <meta name="description" content="前回は短いプロトタイプでしたが 今回はロングなプロトタイプを作ります  本当は去年の10月あたりにはこの内容は終わってたのですが 書く時間を作れず今に至る… 基板設計前回のを流用しつつ作ります 今回はLED部、電源部と機能ごとにモジュール単位で基板を作りました">
 <meta property="og:type" content="article">
 <meta property="og:title" content="グラフィックポイ製作(3)">
 <meta property="og:url" content="https://blog.nullnuma.com/graphic_poi_3/index.html">
 <meta property="og:site_name" content="nullなnuma">
-<meta property="og:description" content="前回は短いプロトタイプでしたが 今回はロングなプロトタイプを作ります  本当は去年の10月あたりにはこの内容は終わってたのですが 書く時間を作れず今に至る… 基板設計前回のを流用しつつ作ります 今回はLED部、電源部と機能ごとにモジュール単位で基板を作りました">
+<meta property="og:description" content="前回は短いプロトタイプでしたが 今回はロングなプロトタイプを作ります  本当は去年の10月あたりにはこの内容は終わってたのですが 書く時間を作れず今に至る… 基板設計前回のを流用しつつ作ります 今回はLED部、電源部と機能ごとにモジュール単位で基板を作りました">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://blog.nullnuma.com/assets/graphic_poi_3/20171218114731.png">
 <meta property="og:image" content="https://blog.nullnuma.com/assets/graphic_poi_3/20171218114626.png">
@@ -136,25 +136,24 @@ ga('send', 'pageview');
 			<!-- ad end -->
 			<p>前回は短いプロトタイプでしたが</p>
 <p>今回はロングなプロトタイプを作ります</p>
-<p> 本当は去年の10月あたりにはこの内容は終わってたのですが</p>
+<p> 本当は去年の10月あたりにはこの内容は終わってたのですが</p>
 <p>書く時間を作れず今に至る…</p>
 <h3 id="基板設計"><a href="#基板設計" class="headerlink" title="基板設計"></a>基板設計</h3><p>前回のを流用しつつ作ります</p>
 <p>今回はLED部、電源部と機能ごとにモジュール単位で基板を作りました</p>
 <a id="more"></a>
-
 <p>LED部には片面60個で裏表計120個のAPA102を使います</p>
 <p>電源部は今まで使ってきた昇圧ICとリポの電圧監視回路を組み合わせます</p>
 <p>以下の記事を参考に電源遮断を作りました</p>
-<p><a target="_blank" rel="noopener" href="http://d.hatena.ne.jp/wakwak_koba/20121023">d.hatena.ne.jp</a></p>
+<p><a href="http://d.hatena.ne.jp/wakwak_koba/20121023" target="_blank" rel="noopener">d.hatena.ne.jp</a></p>
 <p>電源部</p>
-<p><img src="/assets/graphic_poi_3/20171218114731.png"></p>
+<p><img src="/assets/graphic_poi_3/20171218114731.png" alt></p>
 <p>LED制御部</p>
-<p><img src="/assets/graphic_poi_3/20171218114626.png"></p>
-<p><img src="/assets/graphic_poi_3/20171218114628.png"></p>
+<p><img src="/assets/graphic_poi_3/20171218114626.png" alt></p>
+<p><img src="/assets/graphic_poi_3/20171218114628.png" alt></p>
 <p>基板</p>
 <p>電源部</p>
-<p><img src="/assets/graphic_poi_3/20171218115112.png"></p>
-<p> LED制御部<img src="/assets/graphic_poi_3/20171218115115.png"></p>
+<p><img src="/assets/graphic_poi_3/20171218115112.png" alt></p>
+<p> LED制御部<img src="/assets/graphic_poi_3/20171218115115.png" alt></p>
 <h3 id="発注"><a href="#発注" class="headerlink" title="発注"></a>発注</h3><p>今回もFusinPCBさんに発注しました</p>
 <p>一緒にメタルマスクや別に使う基板も含めて</p>
 <p>計＄70ぐらいかかりました</p>
@@ -164,7 +163,7 @@ ga('send', 'pageview');
 <p>と思ってたら基板のミスがありました</p>
 <p>途中のLEDの信号線が配線されていないどうしようもない凡ミスです…</p>
 <p>リード線を短くカットしてヒートガンで接着させながらリワークしました</p>
-<p><img src="/assets/graphic_poi_3/20180208074439.png"></p>
+<p><img src="/assets/graphic_poi_3/20180208074439.png" alt></p>
 <p>裏までハンダがうまくまわっていなくて</p>
 <p>ついていないことがありこの作業が結構辛かったです</p>
 <p>無事2本作りました！</p>
@@ -180,23 +179,23 @@ ga('send', 'pageview');
 <h3 id="動作確認"><a href="#動作確認" class="headerlink" title="動作確認"></a>動作確認</h3><p>結論から言うと電源モジュールがうまく動作しませんでした</p>
 <p>電源遮断回路がどうも動いていないようで</p>
 <p>リセットボタンを押した直後に電源遮断が</p>
-<p>起きてしまっていました </p>
+<p>起きてしまっていました </p>
 <p>大学の文化祭で展示する予定だったので</p>
 <p>苦肉の策で外部にスライドスイッチをつけて</p>
 <p>動かすということにしました</p>
 <p>それ以外は問題なく動作してくれました!</p>
-<p><img src="/assets/graphic_poi_3/20180208075326.jpg"></p>
-<h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p> 最終的な完成がこのようになりました</p>
+<p><img src="/assets/graphic_poi_3/20180208075326.jpg" alt></p>
+<h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p> 最終的な完成がこのようになりました</p>
 <p>ケースの固定もネジでやろうとしていたのですが</p>
 <p>固定できなかったので養生テープで固定という…</p>
-<p><img src="/assets/graphic_poi_3/20180208075422.jpg"></p>
-<p><img src="/assets/graphic_poi_3/20180208075418.jpg"></p>
+<p><img src="/assets/graphic_poi_3/20180208075422.jpg" alt></p>
+<p><img src="/assets/graphic_poi_3/20180208075418.jpg" alt></p>
 <p><a href="https://blog.nullnuma.com/graphic_poi">グラフィックポイ製作 (0)</a><br><a href="https://blog.nullnuma.com/graphic_poi_1">グラフィックポイ製作 (1)</a><br><a href="https://blog.nullnuma.com/graphic_poi_2">グラフィックポイ製作 (2)</a><br>グラフィックポイ製作 (3)<br><a href="https://blog.nullnuma.com/graphic_poi_4">グラフィックポイ製作 (4)</a><br><a href="https://blog.nullnuma.com/graphic_poi_5">グラフィックポイ製作 (5)</a><br><a href="https://blog.nullnuma.com/graphic_poi_6">グラフィックポイ製作 (6)</a><br><a href="https://blog.nullnuma.com/graphic_poi_7">グラフィックポイ製作 (7)</a>  </p>
 
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/graphic_poi_3/" data-id="ckk61t6fc0014gqoxggmtcsa0"
+			<a data-url="https://blog.nullnuma.com/graphic_poi_3/" data-id="ckgvemwti0010axoxdriyx87g"
 				class="article-share-link">共有</a>
 			
 			

@@ -136,20 +136,18 @@ ga('send', 'pageview');
 <a id="more"></a>
 <h3 id="メルカリで"><a href="#メルカリで" class="headerlink" title="メルカリで"></a>メルカリで</h3><p>メルカリでジャンク品としてジンバルが5000円で販売されていて元値は3~5万するものでめちゃくちゃ破格でした<br>もともとジンバルは欲しかったのでラッキーです<br>ただ、アップデートに失敗して動作しないと言うものです<br>アップデートに失敗したのであればファームウェアを修復してあげればいいだけです<br>このジンバルはSimpleBGCとよばれるジンバルを自作するモジュールの派生のようで、その情報を利用することで復活させられると考えました</p>
 <p>なのですぐ購入! </p>
-<h3 id="まずは確認"><a href="#まずは確認" class="headerlink" title="まずは確認"></a>まずは確認</h3><p>内容物はジンバルと18650x3本、充電器で18650関連で既に5000円分の価値はあると思うので元は取れた<br><img src="/assets/Beholder-EC1_fix/beholder_ec1_1.JPG"></p>
+<h3 id="まずは確認"><a href="#まずは確認" class="headerlink" title="まずは確認"></a>まずは確認</h3><p>内容物はジンバルと18650x3本、充電器で18650関連で既に5000円分の価値はあると思うので元は取れた<br><img src="/assets/Beholder-EC1_fix/beholder_ec1_1.JPG" alt></p>
 <p>パソコンと繋いでSimpleBGCの設定ツールとつないでみましたが、通信はできずファームウェアが予想通り飛んでいるようです<br>ただしジンバル本体の有機EL表示やジョイスティックは動作していることから、コントローラ部分とジンバル制御部分は分離していると推測されます</p>
-<p>ちなみに18650を3本まとめるホルダーにも充電機能がついています<br>気になったので外してみたらジャンパ抵抗がよくわからない向きでついていました<br><img src="/assets/Beholder-EC1_fix/beholder_ec1_2.JPG"></p>
-<h3 id="いざ修理"><a href="#いざ修理" class="headerlink" title="いざ修理"></a>いざ修理</h3><p>ジンバルはほぼすべて六角穴付ボルトで固定されていました<br>家にある六角棒スパナで回していましたがめちゃくちゃ固く1本だけナメました…<br><img src="/assets/Beholder-EC1_fix/beholder_ec1_3.JPG"><br>仕方ないので「なめた六角穴付きボルト外しビット」を購入しました</p>
-
-
+<p>ちなみに18650を3本まとめるホルダーにも充電機能がついています<br>気になったので外してみたらジャンパ抵抗がよくわからない向きでついていました<br><img src="/assets/Beholder-EC1_fix/beholder_ec1_2.JPG" alt></p>
+<h3 id="いざ修理"><a href="#いざ修理" class="headerlink" title="いざ修理"></a>いざ修理</h3><p>ジンバルはほぼすべて六角穴付ボルトで固定されていました<br>家にある六角棒スパナで回していましたがめちゃくちゃ固く1本だけナメました…<br><img src="/assets/Beholder-EC1_fix/beholder_ec1_3.JPG" alt><br>仕方ないので「なめた六角穴付きボルト外しビット」を購入しました<br></p>
 <p>専用工具なだけあり、めちゃくちゃすごい<br>ナメたけどちゃんと食い込んで回してくれてこれには驚きました…</p>
-<p>手持ち部分とジンバル部分を分離すると制御基板が見えました<br><img src="/assets/Beholder-EC1_fix/beholder_ec1_4.JPG"><br><img src="/assets/Beholder-EC1_fix/beholder_ec1_5.JPG"><br>SimpleBGCの修復方法はここに書いてあります<br><a target="_blank" rel="noopener" href="https://www.basecamelectronics.com/company/blog/show/?newsid=80">How to recover firmware on your 32-bit board</a><br>BOOT0をHighにすることで起動時にファームウェアの書き込みモードになるようです<br><img src="/assets/Beholder-EC1_fix/beholder_ec1_6.JPG"><br><img src="/assets/Beholder-EC1_fix/beholder_ec1_7.JPG"><br>無理やり余ってる切れ端でジャンパし、リカバリーファームウェアを書き込むことができました<br>その後は設定ツールで認識してくれるので正規の手順でファームウェアをアップデートし修理は完了です!</p>
+<p>手持ち部分とジンバル部分を分離すると制御基板が見えました<br><img src="/assets/Beholder-EC1_fix/beholder_ec1_4.JPG" alt><br><img src="/assets/Beholder-EC1_fix/beholder_ec1_5.JPG" alt><br>SimpleBGCの修復方法はここに書いてあります<br><a href="https://www.basecamelectronics.com/company/blog/show/?newsid=80" target="_blank" rel="noopener">How to recover firmware on your 32-bit board</a><br>BOOT0をHighにすることで起動時にファームウェアの書き込みモードになるようです<br><img src="/assets/Beholder-EC1_fix/beholder_ec1_6.JPG" alt><br><img src="/assets/Beholder-EC1_fix/beholder_ec1_7.JPG" alt><br>無理やり余ってる切れ端でジャンパし、リカバリーファームウェアを書き込むことができました<br>その後は設定ツールで認識してくれるので正規の手順でファームウェアをアップデートし修理は完了です!</p>
 <h3 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h3><p>六角穴付きボルトをナメてしまったのが今回の最大の問題点です…<br>想像以上にボルトが硬かったのと微妙にスパナがあっていなかった気がするので適切なものを使わないとだめですね…(それはそう)<br>修復できたので元は完璧に取れたのでよかったです</p>
 
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/Beholder-EC1_fix/" data-id="ckk61t6el0002gqoxbug9dqoc"
+			<a data-url="https://blog.nullnuma.com/Beholder-EC1_fix/" data-id="ckgvemwrv0003axoxig1qr88m"
 				class="article-share-link">共有</a>
 			
 			

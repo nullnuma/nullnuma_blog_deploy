@@ -137,49 +137,45 @@ ga('send', 'pageview');
 	</div>
 </article>
 			<!-- ad end -->
-			<p>前回は60ピクセルでの検証でしたが<br>今回はピクセル数少なめで<br>外装含めた検証を行うことにします</p>
-<a id="more"></a>
-
-
-
+			<p>前回は60ピクセルでの検証でしたが<br>今回はピクセル数少なめで<br>外装含めた検証を行うことにします<br><a id="more"></a></p>
 <h3 id="回路図とプリント基板"><a href="#回路図とプリント基板" class="headerlink" title="回路図とプリント基板"></a>回路図とプリント基板</h3><ul>
-<li>  LED部</li>
+<li>LED部</li>
 </ul>
 <p>前回とほぼ変わらずLED数が片面20個になっただけです<br><img src="/assets/undefined/20180425210734.png" alt="f:id:nullnuma:20180425210734p:plain" title="f:id:nullnuma:20180425210734p:plain">  </p>
 <ul>
-<li>  電源部</li>
+<li>電源部</li>
 </ul>
-<p>前回は<a target="_blank" rel="noopener" href="http://d.hatena.ne.jp/keyword/&#x25;A5&#x25;C8&#x25;A5&#x25;E9&#x25;A5&#x25;F3&#x25;A5&#x25;B8&#x25;A5&#x25;B9&#x25;A5&#x25;BF">トランジスタ</a>のピン<a target="_blank" rel="noopener" href="http://d.hatena.ne.jp/keyword/&#x25;A5&#x25;A2&#x25;A5&#x25;B5&#x25;A5&#x25;A4">アサイ</a>ンが違っていたので<br>リセット回路がうまく動作せず強制駆動させていたので<br>検証し直して書き直しました<br>また外部から電源を落とせるようにフォトカプラも載せてます<br><img src="/assets/undefined/20180425210601.png" alt="f:id:nullnuma:20180425210601p:plain" title="f:id:nullnuma:20180425210601p:plain"><br><img src="/assets/undefined/20180425210715.png" alt="f:id:nullnuma:20180425210715p:plain" title="f:id:nullnuma:20180425210715p:plain">  </p>
+<p>前回は<a href="http://d.hatena.ne.jp/keyword/&#x25;A5&#x25;C8&#x25;A5&#x25;E9&#x25;A5&#x25;F3&#x25;A5&#x25;B8&#x25;A5&#x25;B9&#x25;A5&#x25;BF" target="_blank" rel="noopener">トランジスタ</a>のピン<a href="http://d.hatena.ne.jp/keyword/&#x25;A5&#x25;A2&#x25;A5&#x25;B5&#x25;A5&#x25;A4" target="_blank" rel="noopener">アサイ</a>ンが違っていたので<br>リセット回路がうまく動作せず強制駆動させていたので<br>検証し直して書き直しました<br>また外部から電源を落とせるようにフォトカプラも載せてます<br><img src="/assets/undefined/20180425210601.png" alt="f:id:nullnuma:20180425210601p:plain" title="f:id:nullnuma:20180425210601p:plain"><br><img src="/assets/undefined/20180425210715.png" alt="f:id:nullnuma:20180425210715p:plain" title="f:id:nullnuma:20180425210715p:plain">  </p>
 <ul>
-<li>  スイッチ部</li>
+<li>スイッチ部</li>
 </ul>
 <p>今までLED部に全て載せていたスイッチを<br>別基板として外部に出せるようにします<br>スイッチは電源リセット、制御用x2の計3つです<br><img src="/assets/undefined/20180425210726.png" alt="f:id:nullnuma:20180425210726p:plain" title="f:id:nullnuma:20180425210726p:plain"></p>
 <p>LED部の回路が基板サイズの関係で<br>めちゃくちゃ込み入った回路になってしまいました</p>
-<h3 id="発注"><a href="#発注" class="headerlink" title="発注"></a>発注</h3><p>今回もFusionPCBさんにお願いしました<br>FusionPCBでは最近小さいメタルマスクを<br>作ることができるようになりました<br><a target="_blank" rel="noopener" href="http://d.hatena.ne.jp/keyword/Twitter">Twitter</a>で無料クーポンの抽選をやっていて<br>応募したところ見事当たったので<br>ありがたくクーポンを使わせていただきました<br><img src="/assets/undefined/20180425210811.png" alt="f:id:nullnuma:20180425210811p:plain:w300" title="f:id:nullnuma:20180425210811p:plain:w300"></p>
+<h3 id="発注"><a href="#発注" class="headerlink" title="発注"></a>発注</h3><p>今回もFusionPCBさんにお願いしました<br>FusionPCBでは最近小さいメタルマスクを<br>作ることができるようになりました<br><a href="http://d.hatena.ne.jp/keyword/Twitter" target="_blank" rel="noopener">Twitter</a>で無料クーポンの抽選をやっていて<br>応募したところ見事当たったので<br>ありがたくクーポンを使わせていただきました<br><img src="/assets/undefined/20180425210811.png" alt="f:id:nullnuma:20180425210811p:plain:w300" title="f:id:nullnuma:20180425210811p:plain:w300"></p>
 <p>小さい分送料も安くなるかなと思ったのですが<br>そこまで安くはなりませんでした</p>
 <p>ちょうど中国の休みに当たってしまって<br>製造は結構時間がかかったみたいです<br><img src="/assets/undefined/20180425211055.jpg" alt="f:id:nullnuma:20180425211055j:plain" title="f:id:nullnuma:20180425211055j:plain">  </p>
 <h3 id="実装"><a href="#実装" class="headerlink" title="実装"></a>実装</h3><p>それぞれメタルマスクでハンダペーストを塗り<br>部品をのっけてリフロー炉に入れるだけです<br>何回もやったので慣れました<br><img src="/assets/undefined/20180425211141.jpg" alt="f:id:nullnuma:20180425211141j:plain" title="f:id:nullnuma:20180425211141j:plain"></p>
 <p>片面はうまく成功したのですが<br>もう片面はペーストが少し多すぎたのか<br>信号線がグランドとショートしてしまっていて<br>ヒートガンで修正し直しました</p>
 <ul>
-<li>  LED部</li>
+<li>LED部</li>
 </ul>
 <p><img src="/assets/undefined/20180425211211.jpg" alt="f:id:nullnuma:20180425211211j:plain" title="f:id:nullnuma:20180425211211j:plain"></p>
 <ul>
-<li>  DCDC部</li>
+<li>DCDC部</li>
 </ul>
 <p><img src="/assets/undefined/20180425211335.jpg" alt="f:id:nullnuma:20180425211335j:plain" title="f:id:nullnuma:20180425211335j:plain"></p>
-<p>今回は書き込みやすいように<br>書き込み<a target="_blank" rel="noopener" href="http://d.hatena.ne.jp/keyword/&#x25;BC&#x25;A3&#x25;B6&#x25;F1">治具</a>を作りました<br>LED部の5V,Tx,Rx,Gndの端子に<br>ポゴピンを当てるだけですが書き込みやすいです<br><img src="/assets/undefined/20180425211559.jpg" alt="f:id:nullnuma:20180425211559j:plain:w300" title="f:id:nullnuma:20180425211559j:plain:w300"><br><img src="/assets/undefined/20180425211614.jpg" alt="f:id:nullnuma:20180425211614j:plain:w300" title="f:id:nullnuma:20180425211614j:plain:w300"></p>
+<p>今回は書き込みやすいように<br>書き込み<a href="http://d.hatena.ne.jp/keyword/&#x25;BC&#x25;A3&#x25;B6&#x25;F1" target="_blank" rel="noopener">治具</a>を作りました<br>LED部の5V,Tx,Rx,Gndの端子に<br>ポゴピンを当てるだけですが書き込みやすいです<br><img src="/assets/undefined/20180425211559.jpg" alt="f:id:nullnuma:20180425211559j:plain:w300" title="f:id:nullnuma:20180425211559j:plain:w300"><br><img src="/assets/undefined/20180425211614.jpg" alt="f:id:nullnuma:20180425211614j:plain:w300" title="f:id:nullnuma:20180425211614j:plain:w300"></p>
 <p>テストで書き込んでみたやつ</p>
 <blockquote>
-<p>テストで光らせたやつ <a target="_blank" rel="noopener" href="https://t.co/CJ85CIXzIn">pic.twitter.com/CJ85CIXzIn</a></p>
-<p>— ぬまー (@nullnuma) <a target="_blank" rel="noopener" href="https://twitter.com/nullnuma/status/989116946074353664?ref_src=twsrc&#x25;5Etfw">2018年4月25日</a></p>
+<p>テストで光らせたやつ <a href="https://t.co/CJ85CIXzIn" target="_blank" rel="noopener">pic.twitter.com/CJ85CIXzIn</a></p>
+<p>— ぬまー (@nullnuma) <a href="https://twitter.com/nullnuma/status/989116946074353664?ref_src=twsrc&#x25;5Etfw" target="_blank" rel="noopener">2018年4月25日</a></p>
 </blockquote>
 <h3 id="今後の予定"><a href="#今後の予定" class="headerlink" title="今後の予定"></a>今後の予定</h3><ul>
-<li>  ハードウェア</li>
+<li>ハードウェア</li>
 </ul>
 <p>とりあえず中身は動作したので<br>アクリルパイプで外装を作る予定です</p>
 <ul>
-<li>  ソフトウェア</li>
+<li>ソフトウェア</li>
 </ul>
 <p>単純に光らせてるだけではだめなので<br>画像を表示させるためのプログラムだけでなく<br>グラフィックポイで表示させるための画像を作成するツールも<br>含めて開発していく予定です。</p>
 <h3 id="前回のプロトタイプで実際に実演したやつ"><a href="#前回のプロトタイプで実際に実演したやつ" class="headerlink" title="前回のプロトタイプで実際に実演したやつ"></a>前回のプロトタイプで実際に実演したやつ</h3><p>載せ忘れてしまっていたのでここで載せます<br><img src="/assets/undefined/20180425212429.jpg" alt="f:id:nullnuma:20180425212429j:plain" title="f:id:nullnuma:20180425212429j:plain"></p>
@@ -188,7 +184,7 @@ ga('send', 'pageview');
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/graphic_poi_4/" data-id="ckk61t6ff0017gqox9w5zds6n"
+			<a data-url="https://blog.nullnuma.com/graphic_poi_4/" data-id="ckgvemwtz001laxoxxh9my9t2"
 				class="article-share-link">共有</a>
 			
 			

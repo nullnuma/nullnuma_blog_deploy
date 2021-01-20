@@ -27,20 +27,20 @@ ga('send', 'pageview');
 <meta property="og:site_name" content="nullなnuma">
 <meta property="og:description" content="DNSやDHCPを動かす用のマシンが欲しくなりそこまでスペックはいらないけど安定稼働しそうなPCを探していたらトレンドマイクロ社が出しているCloud Edgeがいいという話を聞いたので試してみました．">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://blog.nullnuma.com/imagemgr/data/cloudedge-install/front.jpg">
-<meta property="og:image" content="https://blog.nullnuma.com/imagemgr/data/cloudedge-install/voidseal.jpg">
-<meta property="og:image" content="https://blog.nullnuma.com/imagemgr/data/cloudedge-install/top.jpg">
-<meta property="og:image" content="https://blog.nullnuma.com/imagemgr/data/cloudedge-install/back.jpg">
-<meta property="og:image" content="https://blog.nullnuma.com/imagemgr/data/cloudedge-install/bottom.jpg">
-<meta property="og:image" content="https://blog.nullnuma.com/imagemgr/data/cloudedge-install/fan.jpg">
-<meta property="og:image" content="https://blog.nullnuma.com/imagemgr/data/cloudedge-install/fan_install.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/front.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/voidseal.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/top.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/back.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/bottom.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/fan.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/fan_install.jpg">
 <meta property="article:published_time" content="2021-01-21T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-20T23:15:57.161Z">
+<meta property="article:modified_time" content="2021-01-20T23:29:55.365Z">
 <meta property="article:author" content="nullnuma">
-<meta property="article:tag" content="ハードウェア">
 <meta property="article:tag" content="パソコン">
+<meta property="article:tag" content="ハードウェア">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.nullnuma.com/imagemgr/data/cloudedge-install/front.jpg">
+<meta name="twitter:image" content="https://blog.nullnuma.com/assets/cloudedge-install/front.jpg">
 <meta name="twitter:creator" content="@nullnuma">
   
     <link rel="alternate" href="/atom.xml" title="nullなnuma" type="application/atom+xml">
@@ -137,7 +137,7 @@ ga('send', 'pageview');
 <a id="more"></a>
 
 <h3 id="購入"><a href="#購入" class="headerlink" title="購入"></a>購入</h3><p>既に<a target="_blank" rel="noopener" href="https://v2n.hatenablog.com/entry/2019/12/20/151246">情報</a>が出ているので参考にしてヤフオクでCloud Edge 100を落としました</p>
-<p><img src="/imagemgr/data/cloudedge-install/front.jpg" alt="front"></p>
+<p><img src="/assets/cloudedge-install/front.jpg" alt="front"></p>
 <p>Cloud Edgeは中身はAMDのCPUが載っていて極一般的なx64マシンですが<br>UTMでライセンスがないとまともな動作をしないので全部消し去りLinuxを入れます</p>
 <h3 id="スペック"><a href="#スペック" class="headerlink" title="スペック"></a>スペック</h3><p>Cloud Edge 100のスペックは以下の通り</p>
 <table>
@@ -168,9 +168,9 @@ ga('send', 'pageview');
 <td align="left">外径5.5mm 内径2.5mm 12V5A</td>
 </tr>
 </tbody></table>
-<h3 id="分解"><a href="#分解" class="headerlink" title="分解"></a>分解</h3><p>とりあえず分解しないと面白くないので分解しました．<br><img src="/imagemgr/data/cloudedge-install/voidseal.jpg" alt="voidseal"><br><img src="/imagemgr/data/cloudedge-install/top.jpg" alt="top"><br><img src="/imagemgr/data/cloudedge-install/back.jpg" alt="back"><br><img src="/imagemgr/data/cloudedge-install/bottom.jpg" alt="bottom"></p>
+<h3 id="分解"><a href="#分解" class="headerlink" title="分解"></a>分解</h3><p>とりあえず分解しないと面白くないので分解しました．<br><img src="/assets/cloudedge-install/voidseal.jpg" alt="voidseal"><br><img src="/assets/cloudedge-install/top.jpg" alt="top"><br><img src="/assets/cloudedge-install/back.jpg" alt="back"><br><img src="/assets/cloudedge-install/bottom.jpg" alt="bottom"></p>
 <p>メモリは背が低いタイプでした．</p>
-<h3 id="ファンの交換"><a href="#ファンの交換" class="headerlink" title="ファンの交換"></a>ファンの交換</h3><p>標準ファンだととてもうるさいので静音ファンに交換します．<br><img src="/imagemgr/data/cloudedge-install/fan.jpg" alt="fan"><br><img src="/imagemgr/data/cloudedge-install/fan_install.jpg" alt="fan_install"></p>
+<h3 id="ファンの交換"><a href="#ファンの交換" class="headerlink" title="ファンの交換"></a>ファンの交換</h3><p>標準ファンだととてもうるさいので静音ファンに交換します．<br><img src="/assets/cloudedge-install/fan.jpg" alt="fan"><br><img src="/assets/cloudedge-install/fan_install.jpg" alt="fan_install"></p>
 <p>これで常用できるレベルまで下がりました．</p>
 <h3 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h3><p>映像出力がなくシリアルコンソールでしか叩くことが出来ないため<br>なんとかしてシリアルコンソール経由でインストールを行いました．</p>
 <p>LinuxのディストリビューションはシンプルそうなAlpine Linuxにします．</p>
@@ -191,7 +191,7 @@ ga('send', 'pageview');
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/cloudedge-install/" data-id="ckk61t6fg0018gqox2dijeris"
+			<a data-url="https://blog.nullnuma.com/cloudedge-install/" data-id="ckk62799q0000r5oxdsf18hs6"
 				class="article-share-link">共有</a>
 			
 			

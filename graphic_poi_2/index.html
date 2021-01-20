@@ -140,25 +140,24 @@ ga('send', 'pageview');
 			<h3 id="プロトタイプV2"><a href="#プロトタイプV2" class="headerlink" title="プロトタイプV2"></a>プロトタイプV2</h3><p>グラフィックポイのプロトタイプバージョン2を製作しました</p>
 <h3 id="前回とは違うLEDを使う"><a href="#前回とは違うLEDを使う" class="headerlink" title="前回とは違うLEDを使う"></a>前回とは違うLEDを使う</h3><p>前回はSK6812という一般的に使われているであろうWS2812の互換品を使用していました  </p>
 <a id="more"></a>
-<p>ただし横からの見栄えがよくないので今回はAPA102と呼ばれるLEDを使用します<br><img src="/assets/graphic_poi_2/20171112212749.jpg"><br>左がSK6812 3535 右がAPA102 2020<br>SK6812は独自の通信方法で通信部は<br>アセンブラでゴリゴリ書かれていたが<br>今回のAPA102はSPI通信を利用して<br>通信することができるので<br>ハードウェアの機能で安定して表示を更新できる<br>しかも更新速度が速い  </p>
-<h3 id="LEDがとにかく小さい"><a href="#LEDがとにかく小さい" class="headerlink" title="LEDがとにかく小さい"></a>LEDがとにかく小さい</h3><p>LEDが小さいので基板を設計する際のフットプリントの作成に手間取りました<br>間隔が狭すぎると隣とあたるし広すぎるとうまく載せられないので<br>試行錯誤の末なんとか作ることができました<br><img src="/assets/graphic_poi_2/20171112213021.png"></p>
+<p>ただし横からの見栄えがよくないので今回はAPA102と呼ばれるLEDを使用します<br><img src="/assets/graphic_poi_2/20171112212749.jpg" alt><br>左がSK6812 3535 右がAPA102 2020<br>SK6812は独自の通信方法で通信部は<br>アセンブラでゴリゴリ書かれていたが<br>今回のAPA102はSPI通信を利用して<br>通信することができるので<br>ハードウェアの機能で安定して表示を更新できる<br>しかも更新速度が速い  </p>
+<h3 id="LEDがとにかく小さい"><a href="#LEDがとにかく小さい" class="headerlink" title="LEDがとにかく小さい"></a>LEDがとにかく小さい</h3><p>LEDが小さいので基板を設計する際のフットプリントの作成に手間取りました<br>間隔が狭すぎると隣とあたるし広すぎるとうまく載せられないので<br>試行錯誤の末なんとか作ることができました<br><img src="/assets/graphic_poi_2/20171112213021.png" alt></p>
 <h3 id="基板の設計"><a href="#基板の設計" class="headerlink" title="基板の設計"></a>基板の設計</h3><p>KiCadを利用してよしなに設計<br>ほぼ前回と同じような構成です</p>
-<p>コントローラー部<br><img src="/assets/graphic_poi_2/20171112214036.png"><br>LED部<br><img src="/assets/graphic_poi_2/20171112214040.png"><br>電源部<br><img src="/assets/graphic_poi_2/20171112214044.png">  </p>
-<h3 id="発注と実装"><a href="#発注と実装" class="headerlink" title="発注と実装"></a>発注と実装</h3><p>FusionPCBに発注をして製造しました<br>最近ではメタルマスクを最低価格$10で製造してくれる<br>キャンペーン?をしていたので利用してみました<br>APA102 2020のテスト用基板も一緒につけてあります<br><img src="/assets/graphic_poi_2/20171112215904.jpg"><br><img src="/assets/graphic_poi_2/20171112215917.jpg"><br>メタルマスク!<br><img src="/assets/graphic_poi_2/20171112215930.jpg"></p>
+<p>コントローラー部<br><img src="/assets/graphic_poi_2/20171112214036.png" alt><br>LED部<br><img src="/assets/graphic_poi_2/20171112214040.png" alt><br>電源部<br><img src="/assets/graphic_poi_2/20171112214044.png" alt>  </p>
+<h3 id="発注と実装"><a href="#発注と実装" class="headerlink" title="発注と実装"></a>発注と実装</h3><p>FusionPCBに発注をして製造しました<br>最近ではメタルマスクを最低価格$10で製造してくれる<br>キャンペーン?をしていたので利用してみました<br>APA102 2020のテスト用基板も一緒につけてあります<br><img src="/assets/graphic_poi_2/20171112215904.jpg" alt><br><img src="/assets/graphic_poi_2/20171112215917.jpg" alt><br>メタルマスク!<br><img src="/assets/graphic_poi_2/20171112215930.jpg" alt></p>
 <p>今までとは違いはんだペーストを塗るのが格段に楽です<br>特にピッチも細かく手で塗ろうとしてたら日が暮れてしまいます<br>これからはメタルマスクが必需品になりそうです<br>(けど送料が高い…)</p>
-<p>リフロー中<br><img src="/assets/graphic_poi_2/20171112220306.jpg"><br>点灯!<br><img src="/assets/graphic_poi_2/20171113094924.jpg"></p>
+<p>リフロー中<br><img src="/assets/graphic_poi_2/20171112220306.jpg" alt><br>点灯!<br><img src="/assets/graphic_poi_2/20171113094924.jpg" alt></p>
 <p>最初は途中でLEDがずれてしまったのですがヒートガンを買ったので<br>熱してリワークしました</p>
 
-
 <h3 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h3><p>正面だけでなく横からも光っているのを確認できるようになりました<br>一応文字も出せるようになっています</p>
-<p>Hello Worldを表示しようとした<br><img src="/assets/graphic_poi_2/20171113094323.jpg"><br>共同開発者の<a target="_blank" rel="noopener" href="https://twitter.com/AmiUna0x1A0">あみうなぎ (@AmiUna0x1A0) | Twitter</a>が表示させた例<br><img src="/assets/graphic_poi_2/20171113094329.jpg"></p>
+<p>Hello Worldを表示しようとした<br><img src="/assets/graphic_poi_2/20171113094323.jpg" alt><br>共同開発者の<a href="https://twitter.com/AmiUna0x1A0" target="_blank" rel="noopener">あみうなぎ (@AmiUna0x1A0) | Twitter</a>が表示させた例<br><img src="/assets/graphic_poi_2/20171113094329.jpg" alt></p>
 <p>20個のLEDながらきれいに表示できています<br>以降グラフィックポイはAPA102 2020を使用していきます</p>
 <p><a href="https://blog.nullnuma.com/graphic_poi">グラフィックポイ製作 (0)</a><br><a href="https://blog.nullnuma.com/graphic_poi_1">グラフィックポイ製作 (1)</a><br>グラフィックポイ製作 (2)<br><a href="https://blog.nullnuma.com/graphic_poi_3">グラフィックポイ製作 (3)</a><br><a href="https://blog.nullnuma.com/graphic_poi_4">グラフィックポイ製作 (4)</a><br><a href="https://blog.nullnuma.com/graphic_poi_5">グラフィックポイ製作 (5)</a><br><a href="https://blog.nullnuma.com/graphic_poi_6">グラフィックポイ製作 (6)</a><br><a href="https://blog.nullnuma.com/graphic_poi_7">グラフィックポイ製作 (7)</a>  </p>
 
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/graphic_poi_2/" data-id="ckk61t6fb0012gqox9o6ahzxu"
+			<a data-url="https://blog.nullnuma.com/graphic_poi_2/" data-id="ckgvemwth000zaxoxzxy590m1"
 				class="article-share-link">共有</a>
 			
 			

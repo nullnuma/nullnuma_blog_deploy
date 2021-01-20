@@ -33,7 +33,7 @@ ga('send', 'pageview');
 <meta property="og:image" content="https://blog.nullnuma.com/assets/zynq-fpgaboard-1/Bank3435.png">
 <meta property="og:image" content="https://blog.nullnuma.com/assets/zynq-fpgaboard-1/PL_DDR.png">
 <meta property="article:published_time" content="2020-10-30T11:00:00.000Z">
-<meta property="article:modified_time" content="2020-10-30T09:33:28.106Z">
+<meta property="article:modified_time" content="2020-10-30T09:33:26.440Z">
 <meta property="article:author" content="nullnuma">
 <meta property="article:tag" content="ハードウェア">
 <meta property="article:tag" content="FPGA">
@@ -142,12 +142,12 @@ ga('send', 'pageview');
 <p>使用するFPGAはPYNQを踏襲しZYNQシリーズでXC7Z020です.<br>調べたところJLCPCBで6層基板を比較的安価で製造できそうなのと<br>6層基板ならBGA484ピンでもなんとかなりそうなので<br>XC7Z020-CLG48を使うことにしました.</p>
 <p>メモリの帯域幅とバンクを増やすにはPS側のメモリだけでなくPL側にも<br>メモリを載せてしまうのが手っ取り早い解決策なのでPS及びPLにメモリが載ります.</p>
 <p>また利便性を高めるためにFPGAボード自体に直接コネクタ類をつけるのではなく<br>ボードtoボードのコネクタを付けて別途拡張ボードを作ることで<br>拡張性をあげようと思います.</p>
-<h3 id="設計"><a href="#設計" class="headerlink" title="設計"></a>設計</h3><p>設計するに当たり<a target="_blank" rel="noopener" href="https://www.acri.c.titech.ac.jp/wordpress/archives/1244">このサイト(ACRi)</a>を参考にさせてもらいました.<br>タイミングよく公開されていてとても役立ちました.<br>また, DigilentのFPGAボード PYNQやArtyも参考にしています.<br>ブロックデザインはこの通りです.<br><img src="/assets/zynq-fpgaboard-1/ZynqBoardBlockDiagram.png" alt="ブロックデザイン"></p>
+<h3 id="設計"><a href="#設計" class="headerlink" title="設計"></a>設計</h3><p>設計するに当たり<a href="https://www.acri.c.titech.ac.jp/wordpress/archives/1244" target="_blank" rel="noopener">このサイト(ACRi)</a>を参考にさせてもらいました.<br>タイミングよく公開されていてとても役立ちました.<br>また, DigilentのFPGAボード PYNQやArtyも参考にしています.<br>ブロックデザインはこの通りです.<br><img src="/assets/zynq-fpgaboard-1/ZynqBoardBlockDiagram.png" alt="ブロックデザイン"></p>
 <h4 id="PS側-ZYNQ側"><a href="#PS側-ZYNQ側" class="headerlink" title="PS側(ZYNQ側)"></a>PS側(ZYNQ側)</h4><p>ZYNQに付随するメモリはせっかくなので1GBを搭載し,<br>microSDやQSPIもこのボードに載せます.</p>
 <p>USBやEthernetも拡張ボード側で載せるとなるとSMD部品の実装が面倒だと<br>考えたのでこのボード側で必要な変換を済ませてしまいます.</p>
 <p>この辺の配置は基本ピン配置が決まっているので<br>ただただICの仕様を比較し, 接続するだけの作業です.</p>
-<h4 id="PL側"><a href="#PL側" class="headerlink" title="PL側"></a>PL側</h4><p>このFPGAにはバンクが13,33,34,35の4種類があります.<br>まずメモリについてですが<br>32bit幅でメモリを搭載するとなるとバンクは2個消費し, かつ垂直に隣り合ったバンクしか<br>使用することができない制限があるため, 以下の図よりバンク34,35を使用します.<br><img src="/assets/zynq-fpgaboard-1/UG865_XC7Z020_Pin.png" alt="ピン配置"><br>(<a target="_blank" rel="noopener" href="https://japan.xilinx.com/support/documentation/user_guides/j_ug865-Zynq-7000-Pkg-Pinout.pdf">https://japan.xilinx.com/support/documentation/user_guides/j_ug865-Zynq-7000-Pkg-Pinout.pdf</a>)</p>
-<p>バンク内にも更に4分割されていてアドレス用として2グループ,<br>データ用はデータ0-7, データ8-15, データ16-23, データ24-31とわけて4ブロック使用します.<br><img src="/assets/zynq-fpgaboard-1/UG865_XC7Z020_Bank.png" alt="バンク配置"><br>(<a target="_blank" rel="noopener" href="https://japan.xilinx.com/support/documentation/user_guides/j_ug865-Zynq-7000-Pkg-Pinout.pdf">https://japan.xilinx.com/support/documentation/user_guides/j_ug865-Zynq-7000-Pkg-Pinout.pdf</a>)</p>
+<h4 id="PL側"><a href="#PL側" class="headerlink" title="PL側"></a>PL側</h4><p>このFPGAにはバンクが13,33,34,35の4種類があります.<br>まずメモリについてですが<br>32bit幅でメモリを搭載するとなるとバンクは2個消費し, かつ垂直に隣り合ったバンクしか<br>使用することができない制限があるため, 以下の図よりバンク34,35を使用します.<br><img src="/assets/zynq-fpgaboard-1/UG865_XC7Z020_Pin.png" alt="ピン配置"><br>(<a href="https://japan.xilinx.com/support/documentation/user_guides/j_ug865-Zynq-7000-Pkg-Pinout.pdf" target="_blank" rel="noopener">https://japan.xilinx.com/support/documentation/user_guides/j_ug865-Zynq-7000-Pkg-Pinout.pdf</a>)</p>
+<p>バンク内にも更に4分割されていてアドレス用として2グループ,<br>データ用はデータ0-7, データ8-15, データ16-23, データ24-31とわけて4ブロック使用します.<br><img src="/assets/zynq-fpgaboard-1/UG865_XC7Z020_Bank.png" alt="バンク配置"><br>(<a href="https://japan.xilinx.com/support/documentation/user_guides/j_ug865-Zynq-7000-Pkg-Pinout.pdf" target="_blank" rel="noopener">https://japan.xilinx.com/support/documentation/user_guides/j_ug865-Zynq-7000-Pkg-Pinout.pdf</a>)</p>
 <p>クロック等のピンアサインには制限があるもののほかは<br>ほぼすべて好きなように配置できる(FPGAのいいところ!)ので<br>実際に基板を描いているときに随時入れ替えました.<br>配置するたびに問題ないピンアサインかVivadoのMIGジェネレーターで<br>確認を取りつつ設計しています.</p>
 <p><img src="/assets/zynq-fpgaboard-1/Bank3435.png" alt="Bank3435"><br><img src="/assets/zynq-fpgaboard-1/PL_DDR.png" alt="PL_DDR"></p>
 <p>ユーザIOについてはバンク13,33をそのままコネクタへ接続する形にしました.<br>100ピンあればいい感じに使えるでしょう.</p>
@@ -158,7 +158,7 @@ ga('send', 'pageview');
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/zynq-fpgaboard-1/" data-id="ckk61t6fy0024gqox8sji2mqf"
+			<a data-url="https://blog.nullnuma.com/zynq-fpgaboard-1/" data-id="ckgvenpbd005waxoxawos6995"
 				class="article-share-link">共有</a>
 			
 			

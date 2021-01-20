@@ -136,47 +136,47 @@ ga('send', 'pageview');
 	</div>
 </article>
 			<!-- ad end -->
-			<p>この記事は<a target="_blank" rel="noopener" href="https://adventar.org/calendars/2421">MCC Advent Calendar 2017 - Adventar</a>の18日目の記事です</p>
+			<p>この記事は<a href="https://adventar.org/calendars/2421" target="_blank" rel="noopener">MCC Advent Calendar 2017 - Adventar</a>の18日目の記事です</p>
 <p>半年前ぐらい前からサーバーの刷新を考えていたので  </p>
 <a id="more"></a>
 <p>実行に移してみました</p>
 <h3 id="サーバーの構成"><a href="#サーバーの構成" class="headerlink" title="サーバーの構成"></a>サーバーの構成</h3><p>CPUはRyzenを使ってみます<br>Ryzen 5 1600なので6コア12スレッドです<br>ただSMT(Intelでいうハイパースレッディング)がうまく使えないとかなんとか…らしい</p>
-<p>CPU Ryzen 5 1600<br><img src="/assets/virtualpc/20171218112140.jpg"><br>マザーボード ASUS ROG STRIX B350-F GAMING<br><img src="/assets/virtualpc/20171218112144.jpg"><br>メモリ 32GB</p>
-<p>グラボ 玄人志向 GTX1030<br><img src="/assets/virtualpc/20171218112148.jpg"><br>HDD WD Blue 3TB<br><img src="/assets/virtualpc/20171218112159.jpg"><br>電源<br><img src="/assets/virtualpc/20171218112154.jpg"></p>
+<p>CPU Ryzen 5 1600<br><img src="/assets/virtualpc/20171218112140.jpg" alt><br>マザーボード ASUS ROG STRIX B350-F GAMING<br><img src="/assets/virtualpc/20171218112144.jpg" alt><br>メモリ 32GB</p>
+<p>グラボ 玄人志向 GTX1030<br><img src="/assets/virtualpc/20171218112148.jpg" alt><br>HDD WD Blue 3TB<br><img src="/assets/virtualpc/20171218112159.jpg" alt><br>電源<br><img src="/assets/virtualpc/20171218112154.jpg" alt></p>
 <p>全体で10万円ぐらいです</p>
-<h3 id="よしなに組み立てる"><a href="#よしなに組み立てる" class="headerlink" title="よしなに組み立てる"></a>よしなに組み立てる</h3><p>ケースは自作したいなと思ったのでとりあえずMDF板に載せただけ<br><img src="/assets/virtualpc/20171218113224.jpg"></p>
-<p>電源スイッチもこのありさま<br><img src="/assets/virtualpc/20171218205202.jpg">  </p>
+<h3 id="よしなに組み立てる"><a href="#よしなに組み立てる" class="headerlink" title="よしなに組み立てる"></a>よしなに組み立てる</h3><p>ケースは自作したいなと思ったのでとりあえずMDF板に載せただけ<br><img src="/assets/virtualpc/20171218113224.jpg" alt></p>
+<p>電源スイッチもこのありさま<br><img src="/assets/virtualpc/20171218205202.jpg" alt>  </p>
 <h3 id="ESXiのカスタムISOの作成"><a href="#ESXiのカスタムISOの作成" class="headerlink" title="ESXiのカスタムISOの作成"></a>ESXiのカスタムISOの作成</h3><p>標準ではマザボに載っているNIC(Intel I211)に対応していないらしいので<br>ドライバを組み込みます</p>
 <ul>
-<li>  VMware PowerCLI 6.5</li>
-<li>  ESXi-Customizer-PS v2.5</li>
-<li>  NIC用ドライバ net-igb</li>
+<li>VMware PowerCLI 6.5</li>
+<li>ESXi-Customizer-PS v2.5</li>
+<li>NIC用ドライバ net-igb</li>
 </ul>
-<p>Intel NIC向けのドライバは<a target="_blank" rel="noopener" href="https://vibsdepot.v-front.de/wiki/index.php">https://vibsdepot.v-front.de/wiki/index.php</a>を利用します。</p>
+<p>Intel NIC向けのドライバは<a href="https://vibsdepot.v-front.de/wiki/index.php" target="_blank" rel="noopener">https://vibsdepot.v-front.de/wiki/index.php</a>を利用します。</p>
 <p>よしなにWinにインストールをして<br>PowerShellで実行します</p>
 <p> .\ESXi-Customizer-PS-v2.5.1.ps1 -v65 -vft -load net-igb</p>
 <p>そうすると同じディレクトリに<br>「ESXi-6.5.0-20171004001-standard-customized.iso」<br>ISOファイルが作成されます</p>
 <p>これを利用してインストールします</p>
 <h3 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h3><p>最初はUSBブートでインストールしようとしましたが<br>win32diskやuniversal usbで書き込んでも<br>認識してくれないので諦めて大人しくCDブートにしました</p>
-<p>インストール自体はサクサク進みます<br>OSを格納するディスクは余っていた8GBのメモリを使いました<br>4GBじゃ容量が足りないのかデバイス一覧で<br>表示してくれませんでした<br>そのUSBメモリを接続する場所として<br>マザーボード上の内蔵用USBのところに差すために<br><a target="_blank" rel="noopener" href="http://akizukidenshi.com/catalog/g/gK-07429/">ＵＳＢコネクタＤＩＰ化キット （Ａメス）: 組立キット 秋月電子通商 電子部品 ネット通販</a>とL型のピンソケットで<br>変換治具を自作しました<br>(結構こだわったところ)<br><img src="/assets/virtualpc/20171218204520.jpg">  </p>
-<h3 id="仮想マシンを作る"><a href="#仮想マシンを作る" class="headerlink" title="仮想マシンを作る"></a>仮想マシンを作る</h3><p>メインで使うCentOS用のマシンを作ります<br>言われるがままに作れば完成です<br>1コア 4GB 2TBを割り当て完成です<br><img src="/assets/virtualpc/20171218203514.png"><br>すんなり入りましたがネットワークインターフェースを追加し忘れたので<br>最初ネットワークに繋がらなくて焦りました<br>nginxやsambaを入れてとりあえず完成！</p>
+<p>インストール自体はサクサク進みます<br>OSを格納するディスクは余っていた8GBのメモリを使いました<br>4GBじゃ容量が足りないのかデバイス一覧で<br>表示してくれませんでした<br>そのUSBメモリを接続する場所として<br>マザーボード上の内蔵用USBのところに差すために<br><a href="http://akizukidenshi.com/catalog/g/gK-07429/" target="_blank" rel="noopener">ＵＳＢコネクタＤＩＰ化キット （Ａメス）: 組立キット 秋月電子通商 電子部品 ネット通販</a>とL型のピンソケットで<br>変換治具を自作しました<br>(結構こだわったところ)<br><img src="/assets/virtualpc/20171218204520.jpg" alt>  </p>
+<h3 id="仮想マシンを作る"><a href="#仮想マシンを作る" class="headerlink" title="仮想マシンを作る"></a>仮想マシンを作る</h3><p>メインで使うCentOS用のマシンを作ります<br>言われるがままに作れば完成です<br>1コア 4GB 2TBを割り当て完成です<br><img src="/assets/virtualpc/20171218203514.png" alt><br>すんなり入りましたがネットワークインターフェースを追加し忘れたので<br>最初ネットワークに繋がらなくて焦りました<br>nginxやsambaを入れてとりあえず完成！</p>
 <p>次にWin8.1用のマシンを作ります<br>このマシンはPCIパススルーを使ってディスプレイとキーボード、マウスを<br>接続して普通のデスクライクに動作させる予定です</p>
-<p>とりあえずは仮想マシンを作ります<br>4コア 8GB 500GBを割り当てます<br>Winが入ったらPCIデバイスをパススルーします<br><img src="/assets/virtualpc/20171218203437.png"><br>こちらの記事を参考にさせていただきました<br><a target="_blank" rel="noopener" href="https://qiita.com/yakumo/items/d193ded63e4c2c0cdf6b">qiita.com</a></p>
+<p>とりあえずは仮想マシンを作ります<br>4コア 8GB 500GBを割り当てます<br>Winが入ったらPCIデバイスをパススルーします<br><img src="/assets/virtualpc/20171218203437.png" alt><br>こちらの記事を参考にさせていただきました<br><a href="https://qiita.com/yakumo/items/d193ded63e4c2c0cdf6b" target="_blank" rel="noopener">qiita.com</a></p>
 <p>GPUの他にUSBインターフェースカードも同時にパススルーします<br>USBもパススルーすることで仮想マシン上でキーボードや<br>マウスを認識させるためで結構無理やりなやり方</p>
 <ul>
-<li>  GPU</li>
-<li>  Audio Device</li>
-<li>  USB 3.0 Host Controller</li>
+<li>GPU</li>
+<li>Audio Device</li>
+<li>USB 3.0 Host Controller</li>
 </ul>
 <p>をパススルーしますがそれだけでは動作しなかったので<br>VMのパラメータに「hypervisor.cpuid.v0 = FALSE」を追加しました</p>
 <p>また、PCI expressスロットの挿し方によってはパススルーの設定が<br>反映されないことがあり謎でした…<br>(帯域の違いとかの問題なのかなぁ?…)<br>無事起動したのでESXi側のディスプレイは使わないようにして完成です</p>
-<p><img src="/assets/virtualpc/20171218203711.jpg">  </p>
+<p><img src="/assets/virtualpc/20171218203711.jpg" alt>  </p>
 <h3 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h3><p>今のところはどれも比較的正常に動作はしていますが<br>時々NICが切断されたりと不安定な部分もあります<br>まだまだ調整があまいところもあるので詰めていきたいです</p>
 
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/virtualpc/" data-id="ckk61t6fx0022gqoxato92qju"
+			<a data-url="https://blog.nullnuma.com/virtualpc/" data-id="ckgvemwu9001xaxox31bvox13"
 				class="article-share-link">共有</a>
 			
 			

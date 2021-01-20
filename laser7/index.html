@@ -138,38 +138,37 @@ ga('send', 'pageview');
 <p>リミットスイッチの扱いが全て一箇所で</p>
 <p>まとめられていて制御するのに不便です</p>
 <a id="more"></a>
-
 <p>なので制御用のArduinoだけでなく</p>
 <p>シングルボードコンピューター(SBC)も載せて</p>
 <p>コントローラーを一箇所にまとめる</p>
-<p>ということを目標に製作しました </p>
+<p>ということを目標に製作しました </p>
 <h3 id="設計"><a href="#設計" class="headerlink" title="設計"></a>設計</h3><p>基板は安定のKiCadで設計します</p>
 <p>Laserual？を利用させていただきました</p>
 <p>ソースコードからピンアサインを調べて</p>
 <p>回路図に起こします</p>
-<p><img src="/assets/laser7/20180227214733.png"></p>
+<p><img src="/assets/laser7/20180227214733.png" alt></p>
 <p>Arduonoとして表面実装のATmega328P-AU</p>
 <p>SBCとしてOrange Pi ZEROを載せました</p>
-<p> <img src="/assets/laser7/20171002221128.jpg"></p>
+<p> <img src="/assets/laser7/20171002221128.jpg" alt></p>
 <p>小型ながらLinuxは動くしEthernetポートがあるので便利です</p>
 <p>電源はステッピングモーターを動かすので12Vです</p>
 <p>12Vから制御IC用に5Vに降圧するDCDCは余裕を持って3A出せるHRD05003を使いました</p>
-<p> なんとか10cm x 8cmに詰め込みました</p>
-<h3 id=""><a href="#" class="headerlink" title=""></a><img src="/assets/laser7/20180227215051.png"></h3><h3 id="実装"><a href="#実装" class="headerlink" title="実装"></a>実装</h3><p>今回はFusionPCBに発注しました</p>
+<p> なんとか10cm x 8cmに詰め込みました</p>
+<h3 id><a href="#" class="headerlink" title></a><img src="/assets/laser7/20180227215051.png" alt></h3><h3 id="実装"><a href="#実装" class="headerlink" title="実装"></a>実装</h3><p>今回はFusionPCBに発注しました</p>
 <p>いざ組み立てようと思い</p>
 <p>ピンアサインあってるかなとOrange Pi Zeroと見比べると表裏を間違えて設計していました…</p>
 <p>苦肉の策で無理やり延長して解決を図ります</p>
 <p>(解決なのかどうか怪しいが…動けばいい…)</p>
-<p><img src="/assets/laser7/20180227220757.jpg"></p>
-<p>電源がちゃんと動いたので他の部品も実装します </p>
-<p><img src="/assets/laser7/20180227220830.jpg"></p>
+<p><img src="/assets/laser7/20180227220757.jpg" alt></p>
+<p>電源がちゃんと動いたので他の部品も実装します </p>
+<p><img src="/assets/laser7/20180227220830.jpg" alt></p>
 <p>完成しました</p>
-<p><img src="/assets/laser7/20180227220921.jpg"></p>
+<p><img src="/assets/laser7/20180227220921.jpg" alt></p>
 <p>実際に動かしたところA4988のステップ数の設定ピンが</p>
 <p>すべてグランドに落ちていてフルステップ動作になっていました</p>
 <p>プログラム上16ステップ動作でないと動作がおかしくなるし</p>
 <p>分解能が下がるのでしかたなくジャンパして修正しました</p>
-<p><img src="/assets/laser7/20180227220948.jpg"></p>
+<p><img src="/assets/laser7/20180227220948.jpg" alt></p>
 <h3 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h3><p>動けばいいですが見た目が悲しくなってしまったので悲しいです</p>
 <p>ピンアサインは基板の裏表も含めて間違っていないか確認をしないといけません…</p>
 <p>次回は外装含め電装も作り込みたいと思います</p>
@@ -177,7 +176,7 @@ ga('send', 'pageview');
 			
 		</div>
 		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/laser7/" data-id="ckk61t6fo001jgqox9qqd2dj9"
+			<a data-url="https://blog.nullnuma.com/laser7/" data-id="ckgvemwts001daxox6zxfjaze"
 				class="article-share-link">共有</a>
 			
 			
