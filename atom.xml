@@ -6,7 +6,7 @@
   <link href="https://blog.nullnuma.com/atom.xml" rel="self"/>
   
   <link href="https://blog.nullnuma.com/"/>
-  <updated>2021-01-20T23:57:26.081Z</updated>
+  <updated>2021-03-02T12:00:00.000Z</updated>
   <id>https://blog.nullnuma.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DIGAを修理した</title>
+    <link href="https://blog.nullnuma.com/repair-diga/"/>
+    <id>https://blog.nullnuma.com/repair-diga/</id>
+    <published>2021-03-02T11:02:19.000Z</published>
+    <updated>2021-03-02T12:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>朝起きたらHDDレコーダのDIGAが息をしていなかったので修理を試みました  </p><p>HDDレコーダは2008年製で相当古いのでそろそろ壊れるのはわかっていたのですが<br>ついにその時が!…</p><a id="more"></a><h3 id="症状"><a href="#症状" class="headerlink" title="症状"></a>症状</h3><p>機種はDMR-BR500でHDDレコーダとしても初期の頃の代物です．<br>前面パネルの表示機に “PLEASE” が表示されるとすぐに消え，また表示するという繰り返しでした．<br><img src="/assets/repair-diga/diga_failure.jpg" alt="DIGA 故障"></p><h3 id="故障箇所の特定"><a href="#故障箇所の特定" class="headerlink" title="故障箇所の特定"></a>故障箇所の特定</h3><p>何はともあれ分解します．<br>一番可能性が高く修理しようがないHDDですがスピンアップしては落ちる音を出していました．<br>とりあえずパソコンに繋いでみたところ普通に立ち上がったので壊れた可能性は低いと推測しました．  </p><p>ということで基板を探ったところコンデンサが膨れていたので犯人はこいつですね．<br>コンデンサは16V 120μF 105度品でした．<br><img src="/assets/repair-diga/repair_before.jpg" alt="repair_before"></p><h3 id="修理"><a href="#修理" class="headerlink" title="修理"></a>修理</h3><p>家の在庫コンデンサは近いもので16V 100μF 105度品か35V 470μF 85度品の2つです．<br>多少小さくても問題ないだろうということで前者に交換します．<br><img src="/assets/repair-diga/repair_after.jpg" alt="repair_after"></p><p>その後組み立て直して問題なく動作確認できました．</p><h3 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h3><p>“PLEASE” の点滅表示は電源が故障し，起動する前に電源が断たれることによる影響ということがわかりました．<br>電源としてはよくあるコンデンサの故障なので交換するだけでなんとかなりました．<br>そろそろ新しい機種を買わないとかな?…</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;朝起きたらHDDレコーダのDIGAが息をしていなかったので修理を試みました  &lt;/p&gt;
+&lt;p&gt;HDDレコーダは2008年製で相当古いのでそろそろ壊れるのはわかっていたのですが&lt;br&gt;ついにその時が!…&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="ハードウェア" scheme="https://blog.nullnuma.com/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>Cloud Edgeにシリアルコンソールでインストール</title>
@@ -376,26 +396,6 @@
     
     <summary type="html">&lt;h3 id=&quot;day-11&quot;&gt;&lt;a href=&quot;#day-11&quot; class=&quot;headerlink&quot; title=&quot;day 11&quot;&gt;&lt;/a&gt;day 11&lt;/h3&gt;&lt;p&gt;チェンマイからマカオへ移動する日です&lt;/p&gt;
 &lt;p&gt;チェンマイでやることはほぼないので朝ごはんを食べたあと12時近くまでホテルでだらだら&lt;br&gt;&lt;a href=&quot;http://f.hatena.ne.jp/nullnuma/20190318004434&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;img src=&quot;/assets/asiatrip_11/20190318004434.jpg&quot; alt&gt;&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="旅行" scheme="https://blog.nullnuma.com/tags/%E6%97%85%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>東南アジア周遊旅行 day 10</title>
-    <link href="https://blog.nullnuma.com/asiatrip_10/"/>
-    <id>https://blog.nullnuma.com/asiatrip_10/</id>
-    <published>2019-03-17T04:25:43.000Z</published>
-    <updated>2019-07-04T05:01:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="day-10"><a href="#day-10" class="headerlink" title="day 10"></a>day 10</h3><p>起きたらまだ2時<br>夏バテっぽくてあまり寝つけませんでした<br>1時間ほど外を眺めつつ3時にはまた就寝</p><p>朝は6時半ぐらいにおばちゃんが朝ごはんを持ってきました<br>雑炊です<br><a href="http://f.hatena.ne.jp/nullnuma/20190317003735" target="_blank" rel="noopener"><img src="/assets/asiatrip_10/20190317003735.jpg" alt></a></p><a id="more"></a><p>ほぼ予定通りで7時半には着きました<br><a href="http://f.hatena.ne.jp/nullnuma/20190317003856" target="_blank" rel="noopener"><img src="/assets/asiatrip_10/20190317003856.jpg" alt></a><br>チェンマイには寝台列車に乗るためだけにきたので特に観光プランを立てていませんでした<br>とりあえずホテルに荷物を預けつつ観光をしました<br><a href="http://f.hatena.ne.jp/nullnuma/20190317003850" target="_blank" rel="noopener"><img src="/assets/asiatrip_10/20190317003850.jpg" alt></a><br><a href="http://f.hatena.ne.jp/nullnuma/20190317003843" target="_blank" rel="noopener"><img src="/assets/asiatrip_10/20190317003843.jpg" alt></a><br><a href="http://f.hatena.ne.jp/nullnuma/20190317003827" target="_blank" rel="noopener"><img src="/assets/asiatrip_10/20190317003827.jpg" alt></a><br><a href="http://f.hatena.ne.jp/nullnuma/20190317003903" target="_blank" rel="noopener"><img src="/assets/asiatrip_10/20190317003903.jpg" alt></a></p><p>12時ぐらいにホテルへ戻って14時まで待機…と思ったら13時で係りの人がカード持ってきてくれたのでチェックイン</p><p>夏バテしてしまったので部屋でずっと寝てました</p><p>多少回復はしたのでご飯食べつつナイトマーケット<br><a href="http://f.hatena.ne.jp/nullnuma/20190317130221" target="_blank" rel="noopener"><img src="/assets/asiatrip_10/20190317130221.jpg" alt></a><br><a href="http://f.hatena.ne.jp/nullnuma/20190317130300" target="_blank" rel="noopener"><img src="/assets/asiatrip_10/20190317130300.jpg" alt></a><br><a href="http://f.hatena.ne.jp/nullnuma/20190317130254" target="_blank" rel="noopener"><img src="/assets/asiatrip_10/20190317130254.jpg" alt></a></p><p>疲れたので就寝…<br>今日はあまりやることがありませんでしたねー<br>明日はマカオへ</p>]]></content>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;day-10&quot;&gt;&lt;a href=&quot;#day-10&quot; class=&quot;headerlink&quot; title=&quot;day 10&quot;&gt;&lt;/a&gt;day 10&lt;/h3&gt;&lt;p&gt;起きたらまだ2時&lt;br&gt;夏バテっぽくてあまり寝つけませんでした&lt;br&gt;1時間ほど外を眺めつつ3時にはまた就寝&lt;/p&gt;
-&lt;p&gt;朝は6時半ぐらいにおばちゃんが朝ごはんを持ってきました&lt;br&gt;雑炊です&lt;br&gt;&lt;a href=&quot;http://f.hatena.ne.jp/nullnuma/20190317003735&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;img src=&quot;/assets/asiatrip_10/20190317003735.jpg&quot; alt&gt;&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
