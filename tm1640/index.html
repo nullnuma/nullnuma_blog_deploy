@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-86994747-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>ArduinoでTM1640を使ってみた | nullなnuma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="3ヶ月ほど前に秋月で取り扱いが始まったTM1640という7セグメントLED用のドライバICをArduinoで使ってみた７セグメント用ＬＥＤドライバーＩＣ（最大１６個） ＴＭ１６４０: 半導体 秋月電子通商-電子部品・ネット通販">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArduinoでTM1640を使ってみた">
+<meta property="og:url" content="https://blog.nullnuma.com/tm1640/index.html">
+<meta property="og:site_name" content="nullなnuma">
+<meta property="og:description" content="3ヶ月ほど前に秋月で取り扱いが始まったTM1640という7セグメントLED用のドライバICをArduinoで使ってみた７セグメント用ＬＥＤドライバーＩＣ（最大１６個） ＴＭ１６４０: 半導体 秋月電子通商-電子部品・ネット通販">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/tm1640/20180812172553.jpg">
+<meta property="article:published_time" content="2018-08-12T02:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-12T03:02:07.136Z">
+<meta property="article:author" content="nullnuma">
+<meta property="article:tag" content="ハードウェア">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.nullnuma.com/assets/tm1640/20180812172553.jpg">
+<meta name="twitter:creator" content="@nullnuma">
+  
+    <link rel="alternate" href="/atom.xml" title="nullなnuma" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">nullなnuma</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.nullnuma.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-tm1640" class="article article-type-post" itemscope
+	itemprop="blogPost">
+	<div class="article-meta">
+		<a href="/tm1640/" class="article-date">
+  <time datetime="2018-08-12T02:00:00.000Z" itemprop="datePublished">2018-08-12</time>
+</a>
+		
+	</div>
+	<div class="article-inner">
+		
+		
+		<header class="article-header">
+			
+  
+    <h1 class="article-title" itemprop="name">
+      ArduinoでTM1640を使ってみた
+    </h1>
+  
+
+		</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+
+			<!-- ad start -->
+			<article id="adsense_article" class="article article-type-draft" itemscope
+	itemprop="blogPost">
+
+	<div class="article-inner">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Blog_Adsense -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5738127375689725"
+		data-ad-slot="3387006044"
+		data-ad-format="auto"
+		data-full-width-responsive="true"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	</div>
+</article>
+			<!-- ad end -->
+			<p>3ヶ月ほど前に秋月で取り扱いが始まったTM1640という7セグメントLED用のドライバICをArduinoで使ってみた<br><a target="_blank" rel="noopener" href="http://akizukidenshi.com/catalog/g/gI-13225/">７セグメント用ＬＥＤドライバーＩＣ（最大１６個） ＴＭ１６４０: 半導体 秋月電子通商-電子部品・ネット通販</a>  </p>
+<span id="more"></span>
+
+<h3 id="TM1640"><a href="#TM1640" class="headerlink" title="TM1640"></a>TM1640</h3><p>マイコンからデータを書き込んでやれば自動でダイナミック点灯してくれる便利なICです<br>7セグメントLED(ドット含めて8セグメント)を最大16個まで制御することができます<br>構造上アノードコモンでもカソードコモンでもどちらでも問題なさそうです</p>
+<h3 id="ドットマトリクスLED"><a href="#ドットマトリクスLED" class="headerlink" title="ドットマトリクスLED"></a>ドットマトリクスLED</h3><p>今回は結線が面倒なので7セグメントLEDではなくドットマトリクスLEDを点灯させることにしました<br>ドットマトリクスLEDのピンアサインがバラバラに配置されていて結構面倒でした<br>結線は大して複雑ではなくSEGxはアノード、GRIDxはカソードに接続するだけであとはマイコンにクロックとデータの入力を接続するだけで終わります</p>
+<h3 id="ライブラリ"><a href="#ライブラリ" class="headerlink" title="ライブラリ"></a>ライブラリ</h3><p>TM1640の制御ライブラリは一応あることはあるのですがTM1638の派生としてあって7セグメントLEDに特化したものだったのでドットマトリクスでも制御できるように作りました</p>
+<p>クロックもデータも何もないときはHIGHにしておき送信するときは一度データをLOWに落としてからクロックに合わせてアドレスや表示データを送信します<br>最初そこに気づかなかったため1時間ぐらい光らねえなあと悩んでしまいました</p>
+<p>あと一部のドットを光らせようと一列だけの書き換え時になぜかほかの列のドットまで光る現象が見られました<br>よくわからないので全て書き換えることで誤魔化しました</p>
+<h3 id="光らせた"><a href="#光らせた" class="headerlink" title="光らせた"></a>光らせた</h3><p>とりあえず顔っぽいのを配列で用意して表示してみました<br><img src="/assets/tm1640/20180812172553.jpg"><br>かわいい(<em>´∇｀</em>)<br>8x8のドットマトリクスLEDなので8x16の場合や一応7セグメントLEDのも書いて動くとは思いますが動作確認はしてません…</p>
+<h4 id="サンプルコード"><a href="#サンプルコード" class="headerlink" title="サンプルコード"></a>サンプルコード</h4><p>そのうちどっかに上げたいと思いますがとりあえず面倒なので以下に記載<br>MyTM1640.hとMyTM1640.cppを以下のサンプルコードの保存場所に追加してあげると動きます</p>
+<p>#define CLKPIN 7<br>#define DATPIN 8<br>#include “MyTM1640.h”</p>
+<p>MyTM1640 dots(CLKPIN,DATPIN,7);<br>void setup() {<br>  Serial.begin(115200);<br>  dots.clear();<br>}<br>  int i = 0;<br>void loop() {<br>  dots.setDot(i&#x25;8,(i&#x25;64)/8,(i&lt;64)?1:0);<br>  dots.show();<br>  i=(i+1)&#x25;128;<br>}</p>
+<h4 id="MyTM1640-h"><a href="#MyTM1640-h" class="headerlink" title="MyTM1640.h"></a>MyTM1640.h</h4><p>#ifndef MyTM1640_h<br>#define MyTM1640_h<br>#include “Arduino.h”<br>class MyTM1640 {<br>  public:<br>    MyTM1640(byte PIN_DAT, byte PIN_CLK, byte brightness);</p>
+<pre><code>virtual void setBrightness(int brightness);
+virtual int getBrightness();
+//Dot Matrix LED
+virtual void setDot(byte x, byte y, byte dot);
+virtual void setLine(byte x, byte line);
+//7Segment LED
+virtual void setNum(int num,int x);
+
+virtual void show();
+virtual void clear();
+</code></pre>
+<p>  private:<br>    virtual void send(byte data);<br>    virtual void sendData(byte addr, byte data);<br>    virtual void sendCmd(byte cmd);</p>
+<pre><code>byte \_pin\_dat;
+byte \_pin\_clk;
+byte brightness;
+byte data\[16\];
+
+byte font\[16\] = &#123;
+  0b00111111,//0
+  0b00000110,//1
+  0b01011011,//2
+  0b01001111,//3
+  0b01100110,//4
+  0b01101101,//5
+  0b01111101,//6
+  0b00100111,//7
+  0b01111111,//8
+  0b01101111,//9
+  0b01110111,//a
+  0b01111100,//b
+  0b00111001,//c
+  0b01011110,//d
+  0b01111001,//e
+  0b01110001 //f
+&#125;;
+</code></pre>
+<p>};<br>#endif</p>
+<h4 id="MyTM1640-cpp"><a href="#MyTM1640-cpp" class="headerlink" title="MyTM1640.cpp"></a>MyTM1640.cpp</h4><p>#include “MyTM1640.h”<br>#include “Arduino.h”</p>
+<p>MyTM1640::MyTM1640(byte PIN_CLK, byte PIN_DAT, byte brightness)<br>{<br>  this-&gt;_pin_dat = PIN_DAT;<br>  this-&gt;_pin_clk = PIN_CLK;<br>  this-&gt;brightness = brightness;</p>
+<p>  pinMode(PIN_CLK, OUTPUT);<br>  pinMode(PIN_DAT, OUTPUT);<br>  digitalWrite(PIN_CLK, HIGH);<br>  digitalWrite(PIN_DAT, HIGH);</p>
+<p>  sendCmd(0x40);<br>  sendCmd(0x8f);</p>
+<p>  clear();<br>};</p>
+<p>void MyTM1640::setBrightness(int brightness) {<br>  sendCmd(0x88 | min(7, brightness));<br>}</p>
+<p>int MyTM1640::getBrightness(){<br>  return min(7, brightness);<br>}</p>
+<p>void MyTM1640::setDot(byte x, byte y, byte dot) {<br>  if ((0x1 &amp; dot) == 1) {<br>    data[x] |= 0x1 &lt;&lt; y;<br>  } else {<br>    data[x] &amp;= ~(0x1 &lt;&lt; y);<br>  }<br>}<br>void MyTM1640::setLine(byte x, byte line) {<br>  data[x] = (byte)line;<br>}</p>
+<p>void MyTM1640::show() {<br>  sendCmd(0x40);<br>  digitalWrite(_pin_dat, LOW);<br>  send(0xC0);<br>  for (int i = 0; i &lt; 16; i++) {<br>    send(data[i]);<br>  }<br>  digitalWrite(_pin_dat, HIGH);<br>}<br>void MyTM1640::setNum(int num,int x) {<br>  MyTM1640::setLine((byte)num,MyTM1640::font[x]);<br>}</p>
+<p>void MyTM1640::send(byte data)<br>{<br>  for (int i = 0; i &lt; 8; i++) {<br>    digitalWrite(_pin_clk, LOW);<br>    digitalWrite(_pin_dat, data &amp; 1 ? HIGH : LOW);<br>    data &gt;&gt;= 1;<br>    digitalWrite(_pin_clk, HIGH);<br>  }<br>}</p>
+<p>void MyTM1640::sendCmd(byte data) {<br>  digitalWrite(_pin_dat, LOW);<br>  send(data);<br>  digitalWrite(_pin_dat, HIGH);<br>}</p>
+<p>void MyTM1640::clear() {<br>  sendCmd(0x40);<br>  digitalWrite(_pin_dat, LOW);<br>  send(0xC0);<br>  for (int i = 0; i &lt; 16; i++) {<br>    send(0x00);<br>  }<br>  digitalWrite(_pin_dat, HIGH);<br>}<br>void MyTM1640::sendData(byte addr, byte data) {<br>  //Fixed Mode<br>  sendCmd(0x44);<br>  digitalWrite(_pin_dat, LOW);<br>  send(0xc0 | addr);<br>  send(data);<br>  digitalWrite(_pin_dat, HIGH);<br>}</p>
+<h4 id="追記"><a href="#追記" class="headerlink" title="追記"></a>追記</h4><p>2018/08/24<br>7セグメントLEDで表示させてみたところフォントのビットの上下が逆だったのと関数名setCharはどう考えても数値をセットしてたのでsetNumに修正しました<br>種類にもよるかもしれないが最高輝度で光らせていると電流不足か何かで落ちた…<br>MacBook Proからの給電なのでその影響かも?</p>
+
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://blog.nullnuma.com/tm1640/" data-id="clbk9en2d0053a8o0a5shbdr9"
+				class="article-share-link">共有</a>
+			
+			
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ハードウェア</a></li></ul>
+
+		</footer>
+		
+			<!-- ad start -->
+			<article id="adsense_article" class="article article-type-draft" itemscope
+	itemprop="blogPost">
+
+	<div class="article-inner">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Blog_Adsense -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5738127375689725"
+		data-ad-slot="3387006044"
+		data-ad-format="auto"
+		data-full-width-responsive="true"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	</div>
+</article>
+			<!-- ad end -->
+			<div class="article-entry">
+				<h2>関連記事</h2>
+				<ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/akizuki/" title="秋月電子通商で買い物してみよう" rel="bookmark">秋月電子通商で買い物してみよう</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/repair_display/" title="ディスプレイの修理(EDIDの書き換え)" rel="bookmark">ディスプレイの修理(EDIDの書き換え)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/zynq-fpgaboard-2/" title="ZYNQ FPGAボードの製作2(基板図)" rel="bookmark">ZYNQ FPGAボードの製作2(基板図)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/zynq-fpgaboard-1/" title="ZYNQ FPGAボードの製作1(回路図)" rel="bookmark">ZYNQ FPGAボードの製作1(回路図)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/urjtag-prepare/" title="UrJTAGでバウンダリスキャン" rel="bookmark">UrJTAGでバウンダリスキャン</a></h3></div></li></ul>
+			</div>
+		
+	</div>
+	
+	
+<nav id="article-nav">
+  
+    <a href="/v4220m/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          V4220Mを試しに使ってみた
+        
+      </div>
+    </a>
+  
+  
+    <a href="/mft2018/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Maker Faire Tokyo 2018</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FPGA/" rel="tag">FPGA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%81%B2%E3%81%A8%E3%82%8A%E3%81%94%E3%81%A8/" rel="tag">ひとりごと</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88/" rel="tag">ガジェット</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%9D%E3%82%A4/" rel="tag">グラフィックポイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ハードウェア</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" rel="tag">パソコン</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%AA%E3%83%95%E3%83%AD%E3%83%BC%E7%82%89/" rel="tag">リフロー炉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%AC%E3%83%BC%E3%82%B6%E3%83%BC%E5%8A%A0%E5%B7%A5%E6%A9%9F/" rel="tag">レーザー加工機</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E7%90%86/" rel="tag">修理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E8%A7%A3/" rel="tag">分解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/" rel="tag">自動車</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B3%87%E6%A0%BC/" rel="tag">資格</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Ad</h3>
+    <div class="widget">
+      <!-- ad start -->
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Blog_Adsense -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5738127375689725"
+     data-ad-slot="3387006044"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <!-- ad end -->
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/FPGA/" style="font-size: 12.5px;">FPGA</a> <a href="/tags/%E3%81%B2%E3%81%A8%E3%82%8A%E3%81%94%E3%81%A8/" style="font-size: 15px;">ひとりごと</a> <a href="/tags/%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88/" style="font-size: 11.25px;">ガジェット</a> <a href="/tags/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%9D%E3%82%A4/" style="font-size: 16.25px;">グラフィックポイ</a> <a href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 13.75px;">ソフトウェア</a> <a href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 20px;">ハードウェア</a> <a href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" style="font-size: 17.5px;">パソコン</a> <a href="/tags/%E3%83%AA%E3%83%95%E3%83%AD%E3%83%BC%E7%82%89/" style="font-size: 12.5px;">リフロー炉</a> <a href="/tags/%E3%83%AC%E3%83%BC%E3%82%B6%E3%83%BC%E5%8A%A0%E5%B7%A5%E6%A9%9F/" style="font-size: 12.5px;">レーザー加工機</a> <a href="/tags/%E4%BF%AE%E7%90%86/" style="font-size: 10px;">修理</a> <a href="/tags/%E5%88%86%E8%A7%A3/" style="font-size: 12.5px;">分解</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 18.75px;">旅行</a> <a href="/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/" style="font-size: 15px;">自動車</a> <a href="/tags/%E8%B3%87%E6%A0%BC/" style="font-size: 10px;">資格</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">2022/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">2022/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">2022/09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">2022/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">2022/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">2022/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">2021/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">2021/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">2021/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">2020/11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">2020/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">2020/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">2020/05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">2020/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">2020/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">2020/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">2019/11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">2019/08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">2019/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">2019/04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">2019/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2019/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">2019/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">2018/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">2018/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">2018/09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">2018/08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">2018/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">2018/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">2018/04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">2018/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">2018/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">2018/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">2017/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">2017/11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">2017/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">2017/09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">2017/08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">2017/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">2017/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">2017/04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">2016/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">2016/11</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/vyos-upgrade-to1-4/">VyOS v1.3をv1.4にアップグレードしてつまづいた</a>
+          </li>
+        
+          <li>
+            <a href="/disassembly-digitalcaliper/">デジタルノギスの分解</a>
+          </li>
+        
+          <li>
+            <a href="/nestedvmerr-kvm-buf-set-msrs/">Nested VMのkvm_buf_set_msrsエラー</a>
+          </li>
+        
+          <li>
+            <a href="/arduino-usbhid/">Arduino UnoでUSB HIDデバイスを作ってみた</a>
+          </li>
+        
+          <li>
+            <a href="/disassembly-vaiodockingstation/">VAIO ドッキングステーションの分解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 nullnuma<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

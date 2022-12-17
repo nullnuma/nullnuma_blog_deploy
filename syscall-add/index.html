@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-86994747-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>システムコールの追加 | nullなnuma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="とある課題でシステムコールをLinuxカーネルに追加することになりましたググった限り一応方法は書いてあるのですが分かりづらいこともあったので備忘録として記録〜">
+<meta property="og:type" content="article">
+<meta property="og:title" content="システムコールの追加">
+<meta property="og:url" content="https://blog.nullnuma.com/syscall-add/index.html">
+<meta property="og:site_name" content="nullなnuma">
+<meta property="og:description" content="とある課題でシステムコールをLinuxカーネルに追加することになりましたググった限り一応方法は書いてあるのですが分かりづらいこともあったので備忘録として記録〜">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2020-03-29T23:30:19.000Z">
+<meta property="article:modified_time" content="2022-12-17T13:10:21.842Z">
+<meta property="article:author" content="nullnuma">
+<meta property="article:tag" content="ソフトウェア">
+<meta property="article:tag" content="パソコン">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nullnuma">
+  
+    <link rel="alternate" href="/atom.xml" title="nullなnuma" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">nullなnuma</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.nullnuma.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-syscall-add" class="article article-type-post" itemscope
+	itemprop="blogPost">
+	<div class="article-meta">
+		<a href="/syscall-add/" class="article-date">
+  <time datetime="2020-03-29T23:30:19.000Z" itemprop="datePublished">2020-03-30</time>
+</a>
+		
+	</div>
+	<div class="article-inner">
+		
+		
+		<header class="article-header">
+			
+  
+    <h1 class="article-title" itemprop="name">
+      システムコールの追加
+    </h1>
+  
+
+		</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+
+			<!-- ad start -->
+			<article id="adsense_article" class="article article-type-draft" itemscope
+	itemprop="blogPost">
+
+	<div class="article-inner">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Blog_Adsense -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5738127375689725"
+		data-ad-slot="3387006044"
+		data-ad-format="auto"
+		data-full-width-responsive="true"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	</div>
+</article>
+			<!-- ad end -->
+			<p>とある課題でシステムコールをLinuxカーネルに追加することになりました<br>ググった限り一応方法は書いてあるのですが分かりづらいこともあったので備忘録として記録〜</p>
+<a id="more"></a>
+
+<h2 id="カーネルのダウンロード"><a href="#カーネルのダウンロード" class="headerlink" title="カーネルのダウンロード"></a>カーネルのダウンロード</h2><p>基本的にはsu環境で実行しています<br>必要なソフトウェアをインストールして今回はカーネルのバージョンを5.1で実行します<br>適当な場所(/usr/src以下)に解凍してディレクトリ内で<code>make olddefconfig</code>を実行します<br>他にも<code>oldconfig</code>、<code>defconfig</code>があるのですがoldだと現状のカーネルの設定を、defだと既定値を設定するようです(?)<br>実験PCは6コアに設定しているので<code>make -j 6</code>で6コア使ってコンパイルしていただきます<br>できたカーネルをインストールし、<code>grub-mkconfig</code>で実際に起動するカーネルの一覧に設定します</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ apt install flex bison libssl-dev libelf-dev -y</span><br><span class="line">$ <span class="built_in">cd</span> /usr/src</span><br><span class="line">$ wget http://ftp.riken.jp/Linux/kernel/v5.x/linux-5.1.tar.xz</span><br><span class="line">$ xz -dc linux-5.1.tar.xz | tar xfv -</span><br><span class="line">$ <span class="built_in">cd</span> linux-5.1</span><br><span class="line">$ make olddefconfig</span><br><span class="line">$ make -j 6</span><br><span class="line">$ make modules_install &amp;&amp; make install</span><br><span class="line">$ grub-mkconfig</span><br><span class="line">$ reboot</span><br></pre></td></tr></table></figure>
+<p>ただしこのままだと起動時にESCキー連打してGRUBのコンフィグから直接起動するしかできなかったので別途指定したカーネルで起動させます<br>(一部長いので省略しています)<br><code>/boot/grub/grub.cfg</code>にgrubの設定があるのでmenuentryでgrepします</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ grep menuentry /boot/grub/grub.cfg</span><br><span class="line">menuentry <span class="string">&#x27;Ubuntu&#x27;</span> --class ubuntu --class gnu-linux --class gnu --class os ~~</span><br><span class="line">submenu <span class="string">&#x27;Advanced options for Ubuntu&#x27;</span> <span class="variable">$menuentry_id_option</span> ~~</span><br><span class="line">	menuentry <span class="string">&#x27;Ubuntu, with Linux 5.3.0-42-generic&#x27;</span> ~~</span><br><span class="line">	menuentry <span class="string">&#x27;Ubuntu, with Linux 5.3.0-42-generic (recovery mode)&#x27;</span> ~~</span><br><span class="line">	menuentry <span class="string">&#x27;Ubuntu, with Linux 5.3.0-40-generic&#x27;</span> ~~</span><br><span class="line">~~~</span><br><span class="line">	menuentry <span class="string">&#x27;Ubuntu, with Linux 5.1.0&#x27;</span> ~~</span><br><span class="line">	menuentry <span class="string">&#x27;Ubuntu, with Linux 5.1.0 (recovery mode)&#x27;</span>~~</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<p>自分が起動したいのはサブメニュー以下の<code>Ubuntu, with Linux 5.1.0</code>なので<code>/etc/default/grub</code>にそのような設定を加えます</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_DEFAULT=0</span><br></pre></td></tr></table></figure>
+<p>を</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_DEFAULT=<span class="string">&quot;Advanced options for Ubuntu&gt;Ubuntu, with Linux 5.1.0&quot;</span></span><br></pre></td></tr></table></figure>
+<p>にすると指定したカーネルが設定されます</p>
+<p>== 追記(2020/04/13) ==<br><code>update-grub</code>を実行してGRUB_DEFAULTの設定を反映させる必要がありました<br>== ここまで ==  </p>
+<p>再起動後は<code>uname -r</code>で自分の設定したカーネルかどうか確認します</p>
+<h2 id="システムコールの追加"><a href="#システムコールの追加" class="headerlink" title="システムコールの追加"></a>システムコールの追加</h2><h3 id="システムコールの登録"><a href="#システムコールの登録" class="headerlink" title="システムコールの登録"></a>システムコールの登録</h3><p>システムコールは<code>/usr/src/linux-5.1/arch/x86/entry/syscalls/syscall_64.tbl</code>に番号とx64 or x86、関数名が登録されています<br>空いている番号を適当に選んで登録します<br>定数を返す、システムログに定数を記録する、システムログに任意の文字列を記録する(配列を渡す)、構造体を受け渡しするの4種類を今回は設定します<br>慣習らしくプレフィックス<code>sys_</code>をつけるらしいです<br>また引数を取るために少し工夫が必要らしく<code>__x64</code>を更に加えます</p>
+<h6 id="usr-src-linux-5-1-arch-x86-entry-syscalls-syscall-64-tbl-追記"><a href="#usr-src-linux-5-1-arch-x86-entry-syscalls-syscall-64-tbl-追記" class="headerlink" title="/usr/src/linux-5.1/arch/x86/entry/syscalls/syscall_64.tbl (追記)"></a>/usr/src/linux-5.1/arch/x86/entry/syscalls/syscall_64.tbl (追記)</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">428 common numacall_const sys_numacall_const</span><br><span class="line">429 common numacall_syslog sys_numacall_syslog</span><br><span class="line">431 common numacall_array __x64_sys_numacall_array</span><br><span class="line">432 common numacall_struct __x64_sys_numacall_struct</span><br></pre></td></tr></table></figure>
+<h3 id="システムコールの本体"><a href="#システムコールの本体" class="headerlink" title="システムコールの本体"></a>システムコールの本体</h3><p>システムコールの本体を記述しますがそのまんまって感じがします<br>引数を取る関数だけちょっと特殊でその設定を引き受けてくれるのが<code>SYSCALL_DEFINEN</code>(最後のNは1-6)です<br>普通のプログラムのような引数の取り方ではだめなようでそれを楽に記述できる方法(中身はマクロ?)らしい<br>取りたい引数の数をNに設定してカンマ区切りで関数名、引数1の型、引数1の引数名、…と書きます  </p>
+<h6 id="usr-src-linux-5-1-arch-x86-kernel-numacall-c"><a href="#usr-src-linux-5-1-arch-x86-kernel-numacall-c" class="headerlink" title="/usr/src/linux-5.1/arch/x86/kernel/numacall.c"></a>/usr/src/linux-5.1/arch/x86/kernel/numacall.c</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/kernel.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/syscalls.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/current.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">int</span> point;</span><br><span class="line">&#125; user;</span><br><span class="line"></span><br><span class="line"><span class="comment">//428</span></span><br><span class="line"><span class="function">asmlinkage <span class="keyword">int</span> <span class="title">sys_numacall_const</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">256</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//429</span></span><br><span class="line"><span class="function">asmlinkage <span class="keyword">void</span> <span class="title">sys_numacall_syslog</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    printk (KERN_INFO <span class="string">&quot;Hello Numa Wrold!\n&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//431</span></span><br><span class="line">SYSCALL_DEFINE1(numacall_array, <span class="keyword">char</span>*, str)&#123;</span><br><span class="line">	<span class="keyword">char</span> buf[<span class="number">512</span>];</span><br><span class="line">	<span class="keyword">long</span> copied = strncpy_from_user(buf, str, <span class="keyword">sizeof</span>(buf));</span><br><span class="line">	<span class="keyword">if</span> (copied &lt; <span class="number">0</span> || copied == <span class="keyword">sizeof</span>(buf))</span><br><span class="line">	    <span class="keyword">return</span> -EFAULT;</span><br><span class="line">	printk (KERN_INFO <span class="string">&quot;%s\n&quot;</span>,buf);</span><br><span class="line">	<span class="keyword">return</span> copied;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//432</span></span><br><span class="line">SYSCALL_DEFINE1(numacall_struct, user*, u)&#123;</span><br><span class="line">    user a;</span><br><span class="line">    <span class="keyword">int</span> oldpoint;</span><br><span class="line">    copy_from_user(&amp;a,u,<span class="keyword">sizeof</span>(user));</span><br><span class="line">    printk (KERN_INFO <span class="string">&quot;User Struct name:%s id: %d point: %d\n&quot;</span>,a.name,a.id,a.point);</span><br><span class="line">    oldpoint = a.point;</span><br><span class="line">    a.point *=<span class="number">2</span>;</span><br><span class="line">    copy_to_user(u,&amp;a,<span class="keyword">sizeof</span>(user));</span><br><span class="line">    <span class="keyword">return</span> oldpoint;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h3><p>このままではカーネルに取り込まれないので<code>Makefile</code>に追加</p>
+<h6 id="usr-src-linux-5-1-arch-x86-kernel-Makefile-追記"><a href="#usr-src-linux-5-1-arch-x86-kernel-Makefile-追記" class="headerlink" title="/usr/src/linux-5.1/arch/x86/kernel/Makefile (追記)"></a>/usr/src/linux-5.1/arch/x86/kernel/Makefile (追記)</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj-y += sys_numacall.o</span><br></pre></td></tr></table></figure>
+<h3 id="ビルド"><a href="#ビルド" class="headerlink" title="ビルド!"></a>ビルド!</h3><p>一応これで準備は整ったのでビルドします</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ make -j 6</span><br><span class="line">$ make modules_install &amp;&amp; make install &amp;&amp; grub-mkconfig</span><br><span class="line">$ reboot</span><br></pre></td></tr></table></figure>
+<h3 id="テスト"><a href="#テスト" class="headerlink" title="テスト!"></a>テスト!</h3><p>テスト用のプログラム</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> numacall_const		428</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> numacall_syslog		429</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> numacall_array		431</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> numacall_struct		432</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">        <span class="keyword">char</span> name[<span class="number">20</span>];</span><br><span class="line">        <span class="keyword">int</span> id;</span><br><span class="line">        <span class="keyword">int</span> point;</span><br><span class="line">    &#125; user;</span><br><span class="line">    user u = &#123;</span><br><span class="line">        <span class="string">&quot;numa&quot;</span>,</span><br><span class="line">        <span class="number">124</span>,</span><br><span class="line">        <span class="number">5000</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//const</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;syscall(numacall_const) = %d\n&quot;</span>,(<span class="keyword">int</span>)syscall (numacall_const));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//syslog</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;syscall(numacall_syslog)\n&quot;</span>);</span><br><span class="line">    syscall(numacall_syslog);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//array</span></span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">512</span>] = <span class="string">&quot;Hello Test Syscall Now&quot;</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;syscall(numacall_array) len: %d\n&quot;</span>, (<span class="keyword">int</span>)syscall(numacall_array,str));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//struct</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;syscall(numacall_struct) old point %d\n&quot;</span>,(<span class="keyword">int</span>)syscall(numacall_struct,&amp;u));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;syscall after point %d\n&quot;</span>,u.point);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>実際に実行するとこうなります<br>ちゃんとシステムログに記録されています</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sudo</span> dmesg | tail -n 5</span><br><span class="line">[   20.009740] audit: <span class="built_in">type</span>=1400 audit(1585545304.224:9): apparmor=<span class="string">&quot;STATUS&quot;</span> operation=<span class="string">&quot;profile_load&quot;</span> profile=<span class="string">&quot;unconfined&quot;</span> name=<span class="string">&quot;/usr/lib/NetworkManager/nm-dhcp-client.action&quot;</span> pid=611 comm=<span class="string">&quot;apparmor_parser&quot;</span></span><br><span class="line">[   20.009744] audit: <span class="built_in">type</span>=1400 audit(1585545304.224:10): apparmor=<span class="string">&quot;STATUS&quot;</span> operation=<span class="string">&quot;profile_load&quot;</span> profile=<span class="string">&quot;unconfined&quot;</span> name=<span class="string">&quot;/usr/lib/NetworkManager/nm-dhcp-helper&quot;</span> pid=611 comm=<span class="string">&quot;apparmor_parser&quot;</span></span><br><span class="line">[   20.009748] audit: <span class="built_in">type</span>=1400 audit(1585545304.224:11): apparmor=<span class="string">&quot;STATUS&quot;</span> operation=<span class="string">&quot;profile_load&quot;</span> profile=<span class="string">&quot;unconfined&quot;</span> name=<span class="string">&quot;/usr/lib/connman/scripts/dhclient-script&quot;</span> pid=611 comm=<span class="string">&quot;apparmor_parser&quot;</span></span><br><span class="line">[   24.778661] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready</span><br><span class="line">[   66.927158] hv_balloon: Max. dynamic memory size: 4096 MB</span><br><span class="line">$./a.out </span><br><span class="line">syscall(numacall_const) = 1024</span><br><span class="line">syscall(numacall_syslog)</span><br><span class="line">syscall(numacall_array) len: 22</span><br><span class="line">syscall(numacall_struct) old point 5000</span><br><span class="line">syscall after point 10000</span><br><span class="line"><span class="variable">$sudo</span> dmesg | tail -n 5</span><br><span class="line">[   24.778661] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready</span><br><span class="line">[   66.927158] hv_balloon: Max. dynamic memory size: 4096 MB</span><br><span class="line">[  107.795123] Hello Numa Wrold!</span><br><span class="line">[  107.795126] Hello Test Syscall Now</span><br><span class="line">[  107.795131] User Struct name:numa id: 124 point: 5000</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://postd.cc/kernel-dev-ep3/">チュートリアル – システムコールの書き方</a><br><a target="_blank" rel="noopener" href="http://edof.hatenablog.com/entry/2015/07/05/045455">Linux4.0でシステムコールを追加する方法</a><br><a target="_blank" rel="noopener" href="https://postd.cc/kernel-dev-ep3/"></a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/54840772/unable-to-add-a-custom-system-call-on-x86-ubuntu-linux">Unable to add a custom system call on x86 ubuntu linux</a></p>
+
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://blog.nullnuma.com/syscall-add/" data-id="clbryjaa90000pwox79vl9gvl"
+				class="article-share-link">共有</a>
+			
+			
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" rel="tag">パソコン</a></li></ul>
+
+		</footer>
+		
+			<!-- ad start -->
+			<article id="adsense_article" class="article article-type-draft" itemscope
+	itemprop="blogPost">
+
+	<div class="article-inner">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Blog_Adsense -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5738127375689725"
+		data-ad-slot="3387006044"
+		data-ad-format="auto"
+		data-full-width-responsive="true"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	</div>
+</article>
+			<!-- ad end -->
+			<div class="article-entry">
+				<h2>関連記事</h2>
+				<ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/vyos-upgrade-to1-4/" title="VyOS v1.3をv1.4にアップグレードしてつまづいた" rel="bookmark">VyOS v1.3をv1.4にアップグレードしてつまづいた</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/migratecentos8tostream8/" title="CentOS 8 から CentOS Stream 8 へ移行した" rel="bookmark">CentOS 8 から CentOS Stream 8 へ移行した</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/nfs-hostname/" title="NFSのエラー "Lock reclaim failed!"" rel="bookmark">NFSのエラー "Lock reclaim failed!"</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/cloudedge-install/" title="Cloud Edgeにシリアルコンソールでインストール" rel="bookmark">Cloud Edgeにシリアルコンソールでインストール</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/virtualpc/" title="仮想サーバーっぽいのを作る" rel="bookmark">仮想サーバーっぽいのを作る</a></h3></div></li></ul>
+			</div>
+		
+	</div>
+	
+	
+<nav id="article-nav">
+  
+    <a href="/repair_display/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          ディスプレイの修理(EDIDの書き換え)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/hdmi_analyze_videosignal/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">HDMIの解析 映像信号</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FPGA/" rel="tag">FPGA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%81%B2%E3%81%A8%E3%82%8A%E3%81%94%E3%81%A8/" rel="tag">ひとりごと</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88/" rel="tag">ガジェット</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%9D%E3%82%A4/" rel="tag">グラフィックポイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ハードウェア</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" rel="tag">パソコン</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%AA%E3%83%95%E3%83%AD%E3%83%BC%E7%82%89/" rel="tag">リフロー炉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%AC%E3%83%BC%E3%82%B6%E3%83%BC%E5%8A%A0%E5%B7%A5%E6%A9%9F/" rel="tag">レーザー加工機</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E7%90%86/" rel="tag">修理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E8%A7%A3/" rel="tag">分解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/" rel="tag">自動車</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B3%87%E6%A0%BC/" rel="tag">資格</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Ad</h3>
+    <div class="widget">
+      <!-- ad start -->
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Blog_Adsense -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5738127375689725"
+     data-ad-slot="3387006044"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <!-- ad end -->
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/FPGA/" style="font-size: 12.5px;">FPGA</a> <a href="/tags/%E3%81%B2%E3%81%A8%E3%82%8A%E3%81%94%E3%81%A8/" style="font-size: 15px;">ひとりごと</a> <a href="/tags/%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88/" style="font-size: 11.25px;">ガジェット</a> <a href="/tags/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%9D%E3%82%A4/" style="font-size: 16.25px;">グラフィックポイ</a> <a href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 13.75px;">ソフトウェア</a> <a href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 20px;">ハードウェア</a> <a href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" style="font-size: 17.5px;">パソコン</a> <a href="/tags/%E3%83%AA%E3%83%95%E3%83%AD%E3%83%BC%E7%82%89/" style="font-size: 12.5px;">リフロー炉</a> <a href="/tags/%E3%83%AC%E3%83%BC%E3%82%B6%E3%83%BC%E5%8A%A0%E5%B7%A5%E6%A9%9F/" style="font-size: 12.5px;">レーザー加工機</a> <a href="/tags/%E4%BF%AE%E7%90%86/" style="font-size: 10px;">修理</a> <a href="/tags/%E5%88%86%E8%A7%A3/" style="font-size: 12.5px;">分解</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 18.75px;">旅行</a> <a href="/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/" style="font-size: 15px;">自動車</a> <a href="/tags/%E8%B3%87%E6%A0%BC/" style="font-size: 10px;">資格</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">2022/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">2022/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">2022/09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">2022/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">2022/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">2022/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">2021/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">2021/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">2021/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">2020/11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">2020/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">2020/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">2020/05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">2020/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">2020/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">2020/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">2019/11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">2019/08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">2019/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">2019/04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">2019/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2019/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">2019/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">2018/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">2018/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">2018/09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">2018/08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">2018/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">2018/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">2018/04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">2018/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">2018/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">2018/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">2017/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">2017/11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">2017/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">2017/09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">2017/08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">2017/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">2017/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">2017/04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">2016/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">2016/11</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/vyos-upgrade-to1-4/">VyOS v1.3をv1.4にアップグレードしてつまづいた</a>
+          </li>
+        
+          <li>
+            <a href="/disassembly-digitalcaliper/">デジタルノギスの分解</a>
+          </li>
+        
+          <li>
+            <a href="/nestedvmerr-kvm-buf-set-msrs/">Nested VMのkvm_buf_set_msrsエラー</a>
+          </li>
+        
+          <li>
+            <a href="/arduino-usbhid/">Arduino UnoでUSB HIDデバイスを作ってみた</a>
+          </li>
+        
+          <li>
+            <a href="/disassembly-vaiodockingstation/">VAIO ドッキングステーションの分解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 nullnuma<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

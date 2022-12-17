@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-86994747-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>ZYNQ FPGAボードの製作2(基板図) | nullなnuma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前回は回路図を書きました.今回は実際に基板に起こしていく作業です.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZYNQ FPGAボードの製作2(基板図)">
+<meta property="og:url" content="https://blog.nullnuma.com/zynq-fpgaboard-2/index.html">
+<meta property="og:site_name" content="nullなnuma">
+<meta property="og:description" content="前回は回路図を書きました.今回は実際に基板に起こしていく作業です.">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/zynq-fpgaboard-2/PowerIC.png">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/zynq-fpgaboard-2/MemEnd.png">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/zynq-fpgaboard-2/FreerouterEnd.png">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/zynq-fpgaboard-2/L1.png">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/zynq-fpgaboard-2/L2.png">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/zynq-fpgaboard-2/L3.png">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/zynq-fpgaboard-2/L4.png">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/zynq-fpgaboard-2/L5.png">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/zynq-fpgaboard-2/L6.png">
+<meta property="article:published_time" content="2020-10-31T12:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-12T03:02:07.136Z">
+<meta property="article:author" content="nullnuma">
+<meta property="article:tag" content="ハードウェア">
+<meta property="article:tag" content="FPGA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.nullnuma.com/assets/zynq-fpgaboard-2/PowerIC.png">
+<meta name="twitter:creator" content="@nullnuma">
+  
+    <link rel="alternate" href="/atom.xml" title="nullなnuma" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">nullなnuma</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.nullnuma.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="draft-zynq-fpgaboard-2" class="article article-type-draft" itemscope
+	itemprop="blogPost">
+	<div class="article-meta">
+		<a href="/zynq-fpgaboard-2/" class="article-date">
+  <time datetime="2020-10-31T12:00:00.000Z" itemprop="datePublished">2020-10-31</time>
+</a>
+		
+	</div>
+	<div class="article-inner">
+		
+		
+		<header class="article-header">
+			
+  
+    <h1 class="article-title" itemprop="name">
+      ZYNQ FPGAボードの製作2(基板図)
+    </h1>
+  
+
+		</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+
+			<!-- ad start -->
+			<article id="adsense_article" class="article article-type-draft" itemscope
+	itemprop="blogPost">
+
+	<div class="article-inner">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Blog_Adsense -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5738127375689725"
+		data-ad-slot="3387006044"
+		data-ad-format="auto"
+		data-full-width-responsive="true"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	</div>
+</article>
+			<!-- ad end -->
+			<p><a href="/zynq-fpgaboard-1">前回は回路図</a>を書きました.<br>今回は実際に基板に起こしていく作業です.  </p>
+<span id="more"></span>
+
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>それぞれのICをどこに配置するかが一番重要です.<br>配置が悪いと配線が無駄に交差してしまい, 最悪の場合配線できなくなるので…<br>基本的には前回のブロックダイアグラムのような配置となっています.  </p>
+<h3 id="配線"><a href="#配線" class="headerlink" title="配線"></a>配線</h3><h4 id="電源IC"><a href="#電源IC" class="headerlink" title="電源IC"></a>電源IC</h4><p>電源ICは電圧違い(抵抗の変更による)の同じ構成なのでICと抵抗, コンデンサを<br>それぞれのグループごとに作成しておきました.<br><img src="/assets/zynq-fpgaboard-2/PowerIC.png" alt="電源IC"></p>
+<h4 id="PS側メモリ"><a href="#PS側メモリ" class="headerlink" title="PS側メモリ"></a>PS側メモリ</h4><p>PS側のメモリのピン配置についてですがアドレス線は変更できないので<br>頑張って引くだけです.<br>なひたふさんの<a target="_blank" rel="noopener" href="http://nahitafu.cocolog-nifty.com/nahitafu/2019/03/zynqddr3-f743.html">ZYNQ用DDR3メモリの配線戦略</a>の記事がとても参考になりました.<br>それぞれの配線をまとまりで考えることで引きやすさが格段に変わります.<br>メモリの配線はインピーダンス整合をしなきゃいけないらしいのですが<br>まったくもって知識が不足しているのでまあ行けるでしょということで何も考えていません…<br>教えてほしい  </p>
+<p>そのときのツイート</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">1組のDDR3メモリ配線はかけた<br>もう1組PL側のMIG用DDR3メモリ作らねば <a target="_blank" rel="noopener" href="https://t.co/R4kABykWoT">pic.twitter.com/R4kABykWoT</a></p>&mdash; nullnuma :( (@nullnuma) <a target="_blank" rel="noopener" href="https://twitter.com/nullnuma/status/1319777167715135488?ref_src=twsrc%5Etfw">October 23, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h4 id="PL側メモリ"><a href="#PL側メモリ" class="headerlink" title="PL側メモリ"></a>PL側メモリ</h4><p>PL側のメモリは自由にピン配置を決定できるので, メモリ同士のアドレス線を接続したあと,<br>うまく接続しやすいように随時入れ替えていきました.<br>メモリが接続できてしまえばとても気が楽です.  </p>
+<p>そのときのツイート</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">メモリの大まかな配線できた<br>クロックの等長配線とコンデンサが未配置 <a target="_blank" rel="noopener" href="https://t.co/9Kmy5V6ZFE">pic.twitter.com/9Kmy5V6ZFE</a></p>&mdash; nullnuma :( (@nullnuma) <a target="_blank" rel="noopener" href="https://twitter.com/nullnuma/status/1320723903858184193?ref_src=twsrc%5Etfw">October 26, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>メモリの配線が終わったあと<br><img src="/assets/zynq-fpgaboard-2/MemEnd.png" alt="メモリ配線終わり"></p>
+<h4 id="その他のICたち"><a href="#その他のICたち" class="headerlink" title="その他のICたち"></a>その他のICたち</h4><p>EthernetやmicroSD, USBなどのICたちの配線はメモリで力尽きてしまったので,<br>自動配線ツールのFreerouterに丸投げする暴挙に出ました.<br>このツールは既に配線しているもの影響を与えないように配線するので,<br>あまりにも物理的に無理なところは最後ずっと配線しようと膠着状態になってしまいます.<br>なので時々見てあげて配線ができていなかったところは先に配線をし直して<br>再度自動配線を行うことを数回繰り返しました.<br>ちゃんと配線できて素晴らしい!<br><img src="/assets/zynq-fpgaboard-2/FreerouterEnd.png" alt="ほぼ配線終わり"></p>
+<h4 id="ユーザIO"><a href="#ユーザIO" class="headerlink" title="ユーザIO"></a>ユーザIO</h4><p>自動配線でユーザIOも配線されましたが, ちょっと微妙なので<br>頑張って2時間半かけ自分で配線し直しました…  </p>
+<h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>まだ電源の配線が怪しいので最後調整するつもりですが<br>基本的な配線は出来上がりました!</p>
+<p><b>表面</b><br><img src="/assets/zynq-fpgaboard-2/L1.png" alt="L1"><br><b>内層1(GND)</b><br><img src="/assets/zynq-fpgaboard-2/L2.png" alt="L2"><br><b>内層2</b><br><img src="/assets/zynq-fpgaboard-2/L3.png" alt="L3"><br><b>内層3</b><br><img src="/assets/zynq-fpgaboard-2/L4.png" alt="L4"><br><b>内層4</b><br><img src="/assets/zynq-fpgaboard-2/L5.png" alt="L5"><br><b>裏面</b><br><img src="/assets/zynq-fpgaboard-2/L6.png" alt="L6"></p>
+<h3 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h3><p>どうにか配線をすることができました.<br>ただしこれがちゃんと動くのかどうか, 自分が期待する性能が出るのかは<br>まったくもって未知数ですが, 経験という意味で頑張って製造及び実装まで<br>持っていきたいと思います.</p>
+
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://blog.nullnuma.com/zynq-fpgaboard-2/" data-id="clbk9en2h005ka8o0d26r67cv"
+				class="article-share-link">共有</a>
+			
+			
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FPGA/" rel="tag">FPGA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ハードウェア</a></li></ul>
+
+		</footer>
+		
+			<!-- ad start -->
+			<article id="adsense_article" class="article article-type-draft" itemscope
+	itemprop="blogPost">
+
+	<div class="article-inner">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Blog_Adsense -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5738127375689725"
+		data-ad-slot="3387006044"
+		data-ad-format="auto"
+		data-full-width-responsive="true"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	</div>
+</article>
+			<!-- ad end -->
+			<div class="article-entry">
+				<h2>関連記事</h2>
+				<ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/zynq-fpgaboard-1/" title="ZYNQ FPGAボードの製作1(回路図)" rel="bookmark">ZYNQ FPGAボードの製作1(回路図)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/urjtag-prepare/" title="UrJTAGでバウンダリスキャン" rel="bookmark">UrJTAGでバウンダリスキャン</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/v4220m/" title="V4220Mを試しに使ってみた" rel="bookmark">V4220Mを試しに使ってみた</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/laser5/" title="レーザー加工機製作5(電気系統)" rel="bookmark">レーザー加工機製作5(電気系統)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/pentablet_analyze/" title="Wacomのペンタブを分解してみた" rel="bookmark">Wacomのペンタブを分解してみた</a></h3></div></li></ul>
+			</div>
+		
+	</div>
+	
+	
+<nav id="article-nav">
+  
+    <a href="/small-vehicle-spedu/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          小型車両系建設機械特別教育を受講した
+        
+      </div>
+    </a>
+  
+  
+    <a href="/zynq-fpgaboard-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">ZYNQ FPGAボードの製作1(回路図)</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FPGA/" rel="tag">FPGA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%81%B2%E3%81%A8%E3%82%8A%E3%81%94%E3%81%A8/" rel="tag">ひとりごと</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88/" rel="tag">ガジェット</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%9D%E3%82%A4/" rel="tag">グラフィックポイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ハードウェア</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" rel="tag">パソコン</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%AA%E3%83%95%E3%83%AD%E3%83%BC%E7%82%89/" rel="tag">リフロー炉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%AC%E3%83%BC%E3%82%B6%E3%83%BC%E5%8A%A0%E5%B7%A5%E6%A9%9F/" rel="tag">レーザー加工機</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E7%90%86/" rel="tag">修理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E8%A7%A3/" rel="tag">分解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/" rel="tag">自動車</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B3%87%E6%A0%BC/" rel="tag">資格</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Ad</h3>
+    <div class="widget">
+      <!-- ad start -->
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Blog_Adsense -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5738127375689725"
+     data-ad-slot="3387006044"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <!-- ad end -->
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/FPGA/" style="font-size: 12.5px;">FPGA</a> <a href="/tags/%E3%81%B2%E3%81%A8%E3%82%8A%E3%81%94%E3%81%A8/" style="font-size: 15px;">ひとりごと</a> <a href="/tags/%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88/" style="font-size: 11.25px;">ガジェット</a> <a href="/tags/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%9D%E3%82%A4/" style="font-size: 16.25px;">グラフィックポイ</a> <a href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 13.75px;">ソフトウェア</a> <a href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 20px;">ハードウェア</a> <a href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" style="font-size: 17.5px;">パソコン</a> <a href="/tags/%E3%83%AA%E3%83%95%E3%83%AD%E3%83%BC%E7%82%89/" style="font-size: 12.5px;">リフロー炉</a> <a href="/tags/%E3%83%AC%E3%83%BC%E3%82%B6%E3%83%BC%E5%8A%A0%E5%B7%A5%E6%A9%9F/" style="font-size: 12.5px;">レーザー加工機</a> <a href="/tags/%E4%BF%AE%E7%90%86/" style="font-size: 10px;">修理</a> <a href="/tags/%E5%88%86%E8%A7%A3/" style="font-size: 12.5px;">分解</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 18.75px;">旅行</a> <a href="/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/" style="font-size: 15px;">自動車</a> <a href="/tags/%E8%B3%87%E6%A0%BC/" style="font-size: 10px;">資格</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">2022/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">2022/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">2022/09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">2022/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">2022/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">2022/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">2021/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">2021/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">2021/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">2020/11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">2020/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">2020/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">2020/05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">2020/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">2020/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">2020/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">2019/11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">2019/08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">2019/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">2019/04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">2019/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2019/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">2019/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">2018/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">2018/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">2018/09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">2018/08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">2018/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">2018/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">2018/04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">2018/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">2018/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">2018/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">2017/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">2017/11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">2017/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">2017/09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">2017/08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">2017/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">2017/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">2017/04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">2016/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">2016/11</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/vyos-upgrade-to1-4/">VyOS v1.3をv1.4にアップグレードしてつまづいた</a>
+          </li>
+        
+          <li>
+            <a href="/disassembly-digitalcaliper/">デジタルノギスの分解</a>
+          </li>
+        
+          <li>
+            <a href="/nestedvmerr-kvm-buf-set-msrs/">Nested VMのkvm_buf_set_msrsエラー</a>
+          </li>
+        
+          <li>
+            <a href="/arduino-usbhid/">Arduino UnoでUSB HIDデバイスを作ってみた</a>
+          </li>
+        
+          <li>
+            <a href="/disassembly-vaiodockingstation/">VAIO ドッキングステーションの分解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 nullnuma<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

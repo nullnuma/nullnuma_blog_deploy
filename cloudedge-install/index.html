@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-86994747-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Cloud Edgeにシリアルコンソールでインストール | nullなnuma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="DNSやDHCPを動かす用のマシンが欲しくなりそこまでスペックはいらないけど安定稼働しそうなPCを探していたらトレンドマイクロ社が出しているCloud Edgeがいいという話を聞いたので試してみました．">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cloud Edgeにシリアルコンソールでインストール">
+<meta property="og:url" content="https://blog.nullnuma.com/cloudedge-install/index.html">
+<meta property="og:site_name" content="nullなnuma">
+<meta property="og:description" content="DNSやDHCPを動かす用のマシンが欲しくなりそこまでスペックはいらないけど安定稼働しそうなPCを探していたらトレンドマイクロ社が出しているCloud Edgeがいいという話を聞いたので試してみました．">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/front.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/voidseal.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/top.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/back.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/bottom.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/fan.jpg">
+<meta property="og:image" content="https://blog.nullnuma.com/assets/cloudedge-install/fan_install.jpg">
+<meta property="article:published_time" content="2021-01-21T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-12T03:02:07.133Z">
+<meta property="article:author" content="nullnuma">
+<meta property="article:tag" content="ハードウェア">
+<meta property="article:tag" content="パソコン">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.nullnuma.com/assets/cloudedge-install/front.jpg">
+<meta name="twitter:creator" content="@nullnuma">
+  
+    <link rel="alternate" href="/atom.xml" title="nullなnuma" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">nullなnuma</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.nullnuma.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-cloudedge-install" class="article article-type-post" itemscope
+	itemprop="blogPost">
+	<div class="article-meta">
+		<a href="/cloudedge-install/" class="article-date">
+  <time datetime="2021-01-21T00:00:00.000Z" itemprop="datePublished">2021-01-21</time>
+</a>
+		
+	</div>
+	<div class="article-inner">
+		
+		
+		<header class="article-header">
+			
+  
+    <h1 class="article-title" itemprop="name">
+      Cloud Edgeにシリアルコンソールでインストール
+    </h1>
+  
+
+		</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+
+			<!-- ad start -->
+			<article id="adsense_article" class="article article-type-draft" itemscope
+	itemprop="blogPost">
+
+	<div class="article-inner">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Blog_Adsense -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5738127375689725"
+		data-ad-slot="3387006044"
+		data-ad-format="auto"
+		data-full-width-responsive="true"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	</div>
+</article>
+			<!-- ad end -->
+			<p>DNSやDHCPを動かす用のマシンが欲しくなりそこまでスペックはいらないけど<br>安定稼働しそうなPCを探していたらトレンドマイクロ社が出しているCloud Edgeがいい<br>という話を聞いたので試してみました．</p>
+<span id="more"></span>
+
+<h3 id="購入"><a href="#購入" class="headerlink" title="購入"></a>購入</h3><p>既に<a target="_blank" rel="noopener" href="https://v2n.hatenablog.com/entry/2019/12/20/151246">情報</a>が出ているので参考にしてヤフオクでCloud Edge 100を落としました</p>
+<p><img src="/assets/cloudedge-install/front.jpg" alt="front"></p>
+<p>Cloud Edgeは中身はAMDのCPUが載っていて極一般的なx64マシンですが<br>UTMでライセンスがないとまともな動作をしないので全部消し去りLinuxを入れます</p>
+<h3 id="スペック"><a href="#スペック" class="headerlink" title="スペック"></a>スペック</h3><p>Cloud Edge 100のスペックは以下の通り</p>
+<table>
+<thead>
+<tr>
+<th align="left">項目</th>
+<th align="left">値</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">CPU</td>
+<td align="left">AMD GX-416RA (4コア 1.6GHz)</td>
+</tr>
+<tr>
+<td align="left">メモリ</td>
+<td align="left">4GB</td>
+</tr>
+<tr>
+<td align="left">SSD</td>
+<td align="left">Transend 32GB</td>
+</tr>
+<tr>
+<td align="left">シリアルコンソール</td>
+<td align="left">baudrate 115200</td>
+</tr>
+<tr>
+<td align="left">電源</td>
+<td align="left">外径5.5mm 内径2.5mm 12V5A</td>
+</tr>
+</tbody></table>
+<h3 id="分解"><a href="#分解" class="headerlink" title="分解"></a>分解</h3><p>とりあえず分解しないと面白くないので分解しました．<br><img src="/assets/cloudedge-install/voidseal.jpg" alt="voidseal"><br><img src="/assets/cloudedge-install/top.jpg" alt="top"><br><img src="/assets/cloudedge-install/back.jpg" alt="back"><br><img src="/assets/cloudedge-install/bottom.jpg" alt="bottom"></p>
+<p>メモリは背が低いタイプでした．</p>
+<h3 id="ファンの交換"><a href="#ファンの交換" class="headerlink" title="ファンの交換"></a>ファンの交換</h3><p>標準ファンだととてもうるさいので静音ファンに交換します．<br><img src="/assets/cloudedge-install/fan.jpg" alt="fan"><br><img src="/assets/cloudedge-install/fan_install.jpg" alt="fan_install"></p>
+<p>これで常用できるレベルまで下がりました．</p>
+<h3 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h3><p>映像出力がなくシリアルコンソールでしか叩くことが出来ないため<br>なんとかしてシリアルコンソール経由でインストールを行いました．</p>
+<p>LinuxのディストリビューションはシンプルそうなAlpine Linuxにします．</p>
+<h4 id="Live-USBの作成"><a href="#Live-USBの作成" class="headerlink" title="Live USBの作成"></a>Live USBの作成</h4><p><a target="_blank" rel="noopener" href="https://alpinelinux.org/">Alpine Linux 公式サイト</a>からisoファイルをダウンロード．<br>いつもだとddコマンドで書き込むのですがシリアルコンソール経由のインストールを<br>実現するためにファイルを書き換える必要があるため<br><a target="_blank" rel="noopener" href="https://rufus.ie/">Windowsのソフト Rufus</a>を使います．<br>(LinuxでいろいろLive USB作成を試したのですがうまく行かなかったのでソフトに丸投げ!)</p>
+<p>初期設定でisoファイルを指定して4GBのUSBメモリに書き込みました．<br>Alpine Linuxは軽いのですぐ終わりますね．<br>そのあとシリアルコンソールで出力されるようにコマンドを書き換えます．  </p>
+<p>USBメモリ内の”boot/syslinux/syslinux.cfg”ファイルのうち<br>先頭にSERIALを追加，APPENDを以下の通りに書き換えます．</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SERIAL 0 115200</span><br><span class="line"></span><br><span class="line">TIMEOUT 20</span><br><span class="line">PROMPT 1</span><br><span class="line">DEFAULT lts</span><br><span class="line"></span><br><span class="line">LABEL lts</span><br><span class="line">MENU LABEL Linux lts</span><br><span class="line">KERNEL /boot/vmlinuz-lts</span><br><span class="line">INITRD /boot/initramfs-lts</span><br><span class="line">FDTDIR /boot/dtbs-lts</span><br><span class="line">APPEND modules=loop,squashfs,sd-mod,usb-storage console=tty0 console=ttyS0,115200n8 </span><br></pre></td></tr></table></figure>
+
+<p>こうすることで出力がシリアルコンソールに継続して出力されます．<br>Live USBが完成です．</p>
+<h4 id="インストール作業"><a href="#インストール作業" class="headerlink" title="インストール作業"></a>インストール作業</h4><p>USBポートに差し込んで起動すれば勝手に起動します．<br>起動すれば後はsetup-alpineを叩いてインストール作業を進めます．<br><a target="_blank" rel="noopener" href="https://qiita.com/mo_chiee/items/f539df1bd172f41bc85a">ここ</a>を参考にして行いました．</p>
+<h4 id="再度シリアルコンソールに出力"><a href="#再度シリアルコンソールに出力" class="headerlink" title="再度シリアルコンソールに出力"></a>再度シリアルコンソールに出力</h4><p>このままではインストールしたAlpine Linuxにはシリアルコンソールへの出力が<br>明記されていないので出力されないことになるのでその設定を行います．<br>(/dev/sda1はインストール時の設定次第なのでよしなに変えて下さい)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /media/ssd</span><br><span class="line">mount /dev/sda1 /media/ssd</span><br><span class="line">vi /media/ssd/extlinux.conf</span><br><span class="line">umount /media/ssd</span><br></pre></td></tr></table></figure>
+<p><b>/media/ssd/extlinux.conf書き換え内容(APPENDのconsoleを追加)</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># Generated by update-extlinux 6.04_pre1-r6</span><br><span class="line">DEFAULT menu.c32</span><br><span class="line">PROMPT 0</span><br><span class="line">MENU TITLE Alpine/Linux Boot Menu</span><br><span class="line">MENU HIDDEN</span><br><span class="line">MENU AUTOBOOT Alpine will be booted automatically in # seconds.</span><br><span class="line">TIMEOUT 30</span><br><span class="line">LABEL lts</span><br><span class="line">  MENU DEFAULT</span><br><span class="line">  MENU LABEL Linux lts</span><br><span class="line">  LINUX vmlinuz-lts</span><br><span class="line">  INITRD initramfs-lts</span><br><span class="line">  APPEND root=UUID=c00228bc-c19d-43b1-b3de-06a1e3f6a611 modules=sd-mod,usb-storage,ext4 console=tty0 console=ttyS0,115200n8 rootfstype=ext4</span><br><span class="line"></span><br><span class="line">MENU SEPARATOR</span><br></pre></td></tr></table></figure>
+
+<p>これで再起動してSSDから起動してもシリアルコンソールに出力されるはずです．<br>電源を落としてUSBメモリを外してから起動しましょう．<br>あとは好きなようにAlpine Linuxを楽しみましょう</p>
+<h3 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h3><p>それなりのスペックのマシンが実際に動くことが確認できた．<br>シリアルコンソール出力を行うには起動時のパラメータを設定する必要がある．</p>
+<p>12V給電で動いたりLANポートがいっぱいあるので色々試してみたいと思います!</p>
+
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://blog.nullnuma.com/cloudedge-install/" data-id="clbk9en0u0028a8o00fcy9dbp"
+				class="article-share-link">共有</a>
+			
+			
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ハードウェア</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" rel="tag">パソコン</a></li></ul>
+
+		</footer>
+		
+			<!-- ad start -->
+			<article id="adsense_article" class="article article-type-draft" itemscope
+	itemprop="blogPost">
+
+	<div class="article-inner">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Blog_Adsense -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5738127375689725"
+		data-ad-slot="3387006044"
+		data-ad-format="auto"
+		data-full-width-responsive="true"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	</div>
+</article>
+			<!-- ad end -->
+			<div class="article-entry">
+				<h2>関連記事</h2>
+				<ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/repair_display/" title="ディスプレイの修理(EDIDの書き換え)" rel="bookmark">ディスプレイの修理(EDIDの書き換え)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/arduino-usbhid/" title="Arduino UnoでUSB HIDデバイスを作ってみた" rel="bookmark">Arduino UnoでUSB HIDデバイスを作ってみた</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/virtualpc/" title="仮想サーバーっぽいのを作る" rel="bookmark">仮想サーバーっぽいのを作る</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/syscall-add/" title="システムコールの追加" rel="bookmark">システムコールの追加</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/vyos-upgrade-to1-4/" title="VyOS v1.3をv1.4にアップグレードしてつまづいた" rel="bookmark">VyOS v1.3をv1.4にアップグレードしてつまづいた</a></h3></div></li></ul>
+			</div>
+		
+	</div>
+	
+	
+<nav id="article-nav">
+  
+    <a href="/repair-diga/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          DIGAを修理した
+        
+      </div>
+    </a>
+  
+  
+    <a href="/small-vehicle-spedu/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">小型車両系建設機械特別教育を受講した</div>
+    </a>
+  
+</nav>
+
+	
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FPGA/" rel="tag">FPGA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%81%B2%E3%81%A8%E3%82%8A%E3%81%94%E3%81%A8/" rel="tag">ひとりごと</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88/" rel="tag">ガジェット</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%9D%E3%82%A4/" rel="tag">グラフィックポイ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ハードウェア</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" rel="tag">パソコン</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%AA%E3%83%95%E3%83%AD%E3%83%BC%E7%82%89/" rel="tag">リフロー炉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%AC%E3%83%BC%E3%82%B6%E3%83%BC%E5%8A%A0%E5%B7%A5%E6%A9%9F/" rel="tag">レーザー加工機</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E7%90%86/" rel="tag">修理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E8%A7%A3/" rel="tag">分解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/" rel="tag">自動車</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B3%87%E6%A0%BC/" rel="tag">資格</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Ad</h3>
+    <div class="widget">
+      <!-- ad start -->
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Blog_Adsense -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5738127375689725"
+     data-ad-slot="3387006044"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <!-- ad end -->
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/FPGA/" style="font-size: 12.5px;">FPGA</a> <a href="/tags/%E3%81%B2%E3%81%A8%E3%82%8A%E3%81%94%E3%81%A8/" style="font-size: 15px;">ひとりごと</a> <a href="/tags/%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88/" style="font-size: 11.25px;">ガジェット</a> <a href="/tags/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%9D%E3%82%A4/" style="font-size: 16.25px;">グラフィックポイ</a> <a href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 13.75px;">ソフトウェア</a> <a href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 20px;">ハードウェア</a> <a href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" style="font-size: 17.5px;">パソコン</a> <a href="/tags/%E3%83%AA%E3%83%95%E3%83%AD%E3%83%BC%E7%82%89/" style="font-size: 12.5px;">リフロー炉</a> <a href="/tags/%E3%83%AC%E3%83%BC%E3%82%B6%E3%83%BC%E5%8A%A0%E5%B7%A5%E6%A9%9F/" style="font-size: 12.5px;">レーザー加工機</a> <a href="/tags/%E4%BF%AE%E7%90%86/" style="font-size: 10px;">修理</a> <a href="/tags/%E5%88%86%E8%A7%A3/" style="font-size: 12.5px;">分解</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 18.75px;">旅行</a> <a href="/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/" style="font-size: 15px;">自動車</a> <a href="/tags/%E8%B3%87%E6%A0%BC/" style="font-size: 10px;">資格</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">2022/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">2022/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">2022/09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">2022/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">2022/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">2022/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">2021/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">2021/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">2021/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">2020/11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">2020/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">2020/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">2020/05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">2020/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">2020/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">2020/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">2019/11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">2019/08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">2019/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">2019/04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">2019/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2019/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">2019/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">2018/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">2018/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">2018/09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">2018/08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">2018/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">2018/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">2018/04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">2018/03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">2018/02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">2018/01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">2017/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">2017/11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">2017/10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">2017/09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">2017/08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">2017/07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">2017/06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">2017/04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">2016/12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">2016/11</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/vyos-upgrade-to1-4/">VyOS v1.3をv1.4にアップグレードしてつまづいた</a>
+          </li>
+        
+          <li>
+            <a href="/disassembly-digitalcaliper/">デジタルノギスの分解</a>
+          </li>
+        
+          <li>
+            <a href="/nestedvmerr-kvm-buf-set-msrs/">Nested VMのkvm_buf_set_msrsエラー</a>
+          </li>
+        
+          <li>
+            <a href="/arduino-usbhid/">Arduino UnoでUSB HIDデバイスを作ってみた</a>
+          </li>
+        
+          <li>
+            <a href="/disassembly-vaiodockingstation/">VAIO ドッキングステーションの分解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 nullnuma<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
