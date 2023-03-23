@@ -6,7 +6,7 @@
   <link href="https://blog.nullnuma.com/atom.xml" rel="self"/>
   
   <link href="https://blog.nullnuma.com/"/>
-  <updated>2023-01-13T12:21:10.957Z</updated>
+  <updated>2023-03-23T04:35:45.955Z</updated>
   <id>https://blog.nullnuma.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>冷蔵庫の水漏れ修理</title>
+    <link href="https://blog.nullnuma.com/repair-refrigerator-waterleak/"/>
+    <id>https://blog.nullnuma.com/repair-refrigerator-waterleak/</id>
+    <published>2023-03-22T18:00:25.000Z</published>
+    <updated>2023-03-23T04:35:45.955Z</updated>
+    
+    <content type="html"><![CDATA[<p>買ってから13年以上使用しているシャープの冷蔵庫ですが<br>野菜室の下から水が漏れるようになってきてしまったので修理を行いました.  </p><span id="more"></span><h3 id="冷蔵庫の構造"><a href="#冷蔵庫の構造" class="headerlink" title="冷蔵庫の構造"></a>冷蔵庫の構造</h3><p>このような感じの冷蔵冷凍車です．</p><iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=nullnuma0d-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B09VBGV13S&linkId=583f72110767af3d77b7ddfc69d0bbb2"></iframe><p>一番下が野菜室，中央が冷凍庫となっているタイプで<br>野菜室の裏にはコンプレッサーがおいてあります．<br>コンプレッサーの上には冷凍庫の内部で空気を冷やす冷却器があります．  </p><p><img src="/assets/repair-refrigerator-waterleak/structure.png" alt="構造">  </p><p>水が発生するのは冷却器でいわゆる結露です．<br>結露したドレン水は排出され外においてあるタンクにたまり蒸発するのを待ちます．</p><h4 id="水漏れの原因"><a href="#水漏れの原因" class="headerlink" title="水漏れの原因"></a>水漏れの原因</h4><p>結露したドレン水がタンクに流れることなく冷蔵庫内部で溢れて<br>野菜室経由で手前に漏れ出したことが原因です.<br>排水パイプがホコリによって詰まってしまっています．  </p><h3 id="修理"><a href="#修理" class="headerlink" title="修理"></a>修理</h3><p>14年も動いていればまあ寿命といえばそれで終わってしまいますが<br>単純な水漏れで排水パイプを清掃すれば問題なく動くため修理をしました．  </p><p>ホコリを除去するためにまずは冷蔵庫の背面パネルを外します．<br>12個ぐらいのネジで止まっているのですべて外しました．<br>(既にホコリが溜まっていますが…)<br><img src="/assets/repair-refrigerator-waterleak/backpanel.jpg" alt="backpanel"></p><p>コントロール基板が見えました．<br>これもまた外します．<br>ネジは多分2箇所です．<br><img src="/assets/repair-refrigerator-waterleak/ctrl.jpg" alt="ctrl"></p><p>コントロール基板の下にドレン水を貯めるタンクが見えます．<br><img src="/assets/repair-refrigerator-waterleak/tank.jpg" alt="tank"></p><p>このドレンパイプが諸悪の根源でした．<br>頑張って引っこ抜いて綺麗に掃除しました．<br><img src="/assets/repair-refrigerator-waterleak/drain_clean.jpg" alt="drain_clean"><br><img src="/assets/repair-refrigerator-waterleak/drain.jpg" alt="drain"><br><img src="/assets/repair-refrigerator-waterleak/drain_pipe.jpg" alt="drain_pipe">  </p><p>これで水漏れの修理は完了です．<br>逆の手順で取り付けていけば問題ありません．  </p><h3 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h3><p>シャープの冷蔵庫の水漏れを修理しました．<br>ドレンパイプが詰まっていることが原因だったので掃除をしてもとに戻すだけで直りました．  </p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;買ってから13年以上使用しているシャープの冷蔵庫ですが&lt;br&gt;野菜室の下から水が漏れるようになってきてしまったので修理を行いました.  &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="修理" scheme="https://blog.nullnuma.com/tags/%E4%BF%AE%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>IX2215のUSBアップデート</title>
@@ -408,25 +427,6 @@
     <category term="ソフトウェア" scheme="https://blog.nullnuma.com/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/"/>
     
     <category term="パソコン" scheme="https://blog.nullnuma.com/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HDMIの解析 映像信号</title>
-    <link href="https://blog.nullnuma.com/hdmi_analyze_videosignal/"/>
-    <id>https://blog.nullnuma.com/hdmi_analyze_videosignal/</id>
-    <published>2020-02-03T11:00:00.000Z</published>
-    <updated>2022-12-12T03:02:07.134Z</updated>
-    
-    <content type="html"><![CDATA[<p>映像を扱う信号は昔から存在します<br>昔の表示機器はもっぱらブラウン管の電子ビームによる描画でした<br>その流れを汲みデジタルになっても転送の方法が踏襲されている規格が多い  </p><span id="more"></span><h2 id="アナログ"><a href="#アナログ" class="headerlink" title="アナログ"></a>アナログ</h2><p>ブラウン管の表示の仕組みは電子銃から電子ビームを発射し、電界により偏向され映像が描画される<br>そのため映像の転送はこのように左から右、さらに上から下と表示されている<br>(大雑把なイメージとして黒が描画、赤が次の描画位置に戻す帰線である)<br><img src="/assets/hdmi_analyze_videosignal/scan.png" alt="ラスタースキャン"></p><p>このような帰線も含めた信号が必要となるので映像だけの領域の他に、ブランキング期間や描画開始位置などの同期信号が必要となる  </p><h2 id="デジタル"><a href="#デジタル" class="headerlink" title="デジタル"></a>デジタル</h2><p>そのよう流れを踏襲した結果HDMIやDVIなども同じ構造で転送している<br>(DisplayPortはパケット化して転送してるので無駄な部分がなく効率は良さげ)  </p><p>HDMIにおける描画はこの様になっているがDVIもほぼ同じである  </p><p><img src="/assets/hdmi_analyze_videosignal/video_frame.png" alt="HDMI フレーム"><br>HDMIの場合、映像だけでなく音声やその他の情報も送る必要が出てくるのでブランキング期間の間に挿入されているがDVIの場合はコントロール期間やデータアイランド期間の区別がなく特に情報がない</p><p>信号を送信する際に0や1が連続するビット列の場合安定した通信ができなくなるので、10ビットに拡張してランダムなビットパターンになるように変換している<br>それぞれの期間のエンコーディングは以下の通りである  </p><table><thead><tr><th align="left">期間</th><th align="left">変換前のビット数</th><th align="left">エンコーディング</th></tr></thead><tbody><tr><td align="left">アクティブ映像期間</td><td align="left">8ビット</td><td align="left">Video Data Coding</td></tr><tr><td align="left">データアイランド期間</td><td align="left">4ビット</td><td align="left">TERC4 Coding</td></tr><tr><td align="left">コントロール期間</td><td align="left">2ビット</td><td align="left">Control Period Coding</td></tr></tbody></table><p>ケーブル上の伝送速度はピクセルクロックとTMDSクロックの2種類存在する<br>ピクセルクロックは8ビットとしてデータを転送する際に使用するもので、TMDSクロックはケーブル上をシリアルで転送する際に使用する<br>TMDSクロックはピクセルクロックの10倍である  </p><p>リフレッシュレート60Hzのとき主な解像度のピクセルクロックとTMDSクロックは以下の通り  </p><table><thead><tr><th align="center">解像度</th><th align="center">ピクセルクロック[MHz]</th><th align="center">TMDSクロック[MHz]</th></tr></thead><tbody><tr><td align="center">480p</td><td align="center">25.175</td><td align="center">251.750</td></tr><tr><td align="center">720p</td><td align="center">74.250</td><td align="center">742.500</td></tr><tr><td align="center">1080p</td><td align="center">148.5</td><td align="center">1485.0</td></tr></tbody></table><h2 id="期間"><a href="#期間" class="headerlink" title="期間"></a>期間</h2><p>水平同期信号(HSYNC)及び垂直同期信号(VSYNC)はコントロール期間及びデータアイランド期間のTMDS ch0に含まれている  </p><h3 id="コントロール期間"><a href="#コントロール期間" class="headerlink" title="コントロール期間"></a>コントロール期間</h3><p>ここではHSYNCやVSYNC、プリアンブルを扱う<br>プリアンブルは他の期間の先頭に挿入され、検知するために使用される  </p><table><thead><tr><th align="left">TMDS ch</th><th align="left">ビット</th><th align="left">用途</th></tr></thead><tbody><tr><td align="left">0</td><td align="left">0</td><td align="left">HSYNC</td></tr><tr><td align="left"></td><td align="left">1</td><td align="left">VSYNC</td></tr><tr><td align="left">1</td><td align="left">0</td><td align="left">プリアンブル(CTL0)</td></tr><tr><td align="left"></td><td align="left">1</td><td align="left">プリアンブル(CTL1)</td></tr><tr><td align="left">2</td><td align="left">0</td><td align="left">プリアンブル(CTL2)</td></tr><tr><td align="left"></td><td align="left">1</td><td align="left">プリアンブル(CTL3)</td></tr></tbody></table><p>プリアンブルと次の期間の対応は以下の通りであり8クロック連続する</p><table><thead><tr><th align="left">CTL0</th><th align="left">CTL1</th><th align="left">CTL2</th><th align="left">CTL3</th><th align="left">期間</th></tr></thead><tbody><tr><td align="left">1</td><td align="left">0</td><td align="left">0</td><td align="left">0</td><td align="left">アクティブ映像期間</td></tr><tr><td align="left">1</td><td align="left">0</td><td align="left">1</td><td align="left">0</td><td align="left">データアイランド期間</td></tr></tbody></table><h3 id="データアイランド期間"><a href="#データアイランド期間" class="headerlink" title="データアイランド期間"></a>データアイランド期間</h3><p>ここではオーディオデータやその他の情報についてをパケットとして扱う<br>この期間の最初と最後はTMDS ch1とch2に2クロック分ガードバンドが挿入される</p><p>パケットは連続して複数個送信でき、1つのパケットに付き32クロック必要とする</p><h3 id="アクティブ映像期間"><a href="#アクティブ映像期間" class="headerlink" title="アクティブ映像期間"></a>アクティブ映像期間</h3><p>ここでは映像を扱う<br>この期間の最初のすべてのチャンネルに2クロック分ガードバンドが挿入される<br>映像の伝送には1つのデータを8ビットとしてTMDS ch0を青、ch1を緑、ch2を赤として転送される  </p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>“HDMI-NAVI.com”,<a href="http://www.hdmi-navi.com/">http://www.hdmi-navi.com</a><br>HDMI Licensing, LLC.(2007)「High-Definition Multimedia Interface Specification Version 1.4」<br>長野英生(2014)『高速ビデオ・インターフェース HDMI &amp; DisplayPortのすべて』 CQ出版社.<br>「Video Timings: VGA, SVGA, 720P, 1080P」,[online]<a href="https://timetoexplore.net/blog/video-timings-vga-720p-1080p">https://timetoexplore.net/blog/video-timings-vga-720p-1080p</a></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;映像を扱う信号は昔から存在します&lt;br&gt;昔の表示機器はもっぱらブラウン管の電子ビームによる描画でした&lt;br&gt;その流れを汲みデジタルになっても転送の方法が踏襲されている規格が多い  &lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="ハードウェア" scheme="https://blog.nullnuma.com/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/"/>
     
   </entry>
   
