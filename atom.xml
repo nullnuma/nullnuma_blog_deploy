@@ -6,7 +6,7 @@
   <link href="https://blog.nullnuma.com/atom.xml" rel="self"/>
   
   <link href="https://blog.nullnuma.com/"/>
-  <updated>2023-04-08T06:44:02.934Z</updated>
+  <updated>2023-04-08T06:44:53.896Z</updated>
   <id>https://blog.nullnuma.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.nullnuma.com/gpu-fan-repair/"/>
     <id>https://blog.nullnuma.com/gpu-fan-repair/</id>
     <published>2023-04-07T21:28:35.000Z</published>
-    <updated>2023-04-08T06:44:02.934Z</updated>
+    <updated>2023-04-08T06:44:53.896Z</updated>
     
     <content type="html"><![CDATA[<p>グラフィックボードを冷やすためについている<br>ファンのブレードを不注意で折ってしまったので<br>交換部品を購入し修理しました，  </p><span id="more"></span><h3 id="現状"><a href="#現状" class="headerlink" title="現状"></a>現状</h3><p>グラフィックボードはZOTAC社のGeForce GTX 1060 6GB Single Fanです．<br>ファンの一部が折れてしまっています．<br><img src="/assets/gpu-fan-repair/brokenparts.jpg" alt="brokenparts"></p><h3 id="修理"><a href="#修理" class="headerlink" title="修理"></a>修理</h3><p>修理部品は手っ取り早くAliexpressで調達しました．<br>このファンの型番は「T129215SH」となっており以下の製品を購入しました．<br><a href="https://ja.aliexpress.com/item/1005004456079255.html">グラフィックカード冷却ファン,85mm,4ピン,t129215sh ga92s2u,gtx 1060,zotac gtx 950 960 1060,P106-90,P106-100用</a>  </p><p>早速修理を行います．<br>外装のネジは4箇所あるので取ります．<br><img src="/assets/gpu-fan-repair/bolt.jpg" alt="bolt">  </p><p>ファン自体はヒートシンクにネジ3箇所で取り付けられています．<br><img src="/assets/gpu-fan-repair/brokenfan.jpg" alt="brokenfan">  </p><p>これでファン自体は取れるのですが配線がゴムによって<br>ヒートシンクに固定されているので引っ張るなどして取ります．<br>(単純にはめ込みっぽいのでそんなに大変なものではなさそう)<br><img src="/assets/gpu-fan-repair/gum.jpg" alt="gum">  </p><p>型番は同じですが配線の長さが多少異なっていました．<br>長い分には問題ないので良かったです．<br><img src="/assets/gpu-fan-repair/comparefan.jpg" alt="comparefan">  </p><p>逆の手順で戻していけば問題なく修理を終えました．<br><img src="/assets/gpu-fan-repair/after.jpg" alt="after">  </p>]]></content>
     
@@ -30,6 +30,10 @@
     
     
     
+    
+    <category term="パソコン" scheme="https://blog.nullnuma.com/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/"/>
+    
+    <category term="修理" scheme="https://blog.nullnuma.com/tags/%E4%BF%AE%E7%90%86/"/>
     
   </entry>
   
