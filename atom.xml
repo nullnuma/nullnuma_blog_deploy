@@ -6,7 +6,7 @@
   <link href="https://blog.nullnuma.com/atom.xml" rel="self"/>
   
   <link href="https://blog.nullnuma.com/"/>
-  <updated>2023-04-08T06:44:53.896Z</updated>
+  <updated>2024-04-22T03:45:00.000Z</updated>
   <id>https://blog.nullnuma.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ハイエースを手に入れた</title>
+    <link href="https://blog.nullnuma.com/newcar-hiace/"/>
+    <id>https://blog.nullnuma.com/newcar-hiace/</id>
+    <published>2024-04-22T03:15:26.000Z</published>
+    <updated>2024-04-22T03:45:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>ハイエースを購入しました．<br>前々から欲しいと思っていたのですが，やっと手に入れることができました．  </p><p><img src="/assets/newcar-hiace/hiace.jpg" alt="hiace"></p><span id="more"></span><h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>運転することが好きなので車の購入を考えていました，  </p><ul><li>長距離走るので車中泊がしたい</li><li>快適にスキーに行きたい</li><li>商用車が好き</li></ul><p>などの理由でハイエースが欲しいと思っていました．  </p><h3 id="ベースやオプション"><a href="#ベースやオプション" class="headerlink" title="ベースやオプション"></a>ベースやオプション</h3><p>商用車が好きとはいえ，まちなかと長距離の運転の快適性を考えベースは<br>ハイエース バン S-GLを選択しました．  </p><p><a href="https://toyota.jp/hiacevan/">トヨタ ハイエース バン</a></p><ul><li>ディーゼル仕様<ul><li>長距離走るので</li></ul></li><li>寒冷地仕様<ul><li>ウィンタースポーツをしたい</li></ul></li><li>ハロゲンヘッドライト<ul><li>HIDが好みなので後日付け替え</li></ul></li><li>パワースライドドア<ul><li>あるとやっぱ便利</li></ul></li><li>自動防眩インナーミラー<ul><li>バックカメラが付いてくるので</li></ul></li></ul><p>などのオプションをつけています．  </p><h3 id="購入まで"><a href="#購入まで" class="headerlink" title="購入まで"></a>購入まで</h3><p>いつ買うか悩んでいたのですが， 23年6月ぐらいから受注停止となってしまったので，マイナーチェンジを待っていました．<br>購入した型は8型と呼ばれるようですが法規対応と色が増えたりというだけで7型とあまり変わらないです．<br>受注再開となったのが23年12月初旬に注文を行いました．<br>この時点で2月末ぐらいの納期でした．<br>しかし， 豊田自動織機のエンジン不正があり生産停止のアオリを受けました．．．<br>最終的に納期は1ヶ月半ほど伸び4月19日に納車されました．  </p><h3 id="今後の計画"><a href="#今後の計画" class="headerlink" title="今後の計画"></a>今後の計画</h3><p>ナビやHID， 内装の防音&#x2F;断熱等やることがたくさんあります．  </p><ul><li>社外ナビ取り付け</li><li>HID取り付け</li><li>床の防音&#x2F;断熱と床張り</li><li>天井の防音&#x2F;断熱</li><li>サブバッテリー設置の準備</li><li>リアクーラー&#x2F;ヒーターのコントローラー統合</li></ul><p>備忘録として施工の記録を残したいと思います．  </p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;ハイエースを購入しました．&lt;br&gt;前々から欲しいと思っていたのですが，やっと手に入れることができました．  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/newcar-hiace/hiace.jpg&quot; alt=&quot;hiace&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="ひとりごと" scheme="https://blog.nullnuma.com/tags/%E3%81%B2%E3%81%A8%E3%82%8A%E3%81%94%E3%81%A8/"/>
+    
+    <category term="自動車" scheme="https://blog.nullnuma.com/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>グラボのファンの修理</title>
@@ -406,27 +428,6 @@
     
     
     <category term="自動車" scheme="https://blog.nullnuma.com/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ディスプレイの修理(EDIDの書き換え)</title>
-    <link href="https://blog.nullnuma.com/repair_display/"/>
-    <id>https://blog.nullnuma.com/repair_display/</id>
-    <published>2020-05-17T02:00:00.000Z</published>
-    <updated>2022-12-12T03:02:07.135Z</updated>
-    
-    <content type="html"><![CDATA[<p>長年使っていたフルHDディスプレイが突然フルHDではなく1024x768や800x600の解像度しか受け付けなくなってしまいました<br>デバイスマネージャーを見てみると「汎用非PnPモニター」と表示されていてディスプレイをちゃんと認識していないことがわかりました  </p><span id="more"></span><h3 id="症状"><a href="#症状" class="headerlink" title="症状"></a>症状</h3><p>メーカーはAOCで2011年に購入し、接続はHDMIで行っています<br>起動時にディスプレイを接続しておけば最低限「汎用非PnPモニター」として認識されるのですが、起動後に接続した場合は認識されずに何も出力されません<br>逆に考えるとなりふりかまわず出力してくれるソース機器であれば表示してくれます<br>例えばNintendo SwitchはSwitch側で設定した出力でずっと出力します<br>なので接続すると何事もなかったかのように映像が表示されます</p><p>このことからディスプレイの表示機能自体に問題はなくディスプレイの認識周辺の機能に問題があることがわかります<br>おそらくホットプラグ検出あたりが死んだのかEDIDがうまく読み込めていないのかということで当たりをつけました</p><h3 id="故障原因"><a href="#故障原因" class="headerlink" title="故障原因"></a>故障原因</h3><p>買ってから10年近く立っていたので基板自他に損傷があったら諦めようかと思いとりあえず分解してみました<br>特に変なところはなかったのでとりあえず問題なさそうです</p><p>ホットプラグ検出についてですが特に検証方法が思いつかなかったのでパス</p><p>最後にEDIDについてです<br>ロジアナで読みだしたところ先頭から8バイトはヘッダーで1バイト目と8バイト目が0x00、残りは0xFFになるはずなのですが2バイト目が0xA1と書き換わってしまっています<br><img src="/assets/repair_display/edid_dump.png" alt="upload successful"></p><p>ヘッダーが狂ってしまっていたのでディスプレイとして認識してくれなかったのでしょう<br>それ以外はおそらく問題ない値のような気がします</p><p>ということでEDIDが保存されているEEPROMを書き換える必要がでてきました</p><h3 id="修理"><a href="#修理" class="headerlink" title="修理"></a>修理</h3><p>EEPROMのインターフェイスはI2Cで、ディスプレイ接続時にソース(送信)とシンク(受信)でやりとりをして情報を得る構造です<br>I2Cで動作していることは知っていましたが、単純なEEPROMの書き換えで変更できるのかは自信がなかったのですが先駆者がいたようなのでありがたく使用させてもらいました<br><a href="https://github.com/kiram9/EDID_writer">EDID_Writer</a><br>相当古い形式のArduinoだったのでライブラリのメソッド名が変わっていたのですが適当に書き換えつつ0xA1を0xFFに書き換えるように変更しました<br><a href="https://github.com/kiram9/EDID_writer/blob/b1be0256dffb7ce9a398d186061801f1ff6bc70b/ArduinoEdid.pde#L230-L239">変更箇所</a></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">edidarray[<span class="number">1</span>] = <span class="number">0xff</span></span><br></pre></td></tr></table></figure><p>あとは実際に実行して書き換えるだけです!<br>シリアルターミナルを開いてr(読み込み)-&gt;c(変更)-&gt;d(確認)-&gt;w(書き込み)-&gt;r(再確認)<br>これだけで実際に書き換えることができました<br>ライトプロテクトなどがあるのかなと思っていたのですが何もなくこんな簡単に書き換えられるのは問題だと思うのですがね…<br>まだまだ現役で活躍してくれそうです</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;長年使っていたフルHDディスプレイが突然フルHDではなく1024x768や800x600の解像度しか受け付けなくなってしまいました&lt;br&gt;デバイスマネージャーを見てみると「汎用非PnPモニター」と表示されていてディスプレイをちゃんと認識していないことがわかりました  &lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="ハードウェア" scheme="https://blog.nullnuma.com/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/"/>
-    
-    <category term="パソコン" scheme="https://blog.nullnuma.com/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/"/>
     
   </entry>
   
