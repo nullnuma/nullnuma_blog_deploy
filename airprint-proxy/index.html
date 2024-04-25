@@ -20,12 +20,12 @@ ga('send', 'pageview');
   
   <title>AirPrint非対応プリンタのプロキシサーバを立てる(Docker) | nullなnuma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自宅のプリンターはEP-802Aという2009年発売のものを未だに使用しています．壊れないのでそのまま使い続けてきたのですが, このプリンターはiOSから印刷を直接可能なAirPrintに非対応となっています．直接印刷できないのは不便と言われてしまったので， AirPrintの印刷を代理で引き受けて印刷してくれるプロキシサーバを立てようと思います．     AirPrintのプロキシサーバプロジェ">
+  <meta name="description" content="自宅のプリンターはEP-802Aという2009年発売のものを未だに使用しています．壊れないのでそのまま使い続けてきたのですが, このプリンターはiOSから印刷を直接可能なAirPrintに非対応となっています．直接印刷できないのは不便と言われてしまったので， AirPrintの印刷を代理で引き受けて印刷してくれるプロキシサーバを立てようと思います．">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AirPrint非対応プリンタのプロキシサーバを立てる(Docker)">
 <meta property="og:url" content="https://blog.nullnuma.com/airprint-proxy/index.html">
 <meta property="og:site_name" content="nullなnuma">
-<meta property="og:description" content="自宅のプリンターはEP-802Aという2009年発売のものを未だに使用しています．壊れないのでそのまま使い続けてきたのですが, このプリンターはiOSから印刷を直接可能なAirPrintに非対応となっています．直接印刷できないのは不便と言われてしまったので， AirPrintの印刷を代理で引き受けて印刷してくれるプロキシサーバを立てようと思います．     AirPrintのプロキシサーバプロジェ">
+<meta property="og:description" content="自宅のプリンターはEP-802Aという2009年発売のものを未だに使用しています．壊れないのでそのまま使い続けてきたのですが, このプリンターはiOSから印刷を直接可能なAirPrintに非対応となっています．直接印刷できないのは不便と言われてしまったので， AirPrintの印刷を代理で引き受けて印刷してくれるプロキシサーバを立てようと思います．">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://blog.nullnuma.com/assets/airprint-proxy/cups_setup_home.png">
 <meta property="og:image" content="https://blog.nullnuma.com/assets/airprint-proxy/cups_setup_menu.png">
@@ -136,7 +136,7 @@ ga('send', 'pageview');
 </article>
 			<!-- ad end -->
 			<p>自宅のプリンターはEP-802Aという2009年発売のものを未だに使用しています．<br>壊れないのでそのまま使い続けてきたのですが, このプリンターはiOSから印刷を直接可能なAirPrintに非対応となっています．<br>直接印刷できないのは不便と言われてしまったので， AirPrintの印刷を代理で引き受けて印刷してくれるプロキシサーバを立てようと思います．  </p>
-<!-- more !-->
+<span id="more"></span>
 
 <h3 id="AirPrintのプロキシサーバプロジェクト"><a href="#AirPrintのプロキシサーバプロジェクト" class="headerlink" title="AirPrintのプロキシサーバプロジェクト"></a>AirPrintのプロキシサーバプロジェクト</h3><p>プロキシサーバをDockerで動かせるプロジェクトが既に存在しています．<br><a target="_blank" rel="noopener" href="https://github.com/SickHub/docker-cups-airprint">docker-cups-airprint</a><br>それをARM64(Raspberry Pi向け?)でも動くように変更したと思われるフォークプロジェクトに<br>docker-composeのスクリプトがあったのでこちらを使用したいと思います.<br><a target="_blank" rel="noopener" href="https://github.com/chuckcharlie/cups-avahi-airprint">cups-avahi-airprint</a></p>
 <h3 id="cups-avahi-airprintの導入"><a href="#cups-avahi-airprintの導入" class="headerlink" title="cups-avahi-airprintの導入"></a>cups-avahi-airprintの導入</h3><p>自宅のサーバにはdocker-composeが導入済みなので適当にクローンして実行します．    </p>
