@@ -80,6 +80,126 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-airprint-proxy" class="article article-type-post" itemscope
+	itemprop="blogPost">
+	<div class="article-meta">
+		<a href="/airprint-proxy/" class="article-date">
+  <time datetime="2024-04-25T03:00:00.000Z" itemprop="datePublished">2024-04-25</time>
+</a>
+		
+	</div>
+	<div class="article-inner">
+		
+		
+		<header class="article-header">
+			
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/airprint-proxy/">AirPrint非対応プリンタのプロキシサーバを立てる(Docker)</a>
+    </h1>
+  
+
+		</header>
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+
+			<!-- ad start -->
+			<article id="adsense_article" class="article article-type-draft" itemscope
+	itemprop="blogPost">
+
+	<div class="article-inner">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Blog_Adsense -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5738127375689725"
+		data-ad-slot="3387006044"
+		data-ad-format="auto"
+		data-full-width-responsive="true"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	</div>
+</article>
+			<!-- ad end -->
+			<p>自宅のプリンターはEP-802Aという2009年発売のものを未だに使用しています．<br>壊れないのでそのまま使い続けてきたのですが, このプリンターはiOSから印刷を直接可能なAirPrintに非対応となっています．<br>直接印刷できないのは不便と言われてしまったので， AirPrintの印刷を代理で引き受けて印刷してくれるプロキシサーバを立てようと思います．  </p>
+<!-- more !-->
+
+<h3 id="AirPrintのプロキシサーバプロジェクト"><a href="#AirPrintのプロキシサーバプロジェクト" class="headerlink" title="AirPrintのプロキシサーバプロジェクト"></a>AirPrintのプロキシサーバプロジェクト</h3><p>プロキシサーバをDockerで動かせるプロジェクトが既に存在しています．<br><a target="_blank" rel="noopener" href="https://github.com/SickHub/docker-cups-airprint">docker-cups-airprint</a><br>それをARM64(Raspberry Pi向け?)でも動くように変更したと思われるフォークプロジェクトに<br>docker-composeのスクリプトがあったのでこちらを使用したいと思います.<br><a target="_blank" rel="noopener" href="https://github.com/chuckcharlie/cups-avahi-airprint">cups-avahi-airprint</a></p>
+<h3 id="cups-avahi-airprintの導入"><a href="#cups-avahi-airprintの導入" class="headerlink" title="cups-avahi-airprintの導入"></a>cups-avahi-airprintの導入</h3><p>自宅のサーバにはdocker-composeが導入済みなので適当にクローンして実行します．    </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:chuckcharlie/cups-avahi-airprint.git</span><br><span class="line"><span class="built_in">cd</span> cups-avahi-airprint</span><br><span class="line">docker-compose up</span><br></pre></td></tr></table></figure>
+<p>(状況を確認したいのでフォアグラウンドで実行した)<br>準備され起動が完了したらプリンタのセットアップを行います．  </p>
+<p>http:&#x2F;&#x2F;&lt;dockerhost&gt;:631&#x2F;にアクセスします．<br>(ポート開放は忘れずに)<br>日本語化されているのには驚きました．<br><img src="/assets/airprint-proxy/cups_setup_home.png" alt="cups_setup_home">  </p>
+<p>上部の管理に移動するとBASIC認証が求められます．<br>クローンしたまま起動した場合はcups&#x2F;cupsで入れます．<br>色々と試した結果プリンターの追加を選択．<br><img src="/assets/airprint-proxy/cups_setup_menu.png" alt="cups_setup_menu"><br>「AppSocket&#x2F;HP JetDirect」を選択．<br><img src="/assets/airprint-proxy/cups_setup_addprinter.png" alt="cups_setup_addprinter"><br>アドレスには「socket:&#x2F;&#x2F;&lt;PRINTERIP&gt;:9100」を入力．<br><img src="/assets/airprint-proxy/cups_setup_addr.png" alt="cups_setup_addr"><br>必要事項を記入し共有にもチェック．<br><img src="/assets/airprint-proxy/cups_setup_printerinfo.png" alt="cups_setup_printerinfo">  </p>
+<p>ここでメーカーを指定して型番を選択すれば追加は完了です．<br>が， EP-802Aは存在しなかったので似ている「Epson EP 801A - CUPS+Gutenprint v5.3.4 Simplified」を選択しました．<br>(EP-801Aでも複数ありますがこれはiOSから検索ができたのでうまくいかない場合はどれか試すと良いかもしれない)<br><img src="/assets/airprint-proxy/cups_setup_maker.png" alt="cups_setup_maker">  </p>
+<p>これで導入は完了です．  </p>
+<h3 id="導入後のテスト"><a href="#導入後のテスト" class="headerlink" title="導入後のテスト"></a>導入後のテスト</h3><p>プリンターの詳細ページからテストページの印刷を選択するとテストページが印刷されます．<br>これでCUPS&lt;-&gt;プリンター間の接続は確認できました．<br><img src="/assets/airprint-proxy/cups_testprint.png" alt="cups_testprint">  </p>
+<p>次にiOSから印刷を試します．<br><img src="/assets/airprint-proxy/iosprint.jpg" alt="iosprint"><br>インクの情報まで見れるようです．<br><img src="/assets/airprint-proxy/iosprinterinfo.jpg" alt="iosprinterinfo"><br>無事印刷できました．  </p>
+<p>ただ時間が立つとiOSからプリンターの検出ができなくなっており， その点は今後の課題です．  </p>
+
+			
+		</div>
+		<footer class="article-footer">
+			<a data-url="https://blog.nullnuma.com/airprint-proxy/" data-id="clvf87tcb00018qqshaa2cmco"
+				class="article-share-link">共有</a>
+			
+			
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" rel="tag">パソコン</a></li></ul>
+
+		</footer>
+		
+			<!-- ad start -->
+			<article id="adsense_article" class="article article-type-draft" itemscope
+	itemprop="blogPost">
+
+	<div class="article-inner">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Blog_Adsense -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5738127375689725"
+		data-ad-slot="3387006044"
+		data-ad-format="auto"
+		data-full-width-responsive="true"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	</div>
+</article>
+			<!-- ad end -->
+			<div class="article-entry">
+				<h2>関連記事</h2>
+				
+			</div>
+		
+	</div>
+	
+</article>
+
+
+	
+		<!-- ad start -->
+		<article id="adsense_article" class="article article-type-draft" itemscope
+	itemprop="blogPost">
+
+	<div class="article-inner">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Blog_Adsense -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5738127375689725"
+		data-ad-slot="3387006044"
+		data-ad-format="auto"
+		data-full-width-responsive="true"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	</div>
+</article>
+		<!-- ad end -->
+	
+  
     <article id="post-newcar-hiace" class="article article-type-post" itemscope
 	itemprop="blogPost">
 	<div class="article-meta">
@@ -126,26 +246,6 @@ ga('send', 'pageview');
 </article>
 
 
-	
-		<!-- ad start -->
-		<article id="adsense_article" class="article article-type-draft" itemscope
-	itemprop="blogPost">
-
-	<div class="article-inner">
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- Blog_Adsense -->
-	<ins class="adsbygoogle"
-		style="display:block"
-		data-ad-client="ca-pub-5738127375689725"
-		data-ad-slot="3387006044"
-		data-ad-format="auto"
-		data-full-width-responsive="true"></ins>
-	<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-	</div>
-</article>
-		<!-- ad end -->
 	
   
     <article id="post-gpu-fan-repair" class="article article-type-post" itemscope
@@ -525,53 +625,6 @@ ga('send', 'pageview');
 
 	
   
-    <article id="post-lens-sel2870-repair" class="article article-type-post" itemscope
-	itemprop="blogPost">
-	<div class="article-meta">
-		<a href="/lens-sel2870-repair/" class="article-date">
-  <time datetime="2022-07-21T07:56:37.000Z" itemprop="datePublished">2022-07-21</time>
-</a>
-		
-	</div>
-	<div class="article-inner">
-		
-		
-		<header class="article-header">
-			
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/lens-sel2870-repair/">SEL2870レンズの分解修理</a>
-    </h1>
-  
-
-		</header>
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-			<p>SONYのレンズSEL2870を壊してしまいました.<br>清掃が原因と思われるのですが気づいたらレンズのうち後玉が鏡筒内部に落ちてしまっていて<br>焦点距離を変えようにもつっかえた状態になり撮影など何もできる状況ではなくなりました.<br>そこで落下したレンズを適切な位置に戻し固定する修理を行いました.  </p>
-				
-				<p class="article-more-link">
-					<a href="/lens-sel2870-repair/#more">Read More</a>
-				</p>
-				
-			
-		</div>
-		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/lens-sel2870-repair/" data-id="clbk9en1p003xa8o07dph7kha"
-				class="article-share-link">共有</a>
-			
-			
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BF%AE%E7%90%86/" rel="tag">修理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E8%A7%A3/" rel="tag">分解</a></li></ul>
-
-		</footer>
-		
-	</div>
-	
-</article>
-
-
-	
-  
 
 
   <nav id="page-nav">
@@ -618,7 +671,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/FPGA/" style="font-size: 12.5px;">FPGA</a> <a href="/tags/%E3%81%B2%E3%81%A8%E3%82%8A%E3%81%94%E3%81%A8/" style="font-size: 15px;">ひとりごと</a> <a href="/tags/%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88/" style="font-size: 11.25px;">ガジェット</a> <a href="/tags/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%9D%E3%82%A4/" style="font-size: 16.25px;">グラフィックポイ</a> <a href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 13.75px;">ソフトウェア</a> <a href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 20px;">ハードウェア</a> <a href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" style="font-size: 17.5px;">パソコン</a> <a href="/tags/%E3%83%AA%E3%83%95%E3%83%AD%E3%83%BC%E7%82%89/" style="font-size: 12.5px;">リフロー炉</a> <a href="/tags/%E3%83%AC%E3%83%BC%E3%82%B6%E3%83%BC%E5%8A%A0%E5%B7%A5%E6%A9%9F/" style="font-size: 12.5px;">レーザー加工機</a> <a href="/tags/%E4%BF%AE%E7%90%86/" style="font-size: 12.5px;">修理</a> <a href="/tags/%E5%88%86%E8%A7%A3/" style="font-size: 12.5px;">分解</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 18.75px;">旅行</a> <a href="/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/" style="font-size: 15px;">自動車</a> <a href="/tags/%E8%B3%87%E6%A0%BC/" style="font-size: 10px;">資格</a>
+      <a href="/tags/FPGA/" style="font-size: 12.86px;">FPGA</a> <a href="/tags/%E3%81%B2%E3%81%A8%E3%82%8A%E3%81%94%E3%81%A8/" style="font-size: 14.29px;">ひとりごと</a> <a href="/tags/%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88/" style="font-size: 11.43px;">ガジェット</a> <a href="/tags/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%9D%E3%82%A4/" style="font-size: 15.71px;">グラフィックポイ</a> <a href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 14.29px;">ソフトウェア</a> <a href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 20px;">ハードウェア</a> <a href="/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/" style="font-size: 17.14px;">パソコン</a> <a href="/tags/%E3%83%AA%E3%83%95%E3%83%AD%E3%83%BC%E7%82%89/" style="font-size: 12.86px;">リフロー炉</a> <a href="/tags/%E3%83%AC%E3%83%BC%E3%82%B6%E3%83%BC%E5%8A%A0%E5%B7%A5%E6%A9%9F/" style="font-size: 12.86px;">レーザー加工機</a> <a href="/tags/%E4%BF%AE%E7%90%86/" style="font-size: 12.86px;">修理</a> <a href="/tags/%E5%88%86%E8%A7%A3/" style="font-size: 12.86px;">分解</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 18.57px;">旅行</a> <a href="/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/" style="font-size: 14.29px;">自動車</a> <a href="/tags/%E8%B3%87%E6%A0%BC/" style="font-size: 10px;">資格</a>
     </div>
   </div>
 
@@ -640,6 +693,10 @@ ga('send', 'pageview');
       <ul>
         
           <li>
+            <a href="/airprint-proxy/">AirPrint非対応プリンタのプロキシサーバを立てる(Docker)</a>
+          </li>
+        
+          <li>
             <a href="/newcar-hiace/">ハイエースを手に入れた</a>
           </li>
         
@@ -653,10 +710,6 @@ ga('send', 'pageview');
         
           <li>
             <a href="/ix2215-update/">IX2215のUSBアップデート</a>
-          </li>
-        
-          <li>
-            <a href="/vyos-upgrade-to1-4/">VyOS v1.3をv1.4にアップグレードしてつまづいた</a>
           </li>
         
       </ul>

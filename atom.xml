@@ -6,7 +6,7 @@
   <link href="https://blog.nullnuma.com/atom.xml" rel="self"/>
   
   <link href="https://blog.nullnuma.com/"/>
-  <updated>2024-04-22T03:45:00.000Z</updated>
+  <updated>2024-04-25T03:00:00.000Z</updated>
   <id>https://blog.nullnuma.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AirPrint非対応プリンタのプロキシサーバを立てる(Docker)</title>
+    <link href="https://blog.nullnuma.com/airprint-proxy/"/>
+    <id>https://blog.nullnuma.com/airprint-proxy/</id>
+    <published>2024-04-25T03:00:00.000Z</published>
+    <updated>2024-04-25T03:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>自宅のプリンターはEP-802Aという2009年発売のものを未だに使用しています．<br>壊れないのでそのまま使い続けてきたのですが, このプリンターはiOSから印刷を直接可能なAirPrintに非対応となっています．<br>直接印刷できないのは不便と言われてしまったので， AirPrintの印刷を代理で引き受けて印刷してくれるプロキシサーバを立てようと思います．  </p><!-- more !--><h3 id="AirPrintのプロキシサーバプロジェクト"><a href="#AirPrintのプロキシサーバプロジェクト" class="headerlink" title="AirPrintのプロキシサーバプロジェクト"></a>AirPrintのプロキシサーバプロジェクト</h3><p>プロキシサーバをDockerで動かせるプロジェクトが既に存在しています．<br><a href="https://github.com/SickHub/docker-cups-airprint">docker-cups-airprint</a><br>それをARM64(Raspberry Pi向け?)でも動くように変更したと思われるフォークプロジェクトに<br>docker-composeのスクリプトがあったのでこちらを使用したいと思います.<br><a href="https://github.com/chuckcharlie/cups-avahi-airprint">cups-avahi-airprint</a></p><h3 id="cups-avahi-airprintの導入"><a href="#cups-avahi-airprintの導入" class="headerlink" title="cups-avahi-airprintの導入"></a>cups-avahi-airprintの導入</h3><p>自宅のサーバにはdocker-composeが導入済みなので適当にクローンして実行します．    </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:chuckcharlie/cups-avahi-airprint.git</span><br><span class="line"><span class="built_in">cd</span> cups-avahi-airprint</span><br><span class="line">docker-compose up</span><br></pre></td></tr></table></figure><p>(状況を確認したいのでフォアグラウンドで実行した)<br>準備され起動が完了したらプリンタのセットアップを行います．  </p><p>http:&#x2F;&#x2F;&lt;dockerhost&gt;:631&#x2F;にアクセスします．<br>(ポート開放は忘れずに)<br>日本語化されているのには驚きました．<br><img src="/assets/airprint-proxy/cups_setup_home.png" alt="cups_setup_home">  </p><p>上部の管理に移動するとBASIC認証が求められます．<br>クローンしたまま起動した場合はcups&#x2F;cupsで入れます．<br>色々と試した結果プリンターの追加を選択．<br><img src="/assets/airprint-proxy/cups_setup_menu.png" alt="cups_setup_menu"><br>「AppSocket&#x2F;HP JetDirect」を選択．<br><img src="/assets/airprint-proxy/cups_setup_addprinter.png" alt="cups_setup_addprinter"><br>アドレスには「socket:&#x2F;&#x2F;&lt;PRINTERIP&gt;:9100」を入力．<br><img src="/assets/airprint-proxy/cups_setup_addr.png" alt="cups_setup_addr"><br>必要事項を記入し共有にもチェック．<br><img src="/assets/airprint-proxy/cups_setup_printerinfo.png" alt="cups_setup_printerinfo">  </p><p>ここでメーカーを指定して型番を選択すれば追加は完了です．<br>が， EP-802Aは存在しなかったので似ている「Epson EP 801A - CUPS+Gutenprint v5.3.4 Simplified」を選択しました．<br>(EP-801Aでも複数ありますがこれはiOSから検索ができたのでうまくいかない場合はどれか試すと良いかもしれない)<br><img src="/assets/airprint-proxy/cups_setup_maker.png" alt="cups_setup_maker">  </p><p>これで導入は完了です．  </p><h3 id="導入後のテスト"><a href="#導入後のテスト" class="headerlink" title="導入後のテスト"></a>導入後のテスト</h3><p>プリンターの詳細ページからテストページの印刷を選択するとテストページが印刷されます．<br>これでCUPS&lt;-&gt;プリンター間の接続は確認できました．<br><img src="/assets/airprint-proxy/cups_testprint.png" alt="cups_testprint">  </p><p>次にiOSから印刷を試します．<br><img src="/assets/airprint-proxy/iosprint.jpg" alt="iosprint"><br>インクの情報まで見れるようです．<br><img src="/assets/airprint-proxy/iosprinterinfo.jpg" alt="iosprinterinfo"><br>無事印刷できました．  </p><p>ただ時間が立つとiOSからプリンターの検出ができなくなっており， その点は今後の課題です．  </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;自宅のプリンターはEP-802Aという2009年発売のものを未だに使用しています．&lt;br&gt;壊れないのでそのまま使い続けてきたのですが, このプリンターはiOSから印刷を直接可能なAirPrintに非対応となっています．&lt;br&gt;直接印刷できないのは不便と言われてしまったので，</summary>
+      
+    
+    
+    
+    
+    <category term="ソフトウェア" scheme="https://blog.nullnuma.com/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/"/>
+    
+    <category term="パソコン" scheme="https://blog.nullnuma.com/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>ハイエースを手に入れた</title>
@@ -409,25 +433,6 @@
     <category term="ハードウェア" scheme="https://blog.nullnuma.com/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/"/>
     
     <category term="FPGA" scheme="https://blog.nullnuma.com/tags/FPGA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ドライブレコーダーの取り付け</title>
-    <link href="https://blog.nullnuma.com/setup-driverecorder/"/>
-    <id>https://blog.nullnuma.com/setup-driverecorder/</id>
-    <published>2020-07-28T11:00:00.000Z</published>
-    <updated>2022-12-12T03:02:07.136Z</updated>
-    
-    <content type="html"><![CDATA[<p>前々からドライブレコーダーつけたいなーと思っていたのですが法改正もあり重い腰を上げて取り付けました</p><span id="more"></span><h2 id="開封"><a href="#開封" class="headerlink" title="開封"></a>開封</h2><p>前後撮影可能かつFullHDで撮影できることからDRV-MR740に決めました<br>Amazonで¥18000ぐらいで購入しました  </p><p><img src="/assets/setup-driverecorder/driverecorder1.jpg" alt="外箱"><br>部品は少なく以下のとおりです</p><ul><li>ドライブレコーダー本体</li><li>リアカメラ</li><li>リアカメラ接続用のケーブル</li><li>電源ケーブル</li><li>microSDカード<br><img src="/assets/setup-driverecorder/driverecorder2.jpg" alt="パーツ"></li></ul><p>電源はシガーソケットから取るようでシガープラグから変換されminiBコネクタのケーブルが生えたものがついています<br>内部で5Vに変換しているようで, 隠蔽するにあたって加工するのはやめたほうが良さそうです  </p><p>せっかく設置するからにはすべての配線を隠蔽して最初からそこに設置されていたぐらいのクオリティを目指します</p><h2 id="設置"><a href="#設置" class="headerlink" title="設置"></a>設置</h2><h5 id="電源ケーブル"><a href="#電源ケーブル" class="headerlink" title="電源ケーブル"></a>電源ケーブル</h5><p>まず電源ケーブルですが, シガーソケットを別途購入して裏から配線を取ってきます<br>以前にレーダー探知機がついていたのですが壊れてしまって, 配線だけ残っていたのでその配線に相乗りする形で配線を回します<br>カー用品店やAmazonではシガーソケットとケーブルが既にセットされているものもあります</p><iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=nullnuma0d-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B079BSYD2W&linkId=98d420fe3923dd0128a4203f0aee02d3"></iframe>まあ高いので秋月電子通商で[C-10622 シガーソケット](http://akizukidenshi.com/catalog/g/gC-10622/)を購入して安く済ませます  最初は端子に直接はんだ付けしようとしたのですが熱容量が大きすぎてハンダが乗らなかったのでファストン端子とギボシ端子を別途購入し接続します  <p>レーダー探知機のケーブルはナビ裏の端子から持っていたのでパネルを外してナビを外して接続します<br><img src="/assets/setup-driverecorder/driverecorder4.jpg" alt="ナビ"><br>その後Aピラーを外して, 隙間にケーブルを詰めてフロントガラス上部の方にケーブルを回します<br><img src="/assets/setup-driverecorder/driverecorder3.jpg" alt="Aピラー"><br><img src="/assets/setup-driverecorder/driverecorder8.jpg" alt="シガーソケット"><br><img src="/assets/setup-driverecorder/driverecorder9.jpg" alt="ケーブル"></p><h5 id="リアカメラ"><a href="#リアカメラ" class="headerlink" title="リアカメラ"></a>リアカメラ</h5><p>リアカメラはバックドアの内部を通して車本体に配線します<br>頑張って内装を剥がします<br>配線をゴムチューブ?の中に無理やり通しました<br><img src="/assets/setup-driverecorder/driverecorder6.jpg" alt="バックドア"></p><p><img src="/assets/setup-driverecorder/driverecorder7.jpg" alt="バックドアのケーブル"></p><p>フロントまでのケーブルは主に運転席側の天井に突っ込みました<br>一部DピラーやCピラーの上部分だけ外してどうにかこうにか通すことができました</p><h5 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h5><p>内装を剥がすのに慣れていなかったこともありおおよそ半日かけて設置することができました…<br>慣れていれば2,3時間もかからずできるのではないかなとは思います<br>無事フロントもリアも撮影されており, PC上で位置情報や加速度も含めて確認することができました!<br><img src="/assets/setup-driverecorder/driverecorder10.jpg" alt="完成"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;前々からドライブレコーダーつけたいなーと思っていたのですが法改正もあり重い腰を上げて取り付けました&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="自動車" scheme="https://blog.nullnuma.com/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/"/>
     
   </entry>
   
