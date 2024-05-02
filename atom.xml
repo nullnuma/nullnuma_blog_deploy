@@ -6,7 +6,7 @@
   <link href="https://blog.nullnuma.com/atom.xml" rel="self"/>
   
   <link href="https://blog.nullnuma.com/"/>
-  <updated>2024-04-25T03:00:00.000Z</updated>
+  <updated>2024-05-02T03:00:00.000Z</updated>
   <id>https://blog.nullnuma.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ハイエース ハロゲンからHIDへ</title>
+    <link href="https://blog.nullnuma.com/hiace-headlight-hid/"/>
+    <id>https://blog.nullnuma.com/hiace-headlight-hid/</id>
+    <published>2024-05-02T03:00:00.000Z</published>
+    <updated>2024-05-02T03:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>まずはヘッドライトをハロゲンからHIDに変更します．<br>メーカーオプションでLEDも選択できたのですが，<br>HIDがもともと好みだったのと雪道でHIDのほうが溶けてくれそうなので<br>HIDを選択しました．  </p><!-- more !--><h2 id="HID"><a href="#HID" class="headerlink" title="HID"></a>HID</h2><p>エフシーエル社のH4 HID 35Wキットを使用しました．<br><a href="https://item.rakuten.co.jp/fcllicoltd/fhid-359299s/">https://item.rakuten.co.jp/fcllicoltd/fhid-359299s/</a><br>また， ハイエースの場合は変更するとハイビームインジケータが表示されなくなり<br>車検が通らなくなるということなので， 不点灯防止ユニットも一緒に購入しています．<br><img src="/assets/hiace-headlight-hid/hidkit.jpg" alt="hidkit"></p><h2 id="設置"><a href="#設置" class="headerlink" title="設置"></a>設置</h2><h3 id="ヘッドライトを外す"><a href="#ヘッドライトを外す" class="headerlink" title="ヘッドライトを外す"></a>ヘッドライトを外す</h3><p>ヘッドライトの外し方は取扱説明書に詳細が記入されていました．<br>まずはボンネットを開けてクリップx4とネジx2を外しました．<br>次にグリルを外しますが， 下部のツメがいっぱいあるのと硬めなので<br>手前に水平に引き抜くことを意識して力をかけて取ります．<br><img src="/assets/hiace-headlight-hid/grille_left.jpg" alt="grille_left"><br><img src="/assets/hiace-headlight-hid/grille_right.jpg" alt="grille_right"><br>レーダー用のコネクタは外して問題ないです．<br><img src="/assets/hiace-headlight-hid/grille_conn.jpg" alt="grille_conn">  </p><p>ネジをいくつか外してヘッドライトユニットを外しました．<br>コネクタのツメがめちゃくちゃ固くて外すのが難しいです．<br><img src="/assets/hiace-headlight-hid/headlight_off.jpg" alt="headlight_off">  </p><p><img src="/assets/hiace-headlight-hid/headlight_unit.jpg" alt="headlight_unit"></p><h3 id="HIDに交換"><a href="#HIDに交換" class="headerlink" title="HIDに交換"></a>HIDに交換</h3><p>まずはハロゲンランプを金具を押して外します．<br><img src="/assets/hiace-headlight-hid/remove_fitting.png" alt="remove_fitting"></p><p>ハロゲンランプを取ったところに， HIDのシェードを外して取り付けます．<br><img src="/assets/hiace-headlight-hid/cover_set.png" alt="cover_set">  </p><p>その後ゴムを取り付けて， HID本体を装着します．<br>ゴムが思いの外分厚いので取り付けが上手くできず何回かやり直しました．<br><img src="/assets/hiace-headlight-hid/hid_set.png" alt="hid_set"></p><h3 id="バラストの設置と配線"><a href="#バラストの設置と配線" class="headerlink" title="バラストの設置と配線"></a>バラストの設置と配線</h3><p>付属のステーを使用し， 空いている場所にバラストを設定します．<br><img src="/assets/hiace-headlight-hid/ballast.jpg" alt="ballast"></p><p>空いている場所にうまく収まるようケーブルを配置しコネクタも接続します．　<br>どちらかのH4コネクタの間にハイビームインジケータ不点灯防止ユニットを取り付けることも忘れずに．<br><img src="/assets/hiace-headlight-hid/wire.jpg" alt="wire"><br><img src="/assets/hiace-headlight-hid/conn.jpg" alt="conn"></p><h3 id="戻す"><a href="#戻す" class="headerlink" title="戻す"></a>戻す</h3><p>外したのと逆順に取り付ければなんとかなりました．<br>ケーブルをいかにきれいに収めるかがネックですが．．．  </p><h3 id="点灯"><a href="#点灯" class="headerlink" title="点灯"></a>点灯</h3><p>ハロゲンランプの電球色からHIDの青白い色になりました!<br><img src="/assets/hiace-headlight-hid/light.jpg" alt="light"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;まずはヘッドライトをハロゲンからHIDに変更します．&lt;br&gt;メーカーオプションでLEDも選択できたのですが，&lt;br&gt;HIDがもともと好みだったのと雪道でHIDのほうが溶けてくれそうなので&lt;br&gt;HIDを選択しました．  &lt;/p&gt;
+&lt;!-- more !--&gt;
+
+&lt;h2 id</summary>
+      
+    
+    
+    
+    
+    <category term="自動車" scheme="https://blog.nullnuma.com/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>AirPrint非対応プリンタのプロキシサーバを立てる(Docker)</title>
@@ -34,31 +59,6 @@
     <category term="ソフトウェア" scheme="https://blog.nullnuma.com/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/"/>
     
     <category term="パソコン" scheme="https://blog.nullnuma.com/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ハイエース ハロゲンからHIDへ</title>
-    <link href="https://blog.nullnuma.com/hiace-headlight-hid/"/>
-    <id>https://blog.nullnuma.com/hiace-headlight-hid/</id>
-    <published>2024-04-24T16:05:46.000Z</published>
-    <updated>2024-05-02T03:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>まずはヘッドライトをハロゲンからHIDに変更します．<br>メーカーオプションでLEDも選択できたのですが，<br>HIDがもともと好みだったのと雪道でHIDのほうが溶けてくれそうなので<br>HIDを選択しました．  </p><!-- more !--><h2 id="HID"><a href="#HID" class="headerlink" title="HID"></a>HID</h2><p>エフシーエル社のH4 HID 35Wキットを使用しました．<br><a href="https://item.rakuten.co.jp/fcllicoltd/fhid-359299s/">https://item.rakuten.co.jp/fcllicoltd/fhid-359299s/</a><br>また， ハイエースの場合は変更するとハイビームインジケータが表示されなくなり<br>車検が通らなくなるということなので， 不点灯防止ユニットも一緒に購入しています．<br><img src="/assets/hiace-headlight-hid/hidkit.jpg" alt="hidkit"></p><h2 id="設置"><a href="#設置" class="headerlink" title="設置"></a>設置</h2><h3 id="ヘッドライトを外す"><a href="#ヘッドライトを外す" class="headerlink" title="ヘッドライトを外す"></a>ヘッドライトを外す</h3><p>ヘッドライトの外し方は取扱説明書に詳細が記入されていました．<br>まずはボンネットを開けてクリップx4とネジx2を外しました．<br>次にグリルを外しますが， 下部のツメがいっぱいあるのと硬めなので<br>手前に水平に引き抜くことを意識して力をかけて取ります．<br><img src="/assets/hiace-headlight-hid/grille_left.jpg" alt="grille_left"><br><img src="/assets/hiace-headlight-hid/grille_right.jpg" alt="grille_right"><br>レーダー用のコネクタは外して問題ないです．<br><img src="/assets/hiace-headlight-hid/grille_conn.jpg" alt="grille_conn">  </p><p>ネジをいくつか外してヘッドライトユニットを外しました．<br>コネクタのツメがめちゃくちゃ固くて外すのが難しいです．<br><img src="/assets/hiace-headlight-hid/headlight_off.jpg" alt="headlight_off">  </p><p><img src="/assets/hiace-headlight-hid/headlight_unit.jpg" alt="headlight_unit"></p><h3 id="HIDに交換"><a href="#HIDに交換" class="headerlink" title="HIDに交換"></a>HIDに交換</h3><p>まずはハロゲンランプを金具を押して外します．<br><img src="/assets/hiace-headlight-hid/remove_fitting.png" alt="remove_fitting"></p><p>ハロゲンランプを取ったところに， HIDのシェードを外して取り付けます．<br><img src="/assets/hiace-headlight-hid/cover_set.png" alt="cover_set">  </p><p>その後ゴムを取り付けて， HID本体を装着します．<br>ゴムが思いの外分厚いので取り付けが上手くできず何回かやり直しました．<br><img src="/assets/hiace-headlight-hid/hid_set.png" alt="hid_set"></p><h3 id="バラストの設置と配線"><a href="#バラストの設置と配線" class="headerlink" title="バラストの設置と配線"></a>バラストの設置と配線</h3><p>付属のステーを使用し， 空いている場所にバラストを設定します．<br><img src="/assets/hiace-headlight-hid/ballast.jpg" alt="ballast"></p><p>空いている場所にうまく収まるようケーブルを配置しコネクタも接続します．　<br>どちらかのH4コネクタの間にハイビームインジケータ不点灯防止ユニットを取り付けることも忘れずに．<br><img src="/assets/hiace-headlight-hid/wire.jpg" alt="wire"><br><img src="/assets/hiace-headlight-hid/conn.jpg" alt="conn"></p><h3 id="戻す"><a href="#戻す" class="headerlink" title="戻す"></a>戻す</h3><p>外したのと逆順に取り付ければなんとかなりました．<br>ケーブルをいかにきれいに収めるかがネックですが．．．  </p><h3 id="点灯"><a href="#点灯" class="headerlink" title="点灯"></a>点灯</h3><p>ハロゲンランプの電球色からHIDの青白い色になりました!<br><img src="/assets/hiace-headlight-hid/light.jpg" alt="light"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;まずはヘッドライトをハロゲンからHIDに変更します．&lt;br&gt;メーカーオプションでLEDも選択できたのですが，&lt;br&gt;HIDがもともと好みだったのと雪道でHIDのほうが溶けてくれそうなので&lt;br&gt;HIDを選択しました．  &lt;/p&gt;
-&lt;!-- more !--&gt;
-
-&lt;h2 id</summary>
-      
-    
-    
-    
-    
-    <category term="自動車" scheme="https://blog.nullnuma.com/tags/%E8%87%AA%E5%8B%95%E8%BB%8A/"/>
     
   </entry>
   

@@ -18,25 +18,17 @@ ga('send', 'pageview');
 
 
   
-  <title>V4220Mを試しに使ってみた | nullなnuma</title>
+  <title>アーカイブ: 2024/5 | nullなnuma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今回はV4220MのAD&#x2F;DAコンバーターの評価もどき基板を作ってみましたakizukidenshi.com">
-<meta property="og:type" content="article">
-<meta property="og:title" content="V4220Mを試しに使ってみた">
-<meta property="og:url" content="https://blog.nullnuma.com/v4220m/index.html">
+  <meta name="description" content="nullnuma&#39;s blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="nullなnuma">
+<meta property="og:url" content="https://blog.nullnuma.com/archives/2024/05/index.html">
 <meta property="og:site_name" content="nullなnuma">
-<meta property="og:description" content="今回はV4220MのAD&#x2F;DAコンバーターの評価もどき基板を作ってみましたakizukidenshi.com">
+<meta property="og:description" content="nullnuma&#39;s blog">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://blog.nullnuma.com/assets/v4220m/20180909073632.png">
-<meta property="og:image" content="https://blog.nullnuma.com/assets/v4220m/20180909074517.png">
-<meta property="og:image" content="https://blog.nullnuma.com/assets/v4220m/20180909074159.jpg">
-<meta property="og:image" content="https://blog.nullnuma.com/assets/v4220m/20180909074206.jpg">
-<meta property="article:published_time" content="2018-09-13T02:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-12T03:02:07.136Z">
 <meta property="article:author" content="nullnuma">
-<meta property="article:tag" content="ハードウェア">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.nullnuma.com/assets/v4220m/20180909073632.png">
 <meta name="twitter:creator" content="@nullnuma">
   
     <link rel="alternate" href="/atom.xml" title="nullなnuma" type="application/atom+xml">
@@ -86,118 +78,40 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-v4220m" class="article article-type-post" itemscope
-	itemprop="blogPost">
-	<div class="article-meta">
-		<a href="/v4220m/" class="article-date">
-  <time datetime="2018-09-13T02:00:00.000Z" itemprop="datePublished">2018-09-13</time>
-</a>
-		
-	</div>
-	<div class="article-inner">
-		
-		
-		<header class="article-header">
-			
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      V4220Mを試しに使ってみた
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2024" class="archive-year">2024</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/hiace-headlight-hid/" class="archive-article-date">
+  <time datetime="2024-05-02T03:00:00.000Z" itemprop="datePublished">5月 2</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/hiace-headlight-hid/">ハイエース ハロゲンからHIDへ</a>
     </h1>
   
 
-		</header>
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-
-			<!-- ad start -->
-			<article id="adsense_article" class="article article-type-draft" itemscope
-	itemprop="blogPost">
-
-	<div class="article-inner">
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- Blog_Adsense -->
-	<ins class="adsbygoogle"
-		style="display:block"
-		data-ad-client="ca-pub-5738127375689725"
-		data-ad-slot="3387006044"
-		data-ad-format="auto"
-		data-full-width-responsive="true"></ins>
-	<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-	</div>
+    </header>
+  </div>
 </article>
-			<!-- ad end -->
-			<p>今回はV4220MのAD/DAコンバーターの評価もどき基板を作ってみました<br><a target="_blank" rel="noopener" href="http://akizukidenshi.com/catalog/g/gI-13364/">akizukidenshi.com</a>  </p>
-<span id="more"></span>
-
-<h4 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h4><p>このICの特徴としては24bitで入出力が単体でできるのと差動で入出力ができることです</p>
-<h4 id="回路設計"><a href="#回路設計" class="headerlink" title="回路設計"></a>回路設計</h4><p>もともとV1000というエフェクター用ICの入出力としてcoolaudioでは取り扱ってるらしくそのエフェクターICであるV1000のリファレンスにアプリケーションノートが載っていました<br>そこでV4220Mの部分だけ抜粋しミキサーの部分を抜いて作成します<br><img src="/assets/v4220m/20180909073632.png"><br>今回もKiCadで設計しました<br>一応信号を外部に入出力する端子やハードウェア設定するためのDIPスイッチなど多めにつけました<br><img src="/assets/v4220m/20180909074517.png">  </p>
-<h4 id="実装"><a href="#実装" class="headerlink" title="実装"></a>実装</h4><p>今回もFusionPCBにお願いして作りました</p>
-<p>淡々と部品を実装していきます<br>SSOP28さえ載せられればあとは簡単な半田付けだけです<br>オペアンプ周辺の抵抗とコンデンサ類が多くて面倒でした<br><img src="/assets/v4220m/20180909074159.jpg"><br><img src="/assets/v4220m/20180909074206.jpg">  </p>
-<h4 id="ミス…"><a href="#ミス…" class="headerlink" title="ミス…"></a>ミス…</h4><p>基板の主なミスとしては<br>ピンヘッダの電源入力のシルクが逆(致命的…)<br>DCジャックのフットプリントが裏表逆<br>ICのロジック電圧を変化できるようにし忘れた<br>の3つです<br>動作に影響はほぼしないのでそのまま続けます</p>
-<h4 id="動作確認"><a href="#動作確認" class="headerlink" title="動作確認!"></a>動作確認!</h4><p>5Vの電源入力をすればすぐ動作をはじめました<br>I2SのDINとDOUTを繋げば問題なく動作します<br>ロジックアナライザーで波形を見たところそれっぽい波形がちゃんと出力されていました<br>気になった点としてはICからのアナログ出力に対して大きくホワイトノイズが載ってしまっています<br>オペアンプの問題かと思ったのですがIC出力からすでに載っているっぽく電源由来の可能性もあります<br>電池で駆動させてみましたがやはりのっているため基板設計の配線の取り回しが悪かったのかもしれません<br>この点については少し調べていくつもりです</p>
-
-			
-		</div>
-		<footer class="article-footer">
-			<a data-url="https://blog.nullnuma.com/v4220m/" data-id="clbk9en2e0058a8o0hjuvgzj4"
-				class="article-share-link">共有</a>
-			
-			
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ハードウェア</a></li></ul>
-
-		</footer>
-		
-			<!-- ad start -->
-			<article id="adsense_article" class="article article-type-draft" itemscope
-	itemprop="blogPost">
-
-	<div class="article-inner">
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- Blog_Adsense -->
-	<ins class="adsbygoogle"
-		style="display:block"
-		data-ad-client="ca-pub-5738127375689725"
-		data-ad-slot="3387006044"
-		data-ad-format="auto"
-		data-full-width-responsive="true"></ins>
-	<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-	</div>
-</article>
-			<!-- ad end -->
-			<div class="article-entry">
-				<h2>関連記事</h2>
-				<ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/zynq-fpgaboard-2/" title="ZYNQ FPGAボードの製作2(基板図)" rel="bookmark">ZYNQ FPGAボードの製作2(基板図)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/zynq-fpgaboard-1/" title="ZYNQ FPGAボードの製作1(回路図)" rel="bookmark">ZYNQ FPGAボードの製作1(回路図)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/repair-diga/" title="DIGAを修理した" rel="bookmark">DIGAを修理した</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/pentablet_analyze/" title="Wacomのペンタブを分解してみた" rel="bookmark">Wacomのペンタブを分解してみた</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/repair_display/" title="ディスプレイの修理(EDIDの書き換え)" rel="bookmark">ディスプレイの修理(EDIDの書き換え)</a></h3></div></li></ul>
-			</div>
-		
-	</div>
-	
-	
-<nav id="article-nav">
-  
-    <a href="/3dprinter/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          ダヴィンチnanoを買って使ってみた
-        
-      </div>
-    </a>
   
   
-    <a href="/tm1640/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">ArduinoでTM1640を使ってみた</div>
-    </a>
+    </div></section>
   
-</nav>
 
-	
-</article>
 
 </section>
         
