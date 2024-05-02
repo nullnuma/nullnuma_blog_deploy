@@ -38,6 +38,29 @@
   </entry>
   
   <entry>
+    <title>ハイエース ハロゲンからHIDへ</title>
+    <link href="https://blog.nullnuma.com/hiace-headlight-hid/"/>
+    <id>https://blog.nullnuma.com/hiace-headlight-hid/</id>
+    <published>2024-04-24T16:05:46.000Z</published>
+    <updated>2024-05-02T03:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>まずはヘッドライトをハロゲンからHIDに変更します．<br>メーカーオプションでLEDも選択できたのですが，<br>HIDがもともと好みだったのと雪道でHIDのほうが溶けてくれそうなので<br>HIDを選択しました．  </p><!-- more !--><h2 id="HID"><a href="#HID" class="headerlink" title="HID"></a>HID</h2><p>エフシーエル社のH4 HID 35Wキットを使用しました．<br><a href="https://item.rakuten.co.jp/fcllicoltd/fhid-359299s/">https://item.rakuten.co.jp/fcllicoltd/fhid-359299s/</a><br>また， ハイエースの場合は変更するとハイビームインジケータが表示されなくなり<br>車検が通らなくなるということなので， 不点灯防止ユニットも一緒に購入しています．<br><img src="/assets/hiace-headlight-hid/hidkit.jpg" alt="hidkit"></p><h2 id="設置"><a href="#設置" class="headerlink" title="設置"></a>設置</h2><h3 id="ヘッドライトを外す"><a href="#ヘッドライトを外す" class="headerlink" title="ヘッドライトを外す"></a>ヘッドライトを外す</h3><p>ヘッドライトの外し方は取扱説明書に詳細が記入されていました．<br>まずはボンネットを開けてクリップx4とネジx2を外しました．<br>次にグリルを外しますが， 下部のツメがいっぱいあるのと硬めなので<br>手前に水平に引き抜くことを意識して力をかけて取ります．<br><img src="/assets/hiace-headlight-hid/grille_left.jpg" alt="grille_left"><br><img src="/assets/hiace-headlight-hid/grille_right.jpg" alt="grille_right"><br>レーダー用のコネクタは外して問題ないです．<br><img src="/assets/hiace-headlight-hid/grille_conn.jpg" alt="grille_conn">  </p><p>ネジをいくつか外してヘッドライトユニットを外しました．<br>コネクタのツメがめちゃくちゃ固くて外すのが難しいです．<br><img src="/assets/hiace-headlight-hid/headlight_off.jpg" alt="headlight_off">  </p><p><img src="/assets/hiace-headlight-hid/headlight_unit.jpg" alt="headlight_unit"></p><h3 id="HIDに交換"><a href="#HIDに交換" class="headerlink" title="HIDに交換"></a>HIDに交換</h3><p>まずはハロゲンランプを金具を押して外します．<br><img src="/assets/hiace-headlight-hid/remove_fitting.png" alt="remove_fitting"></p><p>ハロゲンランプを取ったところに， HIDのシェードを外して取り付けます．<br><img src="/assets/hiace-headlight-hid/cover_set.png" alt="cover_set">  </p><p>その後ゴムを取り付けて， HID本体を装着します．<br>ゴムが思いの外分厚いので取り付けが上手くできず何回かやり直しました．<br><img src="/assets/hiace-headlight-hid/hid_set.png" alt="hid_set"></p><h3 id="バラストの設置と配線"><a href="#バラストの設置と配線" class="headerlink" title="バラストの設置と配線"></a>バラストの設置と配線</h3><p>付属のステーを使用し， 空いている場所にバラストを設定します．<br><img src="/assets/hiace-headlight-hid/ballast.jpg" alt="ballast"></p><p>空いている場所にうまく収まるようケーブルを配置しコネクタも接続します．　<br>どちらかのH4コネクタの間にハイビームインジケータ不点灯防止ユニットを取り付けることも忘れずに．<br><img src="/assets/hiace-headlight-hid/wire.jpg" alt="wire"><br><img src="/assets/hiace-headlight-hid/conn.jpg" alt="conn"></p><h3 id="戻す"><a href="#戻す" class="headerlink" title="戻す"></a>戻す</h3><p>外したのと逆順に取り付ければなんとかなりました．<br>ケーブルをいかにきれいに収めるかがネックですが．．．  </p><h3 id="点灯"><a href="#点灯" class="headerlink" title="点灯"></a>点灯</h3><p>ハロゲンランプの電球色からHIDの青白い色になりました!<br><img src="/assets/hiace-headlight-hid/light.jpg" alt="light"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;まずはヘッドライトをハロゲンからHIDに変更します．&lt;br&gt;メーカーオプションでLEDも選択できたのですが，&lt;br&gt;HIDがもともと好みだったのと雪道でHIDのほうが溶けてくれそうなので&lt;br&gt;HIDを選択しました．  &lt;/p&gt;
+&lt;!-- more !--&gt;
+
+&lt;h2 id</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>ハイエースを手に入れた</title>
     <link href="https://blog.nullnuma.com/newcar-hiace/"/>
     <id>https://blog.nullnuma.com/newcar-hiace/</id>
@@ -401,28 +424,6 @@
     
     
     <summary type="html">&lt;p&gt;&lt;a href=&quot;/zynq-fpgaboard-1&quot;&gt;前回は回路図&lt;/a&gt;を書きました.&lt;br&gt;今回は実際に基板に起こしていく作業です.  &lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="ハードウェア" scheme="https://blog.nullnuma.com/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/"/>
-    
-    <category term="FPGA" scheme="https://blog.nullnuma.com/tags/FPGA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ZYNQ FPGAボードの製作1(回路図)</title>
-    <link href="https://blog.nullnuma.com/zynq-fpgaboard-1/"/>
-    <id>https://blog.nullnuma.com/zynq-fpgaboard-1/</id>
-    <published>2020-10-30T11:00:00.000Z</published>
-    <updated>2022-12-12T03:02:07.136Z</updated>
-    
-    <content type="html"><![CDATA[<p>DigilentのPYNQボードを使ってHDMIの入出力に関するプログラムを<br>ぼちぼち書いていたのですが, このボードではHDMIの入力が1系統しかないのと<br>メモリの帯域幅が足りないという問題に直面していました.</p><p>そこで自分好みのFPGAボードを作ろうということではじめました.</p><span id="more"></span><h3 id="方針"><a href="#方針" class="headerlink" title="方針"></a>方針</h3><p>必要な項目として以下の2点が上げられます.</p><ul><li>HDMIの入出力ポートが多く付けられる</li><li>メモリの帯域幅とバンクを増やす</li></ul><p>使用するFPGAはPYNQを踏襲しZYNQシリーズでXC7Z020です.<br>調べたところJLCPCBで6層基板を比較的安価で製造できそうなのと<br>6層基板ならBGA484ピンでもなんとかなりそうなので<br>XC7Z020-CLG48を使うことにしました.</p><p>メモリの帯域幅とバンクを増やすにはPS側のメモリだけでなくPL側にも<br>メモリを載せてしまうのが手っ取り早い解決策なのでPS及びPLにメモリが載ります.</p><p>また利便性を高めるためにFPGAボード自体に直接コネクタ類をつけるのではなく<br>ボードtoボードのコネクタを付けて別途拡張ボードを作ることで<br>拡張性をあげようと思います.</p><h3 id="設計"><a href="#設計" class="headerlink" title="設計"></a>設計</h3><p>設計するに当たり<a href="https://www.acri.c.titech.ac.jp/wordpress/archives/1244">このサイト(ACRi)</a>を参考にさせてもらいました.<br>タイミングよく公開されていてとても役立ちました.<br>また, DigilentのFPGAボード PYNQやArtyも参考にしています.<br>ブロックデザインはこの通りです.<br><img src="/assets/zynq-fpgaboard-1/ZynqBoardBlockDiagram.png" alt="ブロックデザイン"></p><h4 id="PS側-ZYNQ側"><a href="#PS側-ZYNQ側" class="headerlink" title="PS側(ZYNQ側)"></a>PS側(ZYNQ側)</h4><p>ZYNQに付随するメモリはせっかくなので1GBを搭載し,<br>microSDやQSPIもこのボードに載せます.</p><p>USBやEthernetも拡張ボード側で載せるとなるとSMD部品の実装が面倒だと<br>考えたのでこのボード側で必要な変換を済ませてしまいます.</p><p>この辺の配置は基本ピン配置が決まっているので<br>ただただICの仕様を比較し, 接続するだけの作業です.</p><h4 id="PL側"><a href="#PL側" class="headerlink" title="PL側"></a>PL側</h4><p>このFPGAにはバンクが13,33,34,35の4種類があります.<br>まずメモリについてですが<br>32bit幅でメモリを搭載するとなるとバンクは2個消費し, かつ垂直に隣り合ったバンクしか<br>使用することができない制限があるため, 以下の図よりバンク34,35を使用します.<br><img src="/assets/zynq-fpgaboard-1/UG865_XC7Z020_Pin.png" alt="ピン配置"><br>(<a href="https://japan.xilinx.com/support/documentation/user_guides/j_ug865-Zynq-7000-Pkg-Pinout.pdf">https://japan.xilinx.com/support/documentation/user_guides/j_ug865-Zynq-7000-Pkg-Pinout.pdf</a>)</p><p>バンク内にも更に4分割されていてアドレス用として2グループ,<br>データ用はデータ0-7, データ8-15, データ16-23, データ24-31とわけて4ブロック使用します.<br><img src="/assets/zynq-fpgaboard-1/UG865_XC7Z020_Bank.png" alt="バンク配置"><br>(<a href="https://japan.xilinx.com/support/documentation/user_guides/j_ug865-Zynq-7000-Pkg-Pinout.pdf">https://japan.xilinx.com/support/documentation/user_guides/j_ug865-Zynq-7000-Pkg-Pinout.pdf</a>)</p><p>クロック等のピンアサインには制限があるもののほかは<br>ほぼすべて好きなように配置できる(FPGAのいいところ!)ので<br>実際に基板を描いているときに随時入れ替えました.<br>配置するたびに問題ないピンアサインかVivadoのMIGジェネレーターで<br>確認を取りつつ設計しています.</p><p><img src="/assets/zynq-fpgaboard-1/Bank3435.png" alt="Bank3435"><br><img src="/assets/zynq-fpgaboard-1/PL_DDR.png" alt="PL_DDR"></p><p>ユーザIOについてはバンク13,33をそのままコネクタへ接続する形にしました.<br>100ピンあればいい感じに使えるでしょう.</p><h3 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h3><p>回路図の作成については既にあるFPGAボードを参考に作り上げることができました.<br>ピンの役割さえわかれば設計は単純な反復作業が多いことがわかりました.<br>もっと効率よくできればいいんですが…  </p><p>特にメモリについては情報があまりなかったのでVivadoのピン配置で問題ないかを<br>確認していたのですがエラーならエラーとしか出さないので<br>どの配置がエラー吐いてるのかよくわからなかったのが辛いです.  </p><h3 id="次回は"><a href="#次回は" class="headerlink" title="次回は"></a>次回は</h3><p>この時点で実際に基板にすべて配線を終えることができるのかわからなかったのと<br>メモリ関連の配線のやる気がなさすぎて7月ぐらいに設計したのに<br>基板に起こす作業は10月下旬まで先延ばしにしていました…<br>いざ起こすとなると1週間かからずできましたのでそれについて次回書きます</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;DigilentのPYNQボードを使ってHDMIの入出力に関するプログラムを&lt;br&gt;ぼちぼち書いていたのですが, このボードではHDMIの入力が1系統しかないのと&lt;br&gt;メモリの帯域幅が足りないという問題に直面していました.&lt;/p&gt;
-&lt;p&gt;そこで自分好みのFPGAボードを作ろうということではじめました.&lt;/p&gt;</summary>
     
     
     
